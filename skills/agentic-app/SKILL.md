@@ -4,13 +4,13 @@ Use this skill to initialize, upgrade, or audit an agent-native repository.
 
 ## Source-of-truth rule
 
-Resolve canonical architecture, templates, packs, policies, profiles, presets, schemas, and examples from `https://github.com/powerpuff-kitty/agentic-harness`. This skill describes procedure; it must not redefine that source.
+Resolve canonical architecture, boilerplates, packs, policies, profiles, presets, and schemas from `https://github.com/powerpuff-kitty/agentic-harness`. This skill describes procedure; it must not redefine that source.
 
 ## INIT
-Inspect the target, infer safe defaults, ask only missing high-impact questions, propose the resolved template/profile/packs/policies/skills, then use `ah` or equivalent deterministic composition. Preserve project-specific truth.
+Inspect the target, infer safe defaults, ask only missing high-impact questions, propose the resolved boilerplate/profile/packs/policies/skills, then use `ah` or equivalent deterministic composition. Preserve project-specific truth.
 
 ## UPGRADE
-Inspect first. Preserve existing implementation and accepted decisions. Add or repair only missing harness layers. Do not overwrite project-specific truth with generic templates.
+Inspect first. Preserve existing implementation and accepted decisions. Add or repair only missing harness layers. Do not overwrite project-specific truth with generic boilerplate content.
 
 ## AUDIT
 Read-only unless explicitly asked otherwise. Evaluate architecture/docs/tests/security/operations/agent structure and design-system compliance when active. Ground findings in repository evidence.
@@ -20,7 +20,7 @@ Read-only unless explicitly asked otherwise. Evaluate architecture/docs/tests/se
 1. Discover the repository using `references/repository-discovery.md`.
 2. Resolve canonical source material from `agentic-harness`.
 3. Separate facts, inference, and unresolved decisions.
-4. Select template/preset/profile/packs/policies and appropriate skills.
+4. Select boilerplate/preset/profile/packs/policies and appropriate skills.
 5. Show consequential assumptions before high-impact policy/permission changes.
 6. Apply with deterministic tooling where available.
 7. Validate repository-native checks plus `ah validate` / `ah audit` as appropriate.
