@@ -1,0 +1,6 @@
+{
+  "manifest_version": 1,
+  "canonical_source": "https://github.com/powerpuff-kitty/agentic-harness",
+  "cli": "https://github.com/powerpuff-kitty/agentic-harness-cli",
+  "skills": ["accessibility-audit","agentic-app","api-design","codebase-audit","competitive-research","database-design","dependency-upgrade","design-system","design-system-compliance","documentation","implementation-plan","incident-review","marketing","migration","performance-audit","product-design","release","release-review","security-review","threat-model"]
+}
