@@ -1,3 +1,5 @@
 # Design System
 
-Resolve the canonical design-system pack and project-specific design truth first. Inspect tokens, components, examples, screenshots/design references, and existing implementation. Keep observed evidence separate from distilled rules. Normalize primitives → semantic tokens → component tokens where justified. Identify reusable foundations, layouts, components, patterns, states, responsive behavior, accessibility, and anti-patterns. Do not invent rules when evidence is ambiguous.
+Use `.agentic/DESIGN.md` as current design truth, `.agentic/docs/design/` for detailed contracts, the installed design-system pack for reusable constraints, and `.agentic/decisions/` for consequential choices.
+
+Infer required foundations, components, layouts, and patterns from actual product flows. Record states, accessibility, tokens, composition, ownership, deprecation, examples, and prohibited local lookalikes. Keep product code consuming canonical components/tokens; documented exceptions must be explicit and reviewable.

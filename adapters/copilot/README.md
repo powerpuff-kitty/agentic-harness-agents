@@ -1,3 +1,3 @@
 # GitHub Copilot adapter
 
-Use repository/path-specific Copilot instructions as thin routing layers. Reusable procedure belongs in skills; canonical architecture belongs in `agentic-harness` and project-local docs.
+Keep `.github/copilot-instructions.md` as a short pointer to root `AGENTS.md` and `.agentic/`. Path-specific instructions may narrow local implementation rules but must not contradict canonical project truth or policy.

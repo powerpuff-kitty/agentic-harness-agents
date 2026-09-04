@@ -1,0 +1,1 @@
+Synchronize supported vendor instruction adapters so they remain minimal pointers to root `AGENTS.md` and `.agentic/`. Preserve unrelated configuration, stop on divergent authoritative content unless replacement is approved, and prove the result is idempotent.

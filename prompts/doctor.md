@@ -1,0 +1,1 @@
+Diagnose the Agentic Harness installation without modifying it. Explain missing, legacy, duplicate, conflicting, stale, or misplaced files; broken router/adapters; ADR/index issues; manifest/lock/module drift; and maturity requirements. Provide ordered repair steps with evidence.

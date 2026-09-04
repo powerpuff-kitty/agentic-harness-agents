@@ -1,0 +1,10 @@
+{
+  "format_version": 1,
+  "canonical_source": {"repository": "powerpuff-kitty/agentic-harness", "revision": "2123e86171339e5bec0cb26bb0d7e5b7a81612bf"},
+  "agents_source": {"repository": "powerpuff-kitty/agentic-harness-agents", "revision": "self"},
+  "variant": "library-sdk",
+  "packs": {},
+  "policies": {},
+  "skills": {},
+  "checksums": {}
+}

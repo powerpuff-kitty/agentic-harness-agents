@@ -1,3 +1,1 @@
-# Initialize an agent-native project
-
-Inspect this repository, consult the canonical Agentic Harness source, ask only unresolved high-impact questions, propose the boilerplate/profile/packs/policies/skills, then initialize the minimum useful harness. Preserve existing truth and validate the result.
+Initialize this repository with Agentic Harness. Inspect first, ask only missing high-impact questions, resolve the canonical catalog variant/modules/skills, keep only a compact root `AGENTS.md`, place project truth under `.agentic/`, synchronize thin adapters, then validate and report assumptions and skipped checks.

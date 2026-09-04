@@ -1,3 +1,1 @@
-# Upgrade an existing project
-
-Inspect the current repository deeply enough to understand its stack and conventions. Compare it with canonical Agentic Harness guidance. Preserve project-specific truth, propose the smallest useful upgrade, apply only accepted/reversible changes, then validate and report unresolved decisions.
+Upgrade the existing Agentic Harness installation. Preserve project-authored truth and accepted ADRs, resolve installed sources through `.agentic/lock.json`, report incompatible changes before writing, update only required modules/contracts/adapters, and prove idempotence with validation and audit.

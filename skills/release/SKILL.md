@@ -1,3 +1,5 @@
 # Release
 
-Verify versioning, change scope, tests, security checks, migrations, compatibility, docs, rollback, and release artifacts. Produce release notes from accepted changes rather than commit noise. Do not release from an unreviewed or failing state unless the user explicitly accepts the risk and the process permits it.
+Before publishing, read manifest permissions, lockfile source pins, release/compatibility docs, security model, relevant ADRs, and changelog.
+
+Require repository CI, generated-project fixtures, migration/idempotence tests, schema compatibility, secret/dependency scanning, artifact integrity, supported platform builds, install verification, rollback/yank procedure, and explicit publication approval. A release tag is an immutable version—not a moving project-state label.

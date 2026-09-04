@@ -1,31 +1,41 @@
-# Agentic App Architecture
+# Agentic App
 
-Use this skill to initialize, upgrade, or audit an agent-native repository.
+Use this skill to initialize, migrate, upgrade, or audit an agent-native repository.
 
-## Source-of-truth rule
+## Source rule
 
-Resolve canonical architecture from `https://github.com/powerpuff-kitty/agentic-harness`. Root boilerplates (`base`, `web-app`, `backend-api`, `saas`, `monorepo`, `library-sdk`) define complete project starting structures. Reusable packs, policies, and profiles live under `modules/`; presets and schemas remain top-level canonical contracts. This skill describes procedure and must not redefine those sources.
+Resolve the current contract and catalog from `agentic-harness`. A target project uses root `AGENTS.md`, canonical `.agentic/` context, and installed `.agents/skills/`. This skill defines procedure only.
+
+## Discovery
+
+Follow `references/repository-discovery.md`. Read permissions and precedence before proposing writes.
 
 ## INIT
-Inspect the target, infer safe defaults, ask only missing high-impact questions, propose the resolved boilerplate/profile/packs/policies/skills, then use `ah` or equivalent deterministic composition. Preserve project-specific truth.
+
+1. Inspect the target and avoid asking for repository-discoverable facts.
+2. Ask only missing high-impact questions: project purpose/type, maturity, stack constraints, deployment/data/security posture, design-system choice, and approval boundaries.
+3. Resolve a catalog boilerplate/preset/profile plus packs, policies, and skills.
+4. Show consequential assumptions.
+5. Use deterministic composition when available.
+6. Verify root hygiene, router links, canonical context, lock resolution, and repository-native checks.
+
+## MIGRATE
+
+1. Detect legacy and current layouts.
+2. Produce a non-writing move/conflict plan first.
+3. Treat identical duplicates separately from divergent canonical files.
+4. Require explicit apply authorization and an optional backup path.
+5. Never delete a source before the destination is written and verified.
+6. Re-run migration to prove idempotence, then validate/audit.
 
 ## UPGRADE
-Inspect first. Preserve existing implementation and accepted decisions. Add or repair only missing harness layers. Do not overwrite project-specific truth with generic boilerplate content.
+
+Inspect first. Preserve project-authored truth and accepted decisions. Upgrade installed modules and schemas through the lockfile; do not replace canonical content with generic placeholders. Report incompatible changes before applying them.
 
 ## AUDIT
-Read-only unless explicitly asked otherwise. Evaluate architecture/docs/tests/security/operations/agent structure and design-system compliance when active. Ground findings in repository evidence.
 
-## Workflow
+Remain read-only unless explicitly asked to repair. Evaluate code quality, maintainability, architecture, testing, security, dependency health, documentation, operations, agent docs, root hygiene, router validity, canonical uniqueness, ADR integrity, placeholder quality, maturity/profile compliance, adapter thinness, module/lock integrity, and design-system compliance when active.
 
-1. Discover the repository using `references/repository-discovery.md`.
-2. Resolve the selected root boilerplate plus canonical modules/preset/schema information from `agentic-harness`.
-3. Separate facts, inference, and unresolved decisions.
-4. Select boilerplate/preset/profile/packs/policies and appropriate skills.
-5. Show consequential assumptions before high-impact policy/permission changes.
-6. Apply with deterministic tooling where available.
-7. Validate repository-native checks plus `ah validate` / `ah audit` as appropriate.
-8. Persist only durable accepted decisions; keep temporary execution state separate.
+## Completion
 
-Do not depend on deprecated canonical source paths such as `boilerplates/`, `templates/`, `overlay/`, or `template.json`.
-
-For design-heavy projects, use the design-system and design-system-compliance skills and the canonical design-system pack.
+Run applicable native checks plus `ah doctor`, `ah validate`, and `ah audit` when available. Report evidence, skipped checks, remaining risks, and unresolved decisions.

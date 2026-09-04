@@ -1,3 +1,3 @@
 # Claude Code adapter
 
-Keep `CLAUDE.md`/Claude-specific wiring short. Reference shared skills here and canonical architecture in `powerpuff-kitty/agentic-harness`; do not fork the rules into a large vendor-specific prompt.
+When `CLAUDE.md` is required, keep it as a short pointer to root `AGENTS.md` and `.agentic/`. Do not duplicate product, architecture, security, policies, packs, or skills in the adapter.

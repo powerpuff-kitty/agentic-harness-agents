@@ -1,3 +1,7 @@
 # Product Design
 
-Start from user jobs, constraints, product truth, and existing design-system rules. Define flows, states, information hierarchy, interactions, empty/error/loading behavior, responsive behavior, and accessibility before visual polish. Reuse established patterns/components. Record unresolved product decisions instead of masking them with UI assumptions.
+Read `.agentic/PRODUCT.md`, optional `.agentic/DESIGN.md`, relevant decisions, design supporting docs, installed design-system/accessibility packs, and component inventory before designing.
+
+Separate product requirements, accepted design truth, inferred component needs, and unresolved design decisions. Reuse canonical tokens/components before proposing one-off UI. Include loading, empty, error, permission, responsive, localization, accessibility, and destructive states.
+
+Consequential accepted design choices become ADRs and update `.agentic/DESIGN.md`. Temporary implementation detail belongs in a plan, not in product truth.

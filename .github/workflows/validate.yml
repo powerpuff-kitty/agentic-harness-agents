@@ -13,15 +13,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate skill inventory
-        shell: bash
-        run: |
-          set -euo pipefail
-          test -f AGENTS.md
-          test -f manifest.json
-          for d in skills/*; do
-            [ -d "$d" ] || continue
-            test -f "$d/SKILL.md"
-          done
-          test -d prompts
-          test -d adapters
+      - name: Validate procedures, adapters, and self-hosting contract
+        run: python3 .github/scripts/validate_agents.py

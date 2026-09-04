@@ -1,3 +1,3 @@
 # Cursor adapter
 
-Use thin Cursor rules that route to project-local canonical docs and selected Agentic Harness skills. Avoid duplicating full architecture or design rules into `.mdc` files.
+Use a minimal Cursor rules file that routes to root `AGENTS.md` and `.agentic/`. Preserve vendor syntax, but do not duplicate canonical project context.
