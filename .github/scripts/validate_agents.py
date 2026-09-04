@@ -76,6 +76,8 @@ load_json(ROOT / ".agentic" / "lock.json")
 
 index = read(ROOT / ".agentic" / "decisions" / "index.yaml")
 for path in (ROOT / ".agentic" / "decisions").glob("ADR-[0-9][0-9][0-9]-*.md"):
+    if path.name == "ADR-000-template.md":
+        continue
     if path.name not in index:
         fail(f"unindexed self-hosting ADR: {path.name}")
 
