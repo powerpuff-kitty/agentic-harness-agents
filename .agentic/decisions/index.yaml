@@ -1,0 +1,6 @@
+format_version: 1
+decisions:
+  - id: ADR-001
+    title: Keep agent procedures downstream of canonical project truth
+    status: accepted
+    file: ADR-001-canonical-source-boundary.md

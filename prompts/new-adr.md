@@ -1,0 +1,1 @@
+Create the next ADR for the stated decision. Read related evidence, current truth, and prior ADRs; keep unresolved choices proposed; update `.agentic/decisions/index.yaml`; link supersession when applicable; and update current truth only after acceptance.

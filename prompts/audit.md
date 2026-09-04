@@ -1,3 +1,1 @@
-# Audit a repository
-
-Perform a read-only evidence-backed audit. Use canonical Agentic Harness architecture as the baseline and repository-specific accepted truth as local context. Include code quality, architecture, tests, security, dependencies, operations, agent docs, and design-system compliance when active. Separate deterministic checks from interpretation.
+Audit this repository read-only. Include technical quality plus root hygiene, router validity, canonical uniqueness, ADR integrity, placeholder quality, maturity/profile compliance, adapter thinness, module/lock integrity, migration state, and design-system compliance when active. Cite evidence and list checks not performed.

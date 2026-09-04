@@ -1,3 +1,1 @@
-# Release review
-
-Review the release candidate against accepted architecture, tests, security, migrations, compatibility, operations, docs, and rollback. Separate blockers from follow-ups and provide evidence for the release decision.
+Review the exact release candidate and resolved source pins. Require CI, migration/idempotence fixtures, compatibility/security evidence, artifacts/checksums, install verification, changelog, rollback/yank plan, and explicit publication approval before release.

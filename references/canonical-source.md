@@ -1,20 +1,24 @@
 # Canonical source resolution
 
-Use `powerpuff-kitty/agentic-harness` as the authority for architecture, root boilerplates, modules, presets, and schemas.
+Use `powerpuff-kitty/agentic-harness` as the authority for the filesystem contract, current architecture, catalog variants, packs, policies, profiles, presets, and schemas.
 
-Canonical source paths:
+Current source layout:
 
-- root boilerplates: `base/`, `web-app/`, `backend-api/`, `saas/`, `monorepo/`, `library-sdk/`;
-- packs: `modules/packs/`;
-- policies: `modules/policies/`;
-- profiles: `modules/profiles/`;
-- named compositions: `presets/`;
-- contracts: `schema/`.
+```text
+agentic-harness/
+├── AGENTS.md
+├── .agentic/               self-hosting project context
+└── catalog/
+    ├── variants/<name>/files/
+    ├── packs/
+    ├── policies/
+    ├── profiles/
+    ├── presets/
+    └── schema/
+```
 
-Each boilerplate is a complete materialized project starting structure with `boilerplate.json` metadata. Do not infer old `boilerplates/`, `templates/`, `overlay/`, or `template.json` source paths.
+A target project uses root `AGENTS.md` and local `.agentic/` project truth. That local accepted truth has priority for the project unless it conflicts with an installed mandatory policy. Installed procedures live under `.agents/skills/`.
 
-When a local target repository contains project-specific accepted truth, that local truth has priority for that project unless it conflicts with a mandatory installed policy.
+Do not infer that a prompt or skill is authoritative merely because it is newer. If this repository and the canonical source disagree about architecture, surface the conflict and follow the accepted canonical revision until the discrepancy is resolved.
 
-Do not infer that a prompt is authoritative merely because it is newer. If this repository and the canonical static repository disagree about architecture, surface the conflict and follow the canonical static repository until the discrepancy is resolved.
-
-Complete demo applications are not part of the canonical source repository. If examples are introduced later, treat them as non-authoritative demonstrations unless explicitly promoted into canonical architecture or rules.
+Legacy paths such as root `PRODUCT.md`, root `agentic.yaml`, `docs/decisions`, `agentic-harness/templates`, `agentic-harness/boilerplates`, and `agentic-harness/modules` are migration inputs or historical references—not the current contract.

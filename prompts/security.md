@@ -1,3 +1,1 @@
-# Security review
-
-Review the repository and architecture for conventional application security and agent-specific risks. Ground findings in evidence, prioritize exploitable impact, and propose verifiable mitigations without weakening existing protections.
+Perform an evidence-backed security review using `.agentic/SECURITY.md`, permissions, policies, architecture, data/API docs, ADRs, lockfile, code, CI, and operations. Distinguish deterministic findings from judgment and list checks not performed.

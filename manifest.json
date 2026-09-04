@@ -1,6 +1,13 @@
 {
   "manifest_version": 1,
+  "version": "0.3.0-beta.1",
   "canonical_source": "https://github.com/powerpuff-kitty/agentic-harness",
+  "canonical_layout": {
+    "router": "AGENTS.md",
+    "context": ".agentic/",
+    "skills": ".agents/skills/",
+    "catalog": "catalog/"
+  },
   "cli": "https://github.com/powerpuff-kitty/agentic-harness-cli",
-  "skills": ["accessibility-audit","agentic-app","api-design","codebase-audit","competitive-research","database-design","dependency-upgrade","design-system","design-system-compliance","documentation","implementation-plan","incident-review","marketing","migration","performance-audit","product-design","release","release-review","security-review","threat-model"]
+  "skills": ["accessibility-audit", "adapter-sync", "adr-management", "agentic-app", "api-design", "codebase-audit", "competitive-research", "database-design", "dependency-upgrade", "design-system", "design-system-compliance", "documentation", "implementation-plan", "incident-review", "marketing", "migration", "performance-audit", "product-design", "release", "release-review", "security-review", "threat-model"]
 }
