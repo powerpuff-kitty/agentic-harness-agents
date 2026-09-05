@@ -20,4 +20,4 @@ jobs:
       - name: Inspect bundle
         run: |
           unzip -t dist/*.zip
-          sha256sum -c dist/*.zip.sha256
+          (cd dist && sha256sum -c *.zip.sha256)
