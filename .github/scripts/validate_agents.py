@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 errors: list[str] = []
 REQUIRED_SECTIONS = ["## Objective", "## Inputs", "## Context", "## Procedure", "## Output", "## Completion"]
-STOPWORDS = {"use","when","the","user","asks","to","a","an","and","or","for","this","that","of","in","on","with","from","do","not","skill","repository","project","review","work"}
+STOPWORDS = {"use","when","after","before","the","user","asks","to","a","an","and","or","for","this","that","of","in","on","with","from","do","not","skill","repository","project","review","work"}
 
 
 def fail(message: str) -> None:
@@ -90,7 +90,9 @@ for skill in sorted(actual):
     descriptions[skill] = description
     if not 40 <= len(description) <= 1024:
         fail(f"{skill} description must be 40..1024 characters")
-    if "use when" not in description.lower() or "do not use" not in description.lower():
+    lower = description.lower()
+    has_use_guidance = re.search(r"\buse\s+(when|after|before|for)\b", lower) is not None
+    if not has_use_guidance or "do not use" not in lower:
         fail(f"{skill} description must include both use and exclusion guidance")
     for heading in REQUIRED_SECTIONS:
         if heading not in body:
