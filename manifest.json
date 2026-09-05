@@ -9,5 +9,5 @@
     "catalog": "catalog/"
   },
   "cli": "https://github.com/powerpuff-kitty/agentic-harness-cli",
-  "skills": ["accessibility-audit", "adapter-sync", "adr-management", "agentic-app", "api-design", "codebase-audit", "competitive-research", "database-design", "dependency-upgrade", "design-system", "design-system-compliance", "documentation", "implementation-plan", "incident-review", "marketing", "migration", "performance-audit", "product-design", "release", "release-review", "security-review", "threat-model"]
+  "skills": ["accessibility-audit", "adapter-sync", "adr-management", "agentic-app", "agentic-improvement", "agentic-structure-audit", "api-design", "codebase-audit", "competitive-research", "database-design", "dependency-upgrade", "design-system", "design-system-compliance", "documentation", "implementation-plan", "incident-review", "marketing", "migration", "model-fit", "performance-audit", "product-design", "release", "release-review", "security-review", "threat-model"]
 }
