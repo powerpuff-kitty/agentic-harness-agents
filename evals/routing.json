@@ -1,0 +1,30 @@
+{
+  "format_version": 1,
+  "cases": [
+    {"id":"accessibility","prompt":"Audit keyboard, screen-reader, contrast, and form-error accessibility for this checkout flow.","expected_skill":"accessibility-audit","must_not_use":["product-design","design-system-compliance"]},
+    {"id":"adapter-sync","prompt":"Regenerate the thin Codex, Claude, Gemini, and Copilot adapter files without duplicating project truth.","expected_skill":"adapter-sync","must_not_use":["documentation","migration"]},
+    {"id":"adr","prompt":"Record the accepted decision to use PostgreSQL and supersede the old database ADR.","expected_skill":"adr-management","must_not_use":["database-design","documentation"]},
+    {"id":"agentic-app","prompt":"Initialize this repository with the Agentic Harness contract and selected packs and skills.","expected_skill":"agentic-app","must_not_use":["agentic-improvement","migration"]},
+    {"id":"agentic-improvement","prompt":"Use the readiness findings to improve our agent context routing and remove redundant instructions.","expected_skill":"agentic-improvement","must_not_use":["agentic-structure-audit","codebase-audit"]},
+    {"id":"agentic-audit","prompt":"Score how agent-ready this repository is and report Agentic Readiness findings.","expected_skill":"agentic-structure-audit","must_not_use":["codebase-audit","model-fit"]},
+    {"id":"api-design","prompt":"Design the public REST API resource shapes, error contract, pagination, and versioning for this service.","expected_skill":"api-design","must_not_use":["database-design","codebase-audit"]},
+    {"id":"codebase-audit","prompt":"Audit this repository for maintainability, testing, architecture, dependencies, operations, and code-quality risks.","expected_skill":"codebase-audit","must_not_use":["agentic-structure-audit","security-review"]},
+    {"id":"competitive-research","prompt":"Compare our product with five current competitors and document evidence-backed gaps and differentiators.","expected_skill":"competitive-research","must_not_use":["marketing","product-design"]},
+    {"id":"database-design","prompt":"Design the relational schema, constraints, indexes, and migration boundaries for these domain entities.","expected_skill":"database-design","must_not_use":["api-design","dependency-upgrade"]},
+    {"id":"dependency-upgrade","prompt":"Upgrade our framework dependencies safely, review changelogs, and verify compatibility.","expected_skill":"dependency-upgrade","must_not_use":["migration","release"]},
+    {"id":"design-system","prompt":"Create the token, component, state, and interaction architecture for a new design system.","expected_skill":"design-system","must_not_use":["design-system-compliance","product-design"]},
+    {"id":"design-compliance","prompt":"Check whether this implementation bypasses our existing components and design tokens.","expected_skill":"design-system-compliance","must_not_use":["design-system","accessibility-audit"]},
+    {"id":"documentation","prompt":"Update durable project documentation after an already-approved architecture change.","expected_skill":"documentation","must_not_use":["adr-management","implementation-plan"]},
+    {"id":"implementation-plan","prompt":"Turn this accepted feature scope into a sequenced implementation plan with verification checkpoints.","expected_skill":"implementation-plan","must_not_use":["product-design","documentation"]},
+    {"id":"incident-review","prompt":"Run a blameless post-incident review from the outage timeline, impact, causes, and recovery evidence.","expected_skill":"incident-review","must_not_use":["performance-audit","security-review"]},
+    {"id":"marketing","prompt":"Create positioning and launch messaging from the approved product facts and competitive evidence.","expected_skill":"marketing","must_not_use":["competitive-research","product-design"]},
+    {"id":"migration","prompt":"Migrate a legacy Agentic Harness repository from root truth files to the .agentic contract with a conflict preview.","expected_skill":"migration","must_not_use":["dependency-upgrade","agentic-app"]},
+    {"id":"model-fit","prompt":"Which supported coding model best fits this repository's refactoring task, based on the model registry evidence?","expected_skill":"model-fit","must_not_use":["agentic-structure-audit","agentic-improvement"]},
+    {"id":"performance","prompt":"Audit this service's latency, throughput, query, allocation, and caching bottlenecks from measurements.","expected_skill":"performance-audit","must_not_use":["codebase-audit","incident-review"]},
+    {"id":"product-design","prompt":"Design the user flow, interaction states, information hierarchy, and UX requirements for this feature.","expected_skill":"product-design","must_not_use":["design-system","marketing"]},
+    {"id":"release","prompt":"Prepare and execute the approved release process, versioning, changelog, artifacts, and rollout checks.","expected_skill":"release","must_not_use":["release-review","dependency-upgrade"]},
+    {"id":"release-review","prompt":"Review this release candidate and decide whether it satisfies the documented release gates.","expected_skill":"release-review","must_not_use":["release","codebase-audit"]},
+    {"id":"security-review","prompt":"Review this implementation for authentication, authorization, secrets, dependency, and input-handling vulnerabilities.","expected_skill":"security-review","must_not_use":["threat-model","codebase-audit"]},
+    {"id":"threat-model","prompt":"Before implementation, map assets, trust boundaries, attackers, abuse cases, and mitigations for this new system.","expected_skill":"threat-model","must_not_use":["security-review","api-design"]}
+  ]
+}

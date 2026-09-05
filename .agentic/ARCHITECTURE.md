@@ -1,5 +1,19 @@
 # Architecture
 
-Root `skills/`, `prompts/`, `adapters/`, `references/`, and `evals/` are versioned distributable content. `manifest.json` indexes skills. The canonical static repository owns the project contract; the CLI pins this repository and installs selected skills under target `.agents/skills/`.
+This repository is the procedure and distribution layer between canonical Agentic Harness truth and deterministic CLI enforcement.
 
-Procedures share source-resolution, discovery, precedence, and safety references. Vendor adapters contain only integration guidance and never canonical architecture.
+```text
+canonical agentic-harness
+        ↓
+references + skill frontmatter routing
+        ↓
+skills/ + prompts/ + adapters/
+        ↓
+Codex plugin / individual skill install
+        ↓
+target .agents/skills/
+        ↓
+CLI and repository-native verification
+```
+
+`skills/` contains Agent Skills with required YAML frontmatter and a common procedural contract. `references/` contains shared context/source rules loaded only when needed. `evals/` owns routing and behavior acceptance cases. `.codex-plugin/` and `.agents/plugins/` are distribution metadata only and do not become architecture authority.

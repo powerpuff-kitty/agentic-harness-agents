@@ -1,5 +1,35 @@
-# Design-System Compliance
+---
+name: design-system-compliance
+description: "Audit product implementation against an existing design system for token bypasses, duplicate primitives, raw controls, missing shared components, invalid variants, and documented exceptions. Use when conformance to an established system is the goal. Do not use to create the design system itself or to conduct a full accessibility audit."
+---
+# Design System Compliance
 
-When a design system is active, compare product flows, `.agentic/DESIGN.md`, detailed component/token contracts, component inventory, and implementation evidence.
+## Objective
 
-Check raw control bypasses, hard-coded visual values, duplicate local components, missing inferred states/components, accessibility behavior, responsive patterns, theme/token usage, documented exceptions, and visual regression evidence. Report false-positive risk and distinguish structural checks from visual-quality judgment.
+Determine whether product code consistently consumes the accepted design system and identify concrete bypasses or missing abstractions.
+
+## Inputs
+
+Required: target repository/scope and existing design-system source. Optional: component inventory, token definitions, allowed exception paths, visual-regression output, and compliance threshold.
+
+## Context
+
+Read `.agentic/DESIGN.md`, installed design-system pack/guidance, component/token source, and only product files in the requested scope.
+
+## Procedure
+
+1. Confirm the design system is active and identify canonical tokens/components.
+2. Run deterministic compliance tooling when available.
+3. Detect raw controls, hard-coded visual values, duplicate primitives, invalid component variants, and direct style bypasses outside allowed system paths.
+4. Infer missing shared components only when repeated product flows justify them.
+5. Separate deliberate documented exceptions from accidental divergence.
+6. Check representative UI states and visual/accessibility evidence where available.
+7. Prioritize fixes by breadth of inconsistency and reuse impact.
+
+## Output
+
+Return compliance score/status when deterministic tooling supports it, violations with evidence, missing/shared-component recommendations, documented exceptions, and remediation.
+
+## Completion
+
+Findings distinguish structural conformance from aesthetics, evidence paths are exact, exceptions are honored, and the audit does not claim visual or accessibility validation that was not performed.
