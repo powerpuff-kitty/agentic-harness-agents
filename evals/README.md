@@ -1,3 +1,9 @@
-# Agent behavior evaluations
+# Agent behavior evals
 
-Evaluate whether skills and prompts follow canonical source ownership, context precedence, permission gates, evidence rules, migration safety, adapter thinness, and explicit completion criteria. Deterministic project checks remain the CLI's responsibility.
+Evals validate procedure routing and behavior rather than only file presence.
+
+- `routing.json` gives at least one positive routing case for every registered skill and explicit nearby skills that must not be selected.
+- `skill-quality.md` defines cross-skill behavior expectations for context discipline, evidence, approvals, output, and completion.
+- `layout-v1.md` continues to cover the Agentic Harness filesystem contract.
+
+CI verifies that every registered skill has routing coverage and that routing references only known skills.

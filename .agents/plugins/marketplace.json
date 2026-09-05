@@ -1,0 +1,17 @@
+{
+  "name": "agentic-harness",
+  "plugins": [
+    {
+      "name": "agentic-harness-agents",
+      "source": {
+        "source": "local",
+        "path": "./../.."
+      },
+      "category": "Developer Tools",
+      "interface": {
+        "displayName": "Agentic Harness",
+        "shortDescription": "Agent-native repository architecture, audits, migration, model-fit, security, design, and delivery skills"
+      }
+    }
+  ]
+}

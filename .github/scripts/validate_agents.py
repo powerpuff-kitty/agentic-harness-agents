@@ -2,11 +2,14 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 errors: list[str] = []
+REQUIRED_SECTIONS = ["## Objective", "## Inputs", "## Context", "## Procedure", "## Output", "## Completion"]
+STOPWORDS = {"use","when","the","user","asks","to","a","an","and","or","for","this","that","of","in","on","with","from","do","not","skill","repository","project","review","work"}
 
 
 def fail(message: str) -> None:
@@ -29,7 +32,40 @@ def load_json(path: Path):
         return None
 
 
-for path in ["AGENTS.md", "README.md", "manifest.json", ".agentic/README.md", ".agentic/manifest.yaml", ".agentic/lock.json", ".agentic/PRODUCT.md", ".agentic/ARCHITECTURE.md", ".agentic/SECURITY.md", ".agentic/decisions/index.yaml"]:
+def parse_frontmatter(path: Path) -> tuple[dict[str, str], str]:
+    body = read(path)
+    if not body.startswith("---\n"):
+        fail(f"missing YAML frontmatter: {path.relative_to(ROOT)}")
+        return {}, body
+    end = body.find("\n---\n", 4)
+    if end < 0:
+        fail(f"unterminated YAML frontmatter: {path.relative_to(ROOT)}")
+        return {}, body
+    raw = body[4:end]
+    meta: dict[str, str] = {}
+    for line in raw.splitlines():
+        if not line.strip():
+            continue
+        if ":" not in line:
+            fail(f"invalid frontmatter line in {path.relative_to(ROOT)}: {line}")
+            continue
+        key, value = line.split(":", 1)
+        value = value.strip()
+        if value.startswith('"'):
+            try:
+                value = json.loads(value)
+            except Exception:
+                fail(f"invalid quoted frontmatter value in {path.relative_to(ROOT)}: {key}")
+        meta[key.strip()] = value
+    return meta, body[end + 5:]
+
+
+def tokens(description: str) -> set[str]:
+    return {w for w in re.findall(r"[a-z0-9]+", description.lower()) if len(w) > 2 and w not in STOPWORDS}
+
+
+required_files = ["AGENTS.md", "README.md", "manifest.json", ".agentic/README.md", ".agentic/manifest.yaml", ".agentic/lock.json", ".agentic/PRODUCT.md", ".agentic/ARCHITECTURE.md", ".agentic/SECURITY.md", ".agentic/decisions/index.yaml", "references/context-engineering.md", "references/skill-contract.md", ".codex-plugin/plugin.json", ".agents/plugins/marketplace.json", "evals/routing.json"]
+for path in required_files:
     if not (ROOT / path).is_file():
         fail(f"missing required file: {path}")
 
@@ -38,12 +74,88 @@ declared = set(manifest.get("skills", [])) if isinstance(manifest, dict) else se
 actual = {p.name for p in (ROOT / "skills").iterdir() if p.is_dir()}
 if declared != actual:
     fail(f"skill manifest mismatch: declared={sorted(declared)} actual={sorted(actual)}")
+
+descriptions: dict[str, str] = {}
 for skill in sorted(actual):
     path = ROOT / "skills" / skill / "SKILL.md"
     if not path.is_file():
         fail(f"skill missing SKILL.md: {skill}")
-    elif len(read(path).strip()) < 120:
-        fail(f"skill is too small to define a durable procedure: {skill}")
+        continue
+    meta, body = parse_frontmatter(path)
+    if set(meta) != {"name", "description"}:
+        fail(f"{skill} frontmatter must contain only name and description")
+    if meta.get("name") != skill:
+        fail(f"{skill} frontmatter name mismatch: {meta.get('name')!r}")
+    description = meta.get("description", "")
+    descriptions[skill] = description
+    if not 40 <= len(description) <= 1024:
+        fail(f"{skill} description must be 40..1024 characters")
+    if "use when" not in description.lower() or "do not use" not in description.lower():
+        fail(f"{skill} description must include both use and exclusion guidance")
+    for heading in REQUIRED_SECTIONS:
+        if heading not in body:
+            fail(f"{skill} missing required section {heading}")
+    if len(body.strip()) < 500:
+        fail(f"{skill} body is too small for a durable procedure")
+
+names = sorted(descriptions)
+for i, left in enumerate(names):
+    lt = tokens(descriptions[left])
+    for right in names[i + 1:]:
+        rt = tokens(descriptions[right])
+        union = lt | rt
+        similarity = len(lt & rt) / len(union) if union else 0.0
+        if similarity >= 0.72:
+            fail(f"trigger descriptions overlap too strongly: {left} vs {right} ({similarity:.2f})")
+
+routing = load_json(ROOT / "evals" / "routing.json")
+covered: set[str] = set()
+if isinstance(routing, dict):
+    if routing.get("format_version") != 1:
+        fail("evals/routing.json format_version must be 1")
+    for case in routing.get("cases", []):
+        expected = case.get("expected_skill")
+        forbidden = set(case.get("must_not_use", []))
+        if expected not in actual:
+            fail(f"routing case {case.get('id')} references unknown expected skill {expected}")
+        else:
+            covered.add(expected)
+        unknown = forbidden - actual
+        if unknown:
+            fail(f"routing case {case.get('id')} has unknown must_not_use skills {sorted(unknown)}")
+        if expected in forbidden:
+            fail(f"routing case {case.get('id')} forbids its expected skill")
+if covered != actual:
+    fail(f"routing eval coverage mismatch: missing={sorted(actual-covered)} extra={sorted(covered-actual)}")
+
+plugin = load_json(ROOT / ".codex-plugin" / "plugin.json")
+if isinstance(plugin, dict):
+    if plugin.get("name") != "agentic-harness-agents":
+        fail("Codex plugin name mismatch")
+    if isinstance(manifest, dict) and plugin.get("version") != manifest.get("version"):
+        fail("Codex plugin version must match manifest version")
+    plugin_skills = {Path(x).name for x in plugin.get("skills", [])}
+    if plugin_skills != actual:
+        fail(f"Codex plugin skill inventory mismatch: {sorted(plugin_skills)}")
+
+marketplace = load_json(ROOT / ".agents" / "plugins" / "marketplace.json")
+if isinstance(marketplace, dict):
+    entries = marketplace.get("plugins", [])
+    if len(entries) != 1 or entries[0].get("name") != "agentic-harness-agents":
+        fail("marketplace must expose exactly the agentic-harness-agents plugin")
+    source = entries[0].get("source", {}) if entries else {}
+    if source.get("source") != "local" or source.get("path") != "./../..":
+        fail("marketplace source must resolve to the repository root")
+
+lock = load_json(ROOT / ".agentic" / "lock.json")
+if isinstance(manifest, dict) and isinstance(lock, dict):
+    compat = manifest.get("compatibility", {})
+    canonical_revision = ((compat.get("agentic_harness") or {}).get("revision"))
+    cli_revision = ((compat.get("agentic_harness_cli") or {}).get("revision"))
+    if (lock.get("canonical_source") or {}).get("revision") != canonical_revision:
+        fail("self-hosting canonical lock revision differs from manifest compatibility revision")
+    if (lock.get("cli_source") or {}).get("revision") != cli_revision:
+        fail("self-hosting CLI lock revision differs from manifest compatibility revision")
 
 required_prompts = {"init.md", "upgrade.md", "audit.md", "migrate.md", "doctor.md", "new-adr.md", "sync-adapters.md", "security.md", "design-system.md", "release.md"}
 actual_prompts = {p.name for p in (ROOT / "prompts").glob("*.md")}
@@ -72,7 +184,6 @@ self_manifest = read(ROOT / ".agentic" / "manifest.yaml")
 for token in ["format_version: 1", "canonical_router: ../AGENTS.md", "vendor_files_must_be_thin: true"]:
     if token not in self_manifest:
         fail(f"self-hosting manifest missing {token}")
-load_json(ROOT / ".agentic" / "lock.json")
 
 index = read(ROOT / ".agentic" / "decisions" / "index.yaml")
 for path in (ROOT / ".agentic" / "decisions").glob("ADR-[0-9][0-9][0-9]-*.md"):
@@ -87,4 +198,4 @@ if errors:
         print(f"- {error}", file=sys.stderr)
     raise SystemExit(1)
 
-print(f"Agents valid: {len(actual)} skills, {len(actual_prompts)} prompts, canonical layout v1")
+print(f"Agents valid: {len(actual)} installable skills, routing coverage complete, plugin version {manifest.get('version') if isinstance(manifest, dict) else '?'}")

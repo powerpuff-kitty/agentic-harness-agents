@@ -1,41 +1,35 @@
+---
+name: agentic-app
+description: "Initialize, upgrade, migrate, or broadly audit a repository using the Agentic Harness project contract and selected catalog modules. Use when the requested job spans overall harness setup or lifecycle rather than one specialist procedure. Do not use for a focused readiness score, a standalone legacy migration, or a single domain review when a narrower skill owns the task."
+---
 # Agentic App
 
-Use this skill to initialize, migrate, upgrade, or audit an agent-native repository.
+## Objective
 
-## Source rule
+Orchestrate the end-to-end Agentic Harness lifecycle while delegating specialist work to narrower skills and deterministic CLI operations.
 
-Resolve the current contract and catalog from `agentic-harness`. A target project uses root `AGENTS.md`, canonical `.agentic/` context, and installed `.agents/skills/`. This skill defines procedure only.
+## Inputs
 
-## Discovery
+Required: target repository and requested mode (`init`, `upgrade`, `migrate`, or broad audit). Optional: project type, maturity, stack constraints, profile/preset, packs, policies, skills, design-system posture, and approval boundaries.
 
-Follow `references/repository-discovery.md`. Read permissions and precedence before proposing writes.
+## Context
 
-## INIT
+Resolve the current contract/catalog from `agentic-harness`. In a target project, route from root `AGENTS.md` to `.agentic/manifest.yaml` and task-relevant truth. Follow `references/repository-discovery.md` and progressive disclosure.
 
-1. Inspect the target and avoid asking for repository-discoverable facts.
-2. Ask only missing high-impact questions: project purpose/type, maturity, stack constraints, deployment/data/security posture, design-system choice, and approval boundaries.
-3. Resolve a catalog boilerplate/preset/profile plus packs, policies, and skills.
-4. Show consequential assumptions.
-5. Use deterministic composition when available.
-6. Verify root hygiene, router links, canonical context, lock resolution, and repository-native checks.
+## Procedure
 
-## MIGRATE
+1. Inspect the target before asking for facts the repository can answer.
+2. Resolve only missing high-impact choices and state consequential assumptions.
+3. Select the canonical variant/preset/profile plus modules and skills.
+4. Prefer `ah` deterministic composition, migration, validation, and audit over hand-copying contract files.
+5. Preserve project-authored truth and accepted ADRs during upgrades/migration.
+6. Route specialist security, design, model-fit, ADR, or release work to the appropriate narrower skill.
+7. Verify root hygiene, router links, manifest/lock integrity, native tests, and relevant quality gates.
 
-1. Detect legacy and current layouts.
-2. Produce a non-writing move/conflict plan first.
-3. Treat identical duplicates separately from divergent canonical files.
-4. Require explicit apply authorization and an optional backup path.
-5. Never delete a source before the destination is written and verified.
-6. Re-run migration to prove idempotence, then validate/audit.
+## Output
 
-## UPGRADE
-
-Inspect first. Preserve project-authored truth and accepted decisions. Upgrade installed modules and schemas through the lockfile; do not replace canonical content with generic placeholders. Report incompatible changes before applying them.
-
-## AUDIT
-
-Remain read-only unless explicitly asked to repair. Evaluate code quality, maintainability, architecture, testing, security, dependency health, documentation, operations, agent docs, root hygiene, router validity, canonical uniqueness, ADR integrity, placeholder quality, maturity/profile compliance, adapter thinness, module/lock integrity, and design-system compliance when active.
+Return resolved composition or audit scope, files/modules affected, assumptions, deterministic command results, conflicts, approvals, and remaining risks.
 
 ## Completion
 
-Run applicable native checks plus `ah doctor`, `ah validate`, and `ah audit` when available. Report evidence, skipped checks, remaining risks, and unresolved decisions.
+The requested lifecycle operation is complete and repeatable, canonical truth is preserved, installed sources are locked, applicable checks pass, and unresolved decisions or skipped validation are explicit.

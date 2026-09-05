@@ -13,5 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate procedures, adapters, and self-hosting contract
+      - name: Validate skills, routing, distribution, and self-hosting contract
         run: python3 .github/scripts/validate_agents.py
+      - name: Build installable plugin bundle
+        run: python3 .github/scripts/package_plugin.py
+      - name: Inspect bundle
+        run: |
+          unzip -t dist/*.zip
+          sha256sum -c dist/*.zip.sha256

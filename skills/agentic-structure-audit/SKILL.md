@@ -1,20 +1,34 @@
+---
+name: agentic-structure-audit
+description: "Evaluate Agentic Readiness: context architecture, AGENTS.md quality, skill routing, completion/autonomy, verification, portability, instruction health, decision history, and agent security. Use when the user asks how agent-ready a repository is or requests a model compatibility score. Do not use for broad code-quality auditing or for applying fixes."
+---
 # Agentic Structure Audit
 
-Use when the user asks to evaluate how agent-ready a repository is, or how well its current agentic structure fits a specific model.
+## Objective
 
-Prefer machine-readable output from `agentic-harness-cli` (`ah-agentic audit --json`, or `ah agentic audit --json` when integrated) rather than reimplementing scoring in prompt text.
+Produce a model-independent Universal Agentic Structure Score and, when requested, an evidence-backed model compatibility score.
 
-Report separately:
+## Inputs
 
-- Universal Agentic Structure Score;
-- optional model compatibility score;
-- highest-impact findings first;
-- exact repository evidence;
-- confidence (`deterministic`, `heuristic`, or `profile-backed`);
-- concrete remediation.
+Required: target repository. Optional: target model/profile, task type, baseline report, and requested output format.
 
-Inspect only context relevant to findings. Do not force broad project-document loading just to audit agentic structure.
+## Context
 
-Key dimensions include context routing, `AGENTS.md`, skill overlap, completion semantics, decision boundaries, verification, architecture discoverability, decision history, model portability, instruction health, and agent security.
+Prefer machine-readable output from current `agentic-harness-cli` (`ah-agentic audit --json` or integrated equivalent). Inspect only files tied to findings. Resolve scoring rules and model profiles from canonical `agentic-harness`.
 
-Do not treat ordinary code quality as the agentic score. If the CLI is unavailable, state that the result is a qualitative fallback rather than a canonical score.
+## Procedure
+
+1. Run the canonical readiness audit when available; do not reimplement its score from prompt intuition.
+2. Verify evidence for the highest-impact findings and classify confidence as deterministic, heuristic, or profile-backed.
+3. Keep ordinary code quality separate from Agentic Readiness.
+4. Evaluate context routing, `AGENTS.md`, skill overlap, completion semantics, decision boundaries, verification/tooling, architecture discoverability, decision history, portability, instruction health, and agent security.
+5. If a target model is supplied, apply only profile-backed compatibility adjustments and cite the profile recommendation/evidence.
+6. Rank remediation by severity and likely readiness impact without modifying the repository.
+
+## Output
+
+Return Universal Agentic Structure Score, dimension scores, optional model compatibility score, ordered findings with exact repository evidence, confidence, and concrete remediation.
+
+## Completion
+
+The audit remains read-only, scoring provenance is clear, model-specific claims come from the registry, and any unavailable deterministic check is labeled rather than guessed.

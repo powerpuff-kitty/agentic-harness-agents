@@ -1,5 +1,20 @@
 # Product
 
-Provide reusable, vendor-neutral procedures that help coding agents initialize, migrate, upgrade, audit, design, secure, document, and release Agentic Harness projects without redefining project truth.
+Agentic Harness Agents is the installable procedure layer of the Agentic Harness ecosystem.
 
-Users are coding agents and developers maintaining their procedures. Success means source resolution is explicit, prompts remain short, skills are reusable and safe, adapters remain thin, and behavior is testable against clear eval criteria.
+It provides reusable Agent Skills for Codex and compatible workflow guidance for other coding agents without owning project architecture or business truth.
+
+## Goals
+
+- make individual skills directly installable and auto-discoverable by Codex;
+- provide a skills-only plugin that can be imported and synchronized from GitHub;
+- keep triggers narrow, non-overlapping, and evidence-backed;
+- use progressive disclosure so routine tasks load minimal context;
+- provide explicit procedures, outputs, and completion criteria;
+- keep releases versioned and compatible with canonical Agentic Harness and CLI revisions.
+
+## Non-goals
+
+- redefining canonical project structure or policy;
+- embedding model-specific product truth;
+- replacing deterministic CLI validation with prompt prose.
