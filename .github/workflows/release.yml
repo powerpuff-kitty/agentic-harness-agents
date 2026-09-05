@@ -22,7 +22,7 @@ jobs:
       - name: Package
         run: python3 .github/scripts/package_plugin.py
       - name: Verify checksum
-        run: sha256sum -c dist/*.zip.sha256
+        run: (cd dist && sha256sum -c *.zip.sha256)
       - name: Publish prerelease
         shell: bash
         run: gh release create "$GITHUB_REF_NAME" dist/* --title "Agentic Harness Agents $GITHUB_REF_NAME" --generate-notes --prerelease --verify-tag
