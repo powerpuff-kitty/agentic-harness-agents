@@ -2,7 +2,9 @@ name: Release skill plugin
 
 on:
   push:
+    branches: [main]
     tags: ['v*']
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -12,19 +14,64 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Validate
         run: python3 .github/scripts/validate_agents.py
-      - name: Verify tag matches manifest version
+      - name: Resolve version and release state
+        id: version
         shell: bash
-        run: |
-          VERSION=$(python3 -c 'import json; print(json.load(open("manifest.json"))["version"])')
-          test "${GITHUB_REF_NAME}" = "v${VERSION}"
-      - name: Package
-        run: python3 .github/scripts/package_plugin.py
-      - name: Verify checksum
-        run: (cd dist && sha256sum -c *.zip.sha256)
-      - name: Publish prerelease
-        shell: bash
-        run: gh release create "$GITHUB_REF_NAME" dist/* --title "Agentic Harness Agents $GITHUB_REF_NAME" --generate-notes --prerelease --verify-tag
         env:
           GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          VERSION=$(python3 -c 'import json; print(json.load(open("manifest.json"))["version"])')
+          TAG="v${VERSION}"
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+
+          if [[ "${GITHUB_REF_TYPE}" == "tag" && "${GITHUB_REF_NAME}" != "${TAG}" ]]; then
+            echo "tag ${GITHUB_REF_NAME} does not match manifest version ${TAG}" >&2
+            exit 1
+          fi
+
+          if git ls-remote --exit-code --tags origin "refs/tags/${TAG}" >/dev/null 2>&1; then
+            echo "tag_exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "tag_exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+          if gh release view "${TAG}" >/dev/null 2>&1; then
+            echo "release_exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "release_exists=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Create immutable version tag
+        if: steps.version.outputs.tag_exists == 'false' && github.ref_type != 'tag'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "${{ steps.version.outputs.tag }}" "${GITHUB_SHA}" -m "Agentic Harness Agents ${{ steps.version.outputs.tag }}"
+          git push origin "${{ steps.version.outputs.tag }}"
+      - name: Package
+        if: steps.version.outputs.release_exists == 'false'
+        run: python3 .github/scripts/package_plugin.py
+      - name: Verify checksum
+        if: steps.version.outputs.release_exists == 'false'
+        run: (cd dist && sha256sum -c *.zip.sha256)
+      - name: Publish prerelease
+        if: steps.version.outputs.release_exists == 'false'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ steps.version.outputs.tag }}" dist/* \
+            --title "Agentic Harness Agents ${{ steps.version.outputs.tag }}" \
+            --generate-notes \
+            --prerelease \
+            --verify-tag
+      - name: Report existing release
+        if: steps.version.outputs.release_exists == 'true'
+        run: echo "Release ${{ steps.version.outputs.tag }} already exists; nothing to publish."
