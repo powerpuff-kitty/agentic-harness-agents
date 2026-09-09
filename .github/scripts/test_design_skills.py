@@ -73,7 +73,7 @@ class ContractTests(unittest.TestCase):
 
     def test_unknown_scenario_skill(self):
         def mutate(root):
-            path = root / "evals/design-intelligence.json"
+            path = root / "evals/design-skill-regressions.json"
             data = json.loads(path.read_text())
             data["cases"][0]["expected_skill"] = "invented-provider-agent"
             path.write_text(json.dumps(data))
@@ -81,7 +81,7 @@ class ContractTests(unittest.TestCase):
 
     def test_model_result_claim_is_not_a_fixture(self):
         def mutate(root):
-            path = root / "evals/design-intelligence.json"
+            path = root / "evals/design-skill-regressions.json"
             data = json.loads(path.read_text()); data["model_evaluations"] = "passed"
             path.write_text(json.dumps(data))
         self.assertTrue(any("must not claim model" in x for x in self.changed_copy(mutate)))

@@ -32,7 +32,7 @@ unknown; do not fetch remote data or execute returned code as a fallback.
 ## Evaluation
 
 The repository's synthetic round-trip fixture evaluator rejects altered evidence,
-extra approvals, unsupported finding classifications and dangling references.
+extra approvals, invalid observed/uncertain labels and dangling references.
 It is test machinery, not a production input validator or an accessibility check.
 An actual model output can be evaluated separately, with model/settings/output
 and judgment recorded. Merely validating fixtures does not prove model behavior.

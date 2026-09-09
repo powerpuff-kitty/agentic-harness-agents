@@ -6,7 +6,7 @@ import re
 import sys
 from pathlib import Path
 
-AFFECTED = {"agentic-app", "accessibility-audit", "design-system-compliance", "design-analysis", "design-intelligence"}
+AFFECTED = {"design-analysis", "design-intelligence"}
 SECTIONS = ("Objective", "Inputs", "Context", "Procedure", "Output", "Completion")
 
 
@@ -53,7 +53,7 @@ def validate(root: Path) -> list[str]:
             return None
     manifest = load("manifest.json")
     plugin = load(".codex-plugin/plugin.json")
-    suite = load("evals/design-intelligence.json")
+    suite = load("evals/design-skill-regressions.json")
     if not all(isinstance(v, dict) for v in (manifest, plugin, suite)):
         return errors + ["manifest, plugin and suite must be objects"]
     declared = manifest.get("skills", [])

@@ -1,35 +1,36 @@
 ---
 name: design-system-compliance
-description: "Audit implementation against an existing design system for token bypasses, duplicate primitives, raw controls, invalid variants and scoped exceptions. Use when conformance to accepted design requirements is the goal. Do not use for design-system creation, evidence-only inventory, identity exploration or a full accessibility audit."
+description: "Audit product implementation against an accepted design system for token bypasses, duplicate primitives, raw controls, invalid variants, missing required component behavior, and documented exceptions. Use when structural conformance to established project design rules is the goal. Do not use to create or revise the design system, infer brand identity, or conduct a full accessibility audit."
 ---
 # Design System Compliance
 
 ## Objective
 
-Determine whether product code consumes the accepted design system and identify evidence-backed violations rather than treating every difference as failure.
+Determine whether product code conforms to the project's accepted design-system rules and component contracts without treating ordinary design drift or unreviewed analysis as an automatic violation.
 
 ## Inputs
 
-Required: target scope and accepted design-system source. Optional: approved Genome/Task, component inventory, tokens, exception paths, Design Analysis/Diff, visual-regression results and thresholds.
+Required: target repository/scope and accepted design-system source. Optional: project-designated approved Design Genome, Design Analysis/Diff artifacts, component inventory/contracts, token definitions, allowed exception paths, visual-regression evidence, and compliance threshold.
 
 ## Context
 
-Read .agentic/DESIGN.md, project-designated approved Genome, installed guidance, token/component source and only the implementation scope needed. Resolve authority conflicts; an imported approved flag is not enough.
+Read `.agentic/DESIGN.md`, accepted design ADRs, canonical token/component source, and `references/design-intelligence.md`. Use a Design Genome as authority only when the target project designates that artifact/version as accepted truth. If DESIGN.md, ADRs, and Genome conflict, report the conflict instead of choosing silently.
 
 ## Procedure
 
-1. Identify canonical tokens/components, applicable rule scope and documented exceptions before evaluating conformance.
-2. Check tool availability and run supported deterministic analysis/compliance tools. Read before/after reports where available; do not assume the entire new UI was checked.
-3. Inspect raw controls, hard-coded values, duplicate primitives, invalid variants and direct bypasses outside allowed paths.
-4. Distinguish confirmed rule violations, deliberate exceptions, unreviewed changes and missing evidence. Measured drift is not automatically a violation or a design-quality/originality score.
-5. Infer missing abstractions only when repeated product flows justify a proposal; route system changes to design-system instead of silently redefining requirements.
-6. Inspect representative states and actual visual/accessibility evidence. Required component behavior needs evidence; static absence is not proof of runtime failure. Full accessibility work belongs to accessibility-audit.
-7. Prioritize fixes by reach and reuse. Preserve checks.not_checked and never replace visual baselines or change accepted constraints merely to pass a check.
+1. Identify the accepted design-system authority and exact scope; distinguish canonical rules from candidate/import/reference material.
+2. Run deterministic compliance tooling when it is available and version-compatible; otherwise use focused source inspection and report the fallback.
+3. Detect raw controls, hard-coded visual values, duplicate primitives, invalid variants, direct style bypasses, and confirmed missing behavior against approved component requirements.
+4. Consume Design Analysis/Diff as evidence. A new color, spacing value, component, or changed frequency is **drift**, not a violation unless it conflicts with an accepted rule or contract.
+5. Distinguish `observed`, `violation`, `risk`, and `not_checked`. Static absence of evidence must not become a claim that runtime behavior is broken.
+6. Infer a missing shared abstraction only when repeated product usage justifies it; route creation/evolution of that system to `design-system` and external primitive resolution to `component-resolution`.
+7. Honor documented exceptions and design-mode scope. Explore/revise work can intentionally diverge while still requiring explicit approval before new rules become canonical.
+8. Route accessibility-specific findings to `accessibility-audit`; do not convert generic visual differences into accessibility claims.
 
 ## Output
 
-Return scoped status, exact rule/evidence references, exceptions, drift observations, remediation proposals and performed/skipped checks. Report a score only when a real deterministic tool and its documented scope support it.
+Return authority/scope, evidence-backed violations, measurable drift that is not yet a violation, missing-evidence/not-checked areas, documented exceptions, remediation, and a compliance score/status only when deterministic tooling and an accepted rule set support it.
 
 ## Completion
 
-Structural conformance, subjective aesthetics and accessibility are distinct. No unrun check is claimed; reference metadata has not become a mandatory project requirement.
+Every violation maps to an accepted project rule or verified component requirement; drift alone is not scored as failure; evidence paths are exact; authority conflicts and exceptions are visible; and the audit does not claim visual, runtime, or accessibility verification that was not performed.

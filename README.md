@@ -123,17 +123,20 @@ design-intelligence            lifecycle orchestration: Analyze → Preserve →
 └── accessibility-audit        accessibility-specific verification
 ```
 
-The approved **Design Genome** is project-owned design/identity truth. Design Analysis is evidence, Design Task is structured implementation scope, and Design Analysis Diff is measurable drift evidence. References, provider components, AI interpretations, and market prevalence may propose changes but do not silently become project requirements or approved identity.
+A **Design Genome** becomes design/identity authority only when the target project designates that artifact/version as accepted truth. Design Analysis is evidence, Design Task is structured implementation scope, and Design Analysis Diff is measurable drift evidence rather than a violation or subjective quality score. References, provider components, AI interpretations, and market prevalence may propose changes but do not silently become project requirements or accepted identity.
 
 See [`manifest.json`](manifest.json) for the complete 30-skill inventory.
 
 ## Validation
 
-CI validates skill frontmatter, required procedural sections, trigger overlap, behavior-eval coverage, plugin manifests, canonical-version pins, adapters, prompts, and the repository's own `.agentic/` contract.
+Local deterministic validation covers skill frontmatter, trigger overlap, routing, distribution, compatibility pins, and Design Intelligence safety/handoff fixtures:
 
 ```bash
 python3 .github/scripts/validate_agents.py
+python3 .github/scripts/validate_design_intelligence.py
 python3 .github/scripts/package_plugin.py
 ```
 
-The package command produces a versioned plugin ZIP and SHA-256 checksum under `dist/`.
+`evals/design-intelligence.json` is a synthetic behavior contract fixture. It does **not** claim that any model has passed the scenarios; recorded model-behavior evaluation remains a separate future/run-specific artifact.
+
+CI runs the same validators and builds the versioned plugin ZIP/checksum under `dist/`.

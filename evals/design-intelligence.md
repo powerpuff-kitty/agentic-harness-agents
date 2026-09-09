@@ -1,6 +1,6 @@
 # Design skill acceptance and regression checks
 
-Tracks agent issues #12–#19. The initial 30-skill suite landed in PR #20.
+Tracks agent issues #12–#19. The initial 30-skill suite landed in PR #20, with baseline safety work in PR #21.
 These tests harden its evidence, approval, routing and capability boundaries.
 
 ## Local validation
@@ -12,7 +12,7 @@ python3 .github/scripts/test_design_skills.py
 ```
 
 The first command validates the entire installed collection and existing routing
-inventory. The second checks the five procedures changed in this follow-up,
+inventory. The second checks the two procedures changed in this follow-up,
 manifest/plugin parity, 17 acceptance scenarios covering all ten design/lifecycle
 roles, skill-local references and the synthetic enrichment handoff. The third
 runs unit tests including intentionally corrupted fixtures.
@@ -23,7 +23,7 @@ required by these scripts. Run full collection checks from a complete checkout.
 
 ## What these tests do not prove
 
-`evals/design-intelligence.json` is an acceptance scenario catalog, not a model
+`evals/design-skill-regressions.json` is an acceptance scenario catalog, not a model
 result log. Its prompts and expected/forbidden behavior can be used in later
 manual or model evaluations. Validating fixture integrity does not test routing
 by a real model and does not measure design originality, accessibility, visual

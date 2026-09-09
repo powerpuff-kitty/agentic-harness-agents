@@ -1,36 +1,36 @@
 ---
 name: agentic-app
-description: "Initialize, upgrade, migrate or broadly audit a repository using the Agentic Harness contract and selected modules. Use when the job spans overall harness setup or lifecycle. Do not use for focused readiness scoring, standalone legacy migration, design-only lifecycle orchestration or a single specialist review."
+description: "Initialize, upgrade, migrate, or broadly audit a repository using the Agentic Harness project contract and selected catalog modules. Use when the requested job spans overall harness setup or lifecycle rather than one specialist procedure. Do not use for a focused readiness score, a standalone legacy migration, or a single domain review when a narrower skill owns the task."
 ---
 # Agentic App
 
 ## Objective
 
-Orchestrate the Agentic Harness lifecycle while delegating specialist work and deterministic operations.
+Orchestrate the end-to-end Agentic Harness lifecycle while delegating specialist work to narrower skills and deterministic operations that are actually available in the target environment.
 
 ## Inputs
 
-Required: target repository and requested init, upgrade, migrate or broad-audit mode. Optional: project type, maturity, stack, profile/preset, packs, policies, skills, design posture and approval boundaries.
+Required: target repository and requested mode (`init`, `upgrade`, `migrate`, or broad audit). Optional: project type, maturity, stack constraints, profile/preset, packs, policies, skills, design posture, installed tooling/capabilities, and approval boundaries.
 
 ## Context
 
-Resolve current contract/catalog from agentic-harness using project pins. Route from AGENTS.md to .agentic/manifest.yaml and task-relevant truth. Follow bundled repository-discovery/context guidance when present; standalone installs inspect the local router without requiring unrelated files.
+Resolve the current contract/catalog from `agentic-harness`. In a target project, route from root `AGENTS.md` to `.agentic/manifest.yaml` and task-relevant truth. Follow `references/repository-discovery.md`, `references/context-engineering.md`, and progressive disclosure.
 
 ## Procedure
 
 1. Inspect the target before asking for facts the repository can answer.
-2. Resolve missing high-impact choices and state consequential assumptions.
-3. Select canonical variant/preset/profile plus installed modules/skills. Check actual tool and skill availability; never claim delegation to a missing specialist.
-4. Prefer supported ah composition, migration, validation and audit over hand-copying contracts. Verify version/help before invoking commands.
-5. Preserve project-authored truth and accepted ADRs during upgrades/migration.
-6. Route multi-stage design work to design-intelligence; route focused identity, analysis, research, component resolution, UX, design-system, compliance and accessibility requests directly to their owning skills. Installing a skill does not install a provider, dataset, MCP server or runtime analyzer.
-7. Route security, model-fit, ADR and release tasks to their existing specialists.
-8. Verify root hygiene, links, manifest/lock integrity, native tests and relevant gates. Do not silently change approvals or release/update installed skill snapshots.
+2. Resolve only missing high-impact choices and state consequential assumptions.
+3. Select the canonical variant/preset/profile plus modules and skills.
+4. Prefer deterministic composition, migration, validation, analysis, and audit when the installed CLI/version actually exposes the required capability. Do not assume planned commands exist; inspect help/version/manifests or use a documented artifact/manual fallback.
+5. Preserve project-authored truth and accepted ADRs during upgrades/migration; surface conflicts rather than silently selecting a newer source.
+6. Route specialist security, model-fit, ADR, release, and domain work to the appropriate narrower skill.
+7. When design work spans multiple stages, route through `design-intelligence` for Analyze → Preserve → Compile → Verify. A broad lifecycle request must not bypass candidate-to-approved Design Genome review gates.
+8. Verify root hygiene, router links, manifest/lock integrity, native tests, relevant quality gates, and exact checks skipped because a capability/provider was unavailable.
 
 ## Output
 
-Return composition/audit scope, files/modules affected, assumptions, actual command results, conflicts, approvals, handoffs and remaining risks.
+Return resolved composition or audit scope, files/modules affected, delegated skills, assumptions, deterministic command/capability results, artifact/manual fallbacks used, conflicts, approvals, and remaining risks.
 
 ## Completion
 
-The requested operation is repeatable, canonical truth preserved, sources pinned, and actual validation recorded. Missing tools/skills/providers and skipped checks remain explicit rather than being replaced with claimed success.
+The requested lifecycle operation is complete and repeatable, canonical truth is preserved, installed sources are locked, available checks pass, unavailable capabilities are not fabricated, design approval gates are preserved when relevant, and unresolved decisions or skipped validation are explicit.

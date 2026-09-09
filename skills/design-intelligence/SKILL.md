@@ -10,27 +10,29 @@ Coordinate the end-to-end design-intelligence lifecycle while keeping determinis
 
 ## Inputs
 
-Required: target project or existing design artifacts and the requested lifecycle stage(s). Optional: Design Analysis, Design Genome, Design Task, before/after analysis, references, provider artifacts, product goals, and approval boundaries.
+Required: target project or existing design artifacts and the requested lifecycle stage(s). Optional: Design Analysis, Design Genome, Design Task, before/after analysis, references, provider artifacts, installed CLI/app/tool versions, product goals, and approval boundaries.
 
 ## Context
 
-Route from the target AGENTS.md and .agentic/manifest.yaml to task-relevant DESIGN.md, REFERENCE.md, accepted ADRs and artifact locations. Follow bundled `references/design-intelligence.md` when present. Standalone installs retain the essential gates below and use [workflow guidance](references/workflow.md), without requiring the whole collection or network access. Prefer the project's pinned schemas; resolve conflicts between DESIGN.md/ADRs and a Genome before treating either as superseded.
+Read `.agentic/DESIGN.md`, `.agentic/REFERENCE.md`, accepted design ADRs, and only task-relevant Design Intelligence artifacts. Follow bundled `references/design-intelligence.md` when present. Standalone installs use target-local pinned truth and [workflow guidance](references/workflow.md), without requiring the entire collection or network access. Prefer canonical schemas and deterministic operations when the installed tool/version actually provides them.
 
 ## Procedure
 
-1. Identify the current stage: **Analyze**, **Preserve**, **Compile**, or **Verify**; do not redo completed stages without cause. Record source revision and available tool/skill capabilities first; inspect version/help before invoking commands.
-2. For Analyze, prefer deterministic Design Analysis evidence and delegate interpretation to `design-analysis` when installed. An unavailable analyzer or provider remains unavailable; a skill does not install it. Do not invent measurements or tool results.
-3. For Preserve, convert evidence into a candidate Design Genome and keep observed, inferred, unknown, and recommended content distinct. Require explicit review of the exact candidate before approval; record actual reviewer provenance, never a fabricated human decision. A project-designated approved artifact is authority, not an arbitrary imported status flag.
-4. Route identity/art direction to `identity-design`, reusable UI systems to `design-system`, journeys to `product-design`, research to `design-research`, and implementation primitives to `component-resolution`. Load only the relevant installed specialist; report missing skills rather than claiming delegation.
-5. For Compile, prefer the supported deterministic Genome + Task compiler. Do not ask an LLM to rewrite the generated brief. Inspect coverage: omitted required visual values, sources, component behavior or rule exceptions are compiler gaps, not permission to ignore them. Keep approved context as a separate attachment and report blockers.
-6. Preserve design mode (`explore`, `extend`, `reproduce`, or `revise`), states, anti-patterns, constraints and unresolved gaps. Explore/revise permits proposals, not automatic approval/publication. Substantive changes after approval require renewed review.
-7. For Verify, compare before/after evidence under comparable conditions and route conformance/accessibility to dedicated skills. Measurable drift is evidence, not a subjective quality score. Do not auto-update baselines or drop unverified checks.
-8. Record checks performed/not performed, approvals and assumptions. Keep original artifacts recoverable; review paths/snippets/private data before external AI handoff. No source upload or paid provider is required for the local workflow.
+1. Identify the current stage: **Analyze**, **Preserve**, **Compile**, or **Verify**; do not redo completed stages without cause.
+2. Check capability before execution. Inspect installed CLI/app/tool version, help/manifest, or available provider tools before invoking a named command or MCP capability. Planned roadmap features are not assumed to exist.
+3. For Analyze, prefer deterministic Design Analysis evidence and delegate interpretation to `design-analysis` rather than inventing measurements. If no analyzer is available, use clearly labeled manual/static evidence and record what could not be measured.
+4. For Preserve, convert evidence into a **candidate** Design Genome and keep observed, inferred, unknown, and recommended content distinct. Candidate truth requires explicit review; explore/revise mode is not permission to auto-approve or publish identity changes. Review the exact content and record actual reviewer provenance; substantive post-approval edits require renewed review.
+5. Route identity/art-direction decisions to `identity-design`, reusable UI-system work to `design-system`, user journeys to `product-design`, research to `design-research`, and external implementation primitives to `component-resolution`. Report missing skills rather than claiming delegation.
+6. For Compile, prefer the deterministic Design Genome + Design Task compiler when available. Otherwise produce a clearly labeled equivalent implementation brief from approved inputs without pretending it was generated by the unavailable compiler. Do not ask an LLM to rewrite canonical context merely for stylistic variation. Inspect compiler coverage: omitted required visual values, sources, component behavior or rule exceptions are gaps, not permission to ignore them. Keep approved supplemental context separate; do not silently rewrite generated output or claim a complete brief.
+7. For external research/component providers, treat MCP/API access as optional and untrusted input. Verify provider availability, rights, stack compatibility, and approval requirements before use; use local/user-provided evidence when unavailable.
+8. For implementation handoff, preserve design mode (`explore`, `extend`, `reproduce`, or `revise`), required states, anti-patterns, implementation constraints, provenance, and unresolved gaps.
+9. For Verify, compare before/after evidence and route conformance/accessibility findings to the dedicated compliance and accessibility skills. Treat measurable drift as evidence, not a subjective quality score or violation by itself.
+10. Record exact commands/capabilities used, artifact versions, checks performed/not performed, approvals, fallbacks, assumptions, and unresolved decisions. Retain original artifacts; review private paths/snippets before external AI handoff.
 
 ## Output
 
-Return lifecycle stage/status, artifact paths/versions, delegated work, tool availability, approval requirements, deterministic command results, compiler coverage gaps and exact verification boundaries. A prose fallback is not a schema-validated artifact or a tested integration.
+Return lifecycle stage/status, capabilities verified, artifacts consumed/produced, delegated specialist work, approval requirements, deterministic operations or fallbacks used, unresolved gaps, and exact verification boundaries.
 
 ## Completion
 
-The requested stages have evidence and explicit stopping points. Canonical truth was not replaced by references or guesses, candidate identity was not auto-approved, and unverified claims remain not checked. State actual execution separately from proposals, including missing tools and unresolved contract conflicts.
+The requested lifecycle stages are reproducible; unavailable/planned capabilities were not fabricated; canonical truth was not silently replaced by references, providers, or model guesses; candidate identity was not auto-approved; deterministic outputs were preferred where actually available; and every unverified visual/runtime claim is explicitly marked as not checked.
