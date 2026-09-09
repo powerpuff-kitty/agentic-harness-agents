@@ -1,6 +1,6 @@
 {
   "manifest_version": 1,
-  "version": "0.4.0-beta.1",
+  "version": "0.5.0-beta.1",
   "skill_contract_version": 1,
   "canonical_source": "https://github.com/powerpuff-kitty/agentic-harness",
   "canonical_layout": {
@@ -13,11 +13,11 @@
   "compatibility": {
     "agentic_harness": {
       "version": ">=0.3.0-beta.1 <1.0.0",
-      "revision": "831ea9e773ce1e466e07dda0dd3ddc9792c6a892"
+      "revision": "3e5279233f6b3f1a78c3ece864b2c5a023ac880a"
     },
     "agentic_harness_cli": {
       "version": ">=0.1.0 <1.0.0",
-      "revision": "343a471766dc5e6a6654baadb705c54ac75a3d26"
+      "revision": "3249b6f4d7a05fcff48b92bacfca5217116565fd"
     },
     "codex_skill_format": "agent-skills-v1"
   },
@@ -26,5 +26,5 @@
     "codex_marketplace": ".agents/plugins/marketplace.json",
     "release_bundle": "agentic-harness-agents-v{version}.zip"
   },
-  "skills": ["accessibility-audit", "adapter-sync", "adr-management", "agentic-app", "agentic-improvement", "agentic-structure-audit", "api-design", "codebase-audit", "competitive-research", "database-design", "dependency-upgrade", "design-system", "design-system-compliance", "documentation", "implementation-plan", "incident-review", "marketing", "migration", "model-fit", "performance-audit", "product-design", "release", "release-review", "security-review", "threat-model"]
+  "skills": ["accessibility-audit", "adapter-sync", "adr-management", "agentic-app", "agentic-improvement", "agentic-structure-audit", "api-design", "codebase-audit", "competitive-research", "component-resolution", "database-design", "dependency-upgrade", "design-analysis", "design-intelligence", "design-research", "design-system", "design-system-compliance", "documentation", "identity-design", "implementation-plan", "incident-review", "marketing", "migration", "model-fit", "performance-audit", "product-design", "release", "release-review", "security-review", "threat-model"]
 }
