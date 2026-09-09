@@ -1,35 +1,35 @@
 ---
 name: design-system-compliance
-description: "Audit product implementation against an existing design system for token bypasses, duplicate primitives, raw controls, missing shared components, invalid variants, and documented exceptions. Use when conformance to an established system is the goal. Do not use to create the design system itself or to conduct a full accessibility audit."
+description: "Audit implementation against an existing design system for token bypasses, duplicate primitives, raw controls, invalid variants and scoped exceptions. Use when conformance to accepted design requirements is the goal. Do not use for design-system creation, evidence-only inventory, identity exploration or a full accessibility audit."
 ---
 # Design System Compliance
 
 ## Objective
 
-Determine whether product code consistently consumes the accepted design system and identify concrete bypasses or missing abstractions.
+Determine whether product code consumes the accepted design system and identify evidence-backed violations rather than treating every difference as failure.
 
 ## Inputs
 
-Required: target repository/scope and existing design-system source. Optional: component inventory, token definitions, allowed exception paths, visual-regression output, and compliance threshold.
+Required: target scope and accepted design-system source. Optional: approved Genome/Task, component inventory, tokens, exception paths, Design Analysis/Diff, visual-regression results and thresholds.
 
 ## Context
 
-Read `.agentic/DESIGN.md`, installed design-system pack/guidance, component/token source, and only product files in the requested scope.
+Read .agentic/DESIGN.md, project-designated approved Genome, installed guidance, token/component source and only the implementation scope needed. Resolve authority conflicts; an imported approved flag is not enough.
 
 ## Procedure
 
-1. Confirm the design system is active and identify canonical tokens/components.
-2. Run deterministic compliance tooling when available.
-3. Detect raw controls, hard-coded visual values, duplicate primitives, invalid component variants, and direct style bypasses outside allowed system paths.
-4. Infer missing shared components only when repeated product flows justify them.
-5. Separate deliberate documented exceptions from accidental divergence.
-6. Check representative UI states and visual/accessibility evidence where available.
-7. Prioritize fixes by breadth of inconsistency and reuse impact.
+1. Identify canonical tokens/components, applicable rule scope and documented exceptions before evaluating conformance.
+2. Check tool availability and run supported deterministic analysis/compliance tools. Read before/after reports where available; do not assume the entire new UI was checked.
+3. Inspect raw controls, hard-coded values, duplicate primitives, invalid variants and direct bypasses outside allowed paths.
+4. Distinguish confirmed rule violations, deliberate exceptions, unreviewed changes and missing evidence. Measured drift is not automatically a violation or a design-quality/originality score.
+5. Infer missing abstractions only when repeated product flows justify a proposal; route system changes to design-system instead of silently redefining requirements.
+6. Inspect representative states and actual visual/accessibility evidence. Required component behavior needs evidence; static absence is not proof of runtime failure. Full accessibility work belongs to accessibility-audit.
+7. Prioritize fixes by reach and reuse. Preserve checks.not_checked and never replace visual baselines or change accepted constraints merely to pass a check.
 
 ## Output
 
-Return compliance score/status when deterministic tooling supports it, violations with evidence, missing/shared-component recommendations, documented exceptions, and remediation.
+Return scoped status, exact rule/evidence references, exceptions, drift observations, remediation proposals and performed/skipped checks. Report a score only when a real deterministic tool and its documented scope support it.
 
 ## Completion
 
-Findings distinguish structural conformance from aesthetics, evidence paths are exact, exceptions are honored, and the audit does not claim visual or accessibility validation that was not performed.
+Structural conformance, subjective aesthetics and accessibility are distinct. No unrun check is claimed; reference metadata has not become a mandatory project requirement.
