@@ -4,3 +4,7 @@ decisions:
     title: Keep agent procedures downstream of canonical project truth
     status: accepted
     file: ADR-001-canonical-source-boundary.md
+  - id: ADR-002
+    title: Split Design Intelligence into specialist skills
+    status: accepted
+    file: ADR-002-design-intelligence-specialist-skills.md
