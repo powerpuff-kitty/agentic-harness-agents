@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.5.0-beta.1
+
+- add `design-intelligence` lifecycle orchestration for Analyze → Preserve → Compile → Verify;
+- add `design-analysis` for evidence-backed interpretation and external analysis reconciliation;
+- add `identity-design` for art direction, distinctiveness, and Design Genome identity work;
+- add `design-research` for visual/UI/UX pattern and product-flow research with provenance boundaries;
+- add `component-resolution` for project/internal/external implementation primitive selection and adaptation;
+- align `design-system` and `product-design` with approved Design Genome authority and specialist routing boundaries;
+- add shared Design Intelligence evidence, mode, provider, and verification rules;
+- expand routing evals and Codex plugin inventory to 30 skills;
+- refresh canonical Agentic Harness and CLI compatibility pins.
+
 ## 0.4.0-beta.1
 
 - make all 25 skills valid Agent Skills with `name` and `description` YAML frontmatter;
