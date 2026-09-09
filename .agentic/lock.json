@@ -1,8 +1,8 @@
 {
   "format_version": 1,
-  "canonical_source": {"repository": "powerpuff-kitty/agentic-harness", "revision": "831ea9e773ce1e466e07dda0dd3ddc9792c6a892"},
+  "canonical_source": {"repository": "powerpuff-kitty/agentic-harness", "revision": "3e5279233f6b3f1a78c3ece864b2c5a023ac880a"},
   "agents_source": {"repository": "powerpuff-kitty/agentic-harness-agents", "revision": "self"},
-  "cli_source": {"repository": "powerpuff-kitty/agentic-harness-cli", "revision": "343a471766dc5e6a6654baadb705c54ac75a3d26"},
+  "cli_source": {"repository": "powerpuff-kitty/agentic-harness-cli", "revision": "3249b6f4d7a05fcff48b92bacfca5217116565fd"},
   "variant": "library-sdk",
   "packs": {},
   "policies": {},

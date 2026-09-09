@@ -5,19 +5,19 @@
 
 **Installable Agent Skills for Codex, plus compatible procedures and adapters for Claude Code, Cursor, GitHub Copilot, Gemini CLI, and other coding agents.**
 
-Current distribution version: **`0.4.0-beta.1`**.
+Current distribution version: **`0.5.0-beta.1`**.
 
-This repository owns **procedure**, not canonical project architecture. Canonical project truth lives in [`agentic-harness`](https://github.com/powerpuff-kitty/agentic-harness); deterministic composition and audits live in [`agentic-harness-cli`](https://github.com/powerpuff-kitty/agentic-harness-cli).
+This repository owns **procedure**, not canonical project architecture. Canonical project truth lives in [`agentic-harness`](https://github.com/powerpuff-kitty/agentic-harness); deterministic composition, analysis, compilation, and audits live in [`agentic-harness-cli`](https://github.com/powerpuff-kitty/agentic-harness-cli).
 
 ```text
 agentic-harness
-project contract + catalog + policies + schemas + model registry
+project contract + catalog + policies + schemas + registries
         ↓
 agentic-harness-agents
 skills + prompts + adapters + behavior evals
         ↓
 agentic-harness-cli
-deterministic composition, migration, audit, validation
+deterministic composition, analysis, migration, audit, validation
 ```
 
 ## Quick start
@@ -56,7 +56,7 @@ This repository is a skills-only Codex plugin. Its native manifest is [`.codex-p
 
 Workspace admins can import the repository as a GitHub plugin marketplace from **Workspace settings → Plugins → Add → Import marketplace**. Use the repository URL, leave Path empty, and select a branch, tag, or commit depending on whether you want automatic updates or an immutable version.
 
-No external app or account authorization is required because this plugin contains skills only.
+No external app or account authorization is required because this plugin contains skills only. Individual skills may use project-authorized tools/providers when a task explicitly requires them.
 
 ## Canonical target model
 
@@ -94,7 +94,7 @@ Every `skills/<name>/SKILL.md` follows the Agent Skills format:
 - explicit `Objective`, `Inputs`, `Context`, `Procedure`, `Output`, and `Completion` sections;
 - project truth remains external to the skill.
 
-See [`references/skill-contract.md`](references/skill-contract.md) and [`references/context-engineering.md`](references/context-engineering.md).
+See [`references/skill-contract.md`](references/skill-contract.md), [`references/context-engineering.md`](references/context-engineering.md), and [`references/design-intelligence.md`](references/design-intelligence.md).
 
 ## Core workflows
 
@@ -105,9 +105,27 @@ See [`references/skill-contract.md`](references/skill-contract.md) and [`referen
 - `migration` — migrate legacy repository layouts safely and idempotently.
 - `adr-management` — create, supersede, and index durable decisions.
 - `adapter-sync` — keep vendor adapters thin and canonical.
-- specialist review/design/delivery skills cover security, accessibility, performance, API/data, product, design systems, releases, incidents, and research.
+- specialist review/design/delivery skills cover security, accessibility, performance, API/data, product, design, releases, incidents, and research.
 
-See [`manifest.json`](manifest.json) for the complete inventory.
+### Design Intelligence hierarchy
+
+The design suite separates evidence, identity, UX, reusable UI systems, implementation sources, and verification instead of using one catch-all design skill:
+
+```text
+design-intelligence            lifecycle orchestration: Analyze → Preserve → Compile → Verify
+├── design-analysis            interpret measured evidence and imported analysis
+├── design-research            visual/UI/UX pattern and flow research
+├── identity-design            art direction, distinctiveness, brand-facing visual identity
+├── product-design             user journeys, states, hierarchy, recovery, product UX
+├── design-system              reusable tokens, components, states, layouts, patterns
+├── component-resolution       project/internal/external implementation primitives
+├── design-system-compliance   structural conformance and bypass detection
+└── accessibility-audit        accessibility-specific verification
+```
+
+The approved **Design Genome** is project-owned design/identity truth. Design Analysis is evidence, Design Task is structured implementation scope, and Design Analysis Diff is measurable drift evidence. References, provider components, AI interpretations, and market prevalence may propose changes but do not silently become project requirements or approved identity.
+
+See [`manifest.json`](manifest.json) for the complete 30-skill inventory.
 
 ## Validation
 
