@@ -70,3 +70,10 @@ CLI/repository checks supply deterministic evidence
 ```
 
 A skill may explain how to work with an ADR or architecture document; it may not decide the project's architecture merely because the skill is newer.
+
+## License
+
+Authored code and content are available under the [MIT License](LICENSE).
+Third-party material retains its existing licenses and attribution requirements.
+Copied Harness templates and skills retain their MIT notice; independently
+written application code may use its own license.
