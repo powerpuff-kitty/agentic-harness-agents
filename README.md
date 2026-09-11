@@ -140,3 +140,10 @@ python3 .github/scripts/package_plugin.py
 `evals/design-intelligence.json` is a synthetic behavior contract fixture. It does **not** claim that any model has passed the scenarios; recorded model-behavior evaluation remains a separate future/run-specific artifact.
 
 CI runs the same validators and builds the versioned plugin ZIP/checksum under `dist/`.
+
+## License
+
+Authored code and content are available under the [MIT License](LICENSE).
+Third-party material retains its existing licenses and attribution requirements.
+Copied Harness templates and skills retain their MIT notice; independently
+written application code may use its own license.

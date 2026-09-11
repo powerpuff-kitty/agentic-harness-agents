@@ -23,7 +23,7 @@ roots = [
     ROOT / "references",
     ROOT / "evals",
 ]
-files = [ROOT / "README.md", ROOT / "AGENTS.md", ROOT / "manifest.json", ROOT / "CHANGELOG.md"]
+files = [ROOT / "LICENSE", ROOT / "README.md", ROOT / "AGENTS.md", ROOT / "manifest.json", ROOT / "CHANGELOG.md"]
 
 if archive.exists():
     archive.unlink()

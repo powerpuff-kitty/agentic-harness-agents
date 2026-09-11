@@ -37,3 +37,8 @@ design-intelligence
 `design-intelligence` orchestrates the lifecycle but delegates specialist work. Canonical Design Genome/Analysis/Task/Diff schemas remain owned by `agentic-harness`; deterministic analyzers, preservation/compilation, and related mechanics remain owned by `agentic-harness-cli`/other deterministic surfaces.
 
 The procedure layer may interpret evidence and propose changes, but must not silently promote references, model inference, external component defaults, or frequency observations into approved project truth.
+
+Authored procedures, prompts, adapters, references and evals use the root MIT
+[LICENSE](../LICENSE). Canonical licensing scope and generated-project attribution
+are defined by `agentic-harness` ADR-007. When copying substantial skill content,
+retain the MIT notice; third-party material retains its existing terms.

@@ -64,7 +64,7 @@ def tokens(description: str) -> set[str]:
     return {w for w in re.findall(r"[a-z0-9]+", description.lower()) if len(w) > 2 and w not in STOPWORDS}
 
 
-required_files = ["AGENTS.md", "README.md", "manifest.json", ".agentic/README.md", ".agentic/manifest.yaml", ".agentic/lock.json", ".agentic/PRODUCT.md", ".agentic/ARCHITECTURE.md", ".agentic/SECURITY.md", ".agentic/decisions/index.yaml", "references/context-engineering.md", "references/skill-contract.md", ".codex-plugin/plugin.json", ".agents/plugins/marketplace.json", "evals/routing.json"]
+required_files = ["LICENSE", "AGENTS.md", "README.md", "manifest.json", ".agentic/README.md", ".agentic/manifest.yaml", ".agentic/lock.json", ".agentic/PRODUCT.md", ".agentic/ARCHITECTURE.md", ".agentic/SECURITY.md", ".agentic/decisions/index.yaml", "references/context-engineering.md", "references/skill-contract.md", ".codex-plugin/plugin.json", ".agents/plugins/marketplace.json", "evals/routing.json"]
 for path in required_files:
     if not (ROOT / path).is_file():
         fail(f"missing required file: {path}")
