@@ -13,5 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate procedures, adapters, and self-hosting contract
+      - name: Validate skills, routing, distribution, and self-hosting contract
         run: python3 .github/scripts/validate_agents.py
+      - name: Validate Design Intelligence safety and handoff scenarios
+        run: python3 .github/scripts/validate_design_intelligence.py
+      - name: Build installable plugin bundle
+        run: python3 .github/scripts/package_plugin.py
+      - name: Inspect bundle
+        run: |
+          unzip -t dist/*.zip
+          (cd dist && sha256sum -c *.zip.sha256)
+          python3 -c 'from pathlib import Path; import zipfile; archive = next(Path("dist").glob("*.zip")); assert zipfile.ZipFile(archive).read("LICENSE") == Path("LICENSE").read_bytes()'

@@ -1,16 +1,35 @@
+---
+name: documentation
+description: "Create or update durable project documentation so current product, architecture, security, design, operational, API, data, or testing truth matches accepted changes. Use when documentation is itself the requested deliverable or must be synchronized after approved work. Do not use to invent decisions, create ADRs, or produce a temporary implementation plan."
+---
 # Documentation
 
-Maintain the Agentic Harness information lifecycle:
+## Objective
 
-```text
-evidence → ADR → current truth → plan → task → implementation/validation
-```
+Keep durable project documentation concise, current, correctly routed, and distinct from evidence, decisions, plans, and task state.
 
-- `.agentic/REFERENCE.md` and `docs/research/` hold evidence and provenance.
-- `.agentic/decisions/` records why durable choices were made.
-- `.agentic/PRODUCT.md`, `ARCHITECTURE.md`, `DESIGN.md`, and `SECURITY.md` describe current accepted truth.
-- `.agentic/plans/` holds temporary strategy.
-- `.agentic/tasks/` holds active coordination state.
-- `.agentic/docs/` holds deeper supporting knowledge.
+## Inputs
 
-Keep canonical files concise and link deeper detail. Do not use an ADR as current-state documentation or a plan as a durable decision. Detect stale links and contradictions, and update only documents whose truth actually changed.
+Required: target repository and documentation scope/change. Optional: accepted ADR, implemented diff, audience, existing docs, and required format.
+
+## Context
+
+Route through `AGENTS.md` and `.agentic/README.md`. Read only the canonical document being changed plus the evidence/ADR/code needed to verify the new truth.
+
+## Procedure
+
+1. Classify the content: current truth, evidence/reference, accepted decision, temporary plan, active task, or supporting documentation.
+2. Update the canonical location instead of duplicating the same rule elsewhere.
+3. Derive documentation from accepted decisions and implemented behavior; do not manufacture missing business/architecture choices.
+4. Keep root/router files compact and move depth to the relevant `.agentic/` path.
+5. Repair links/indexes affected by moves or renames.
+6. Remove stale statements only when evidence proves they are obsolete; preserve decision history in ADRs.
+7. Run doc/link/schema checks where available.
+
+## Output
+
+Return documents changed, truth/source used, removed contradictions, links/indexes updated, and unresolved documentation gaps.
+
+## Completion
+
+One obvious canonical source exists for each changed fact, ADR history is preserved, temporary content is not promoted to durable truth, and relevant documentation validation passes.
