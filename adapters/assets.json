@@ -1,0 +1,45 @@
+{
+  "format_version": 1,
+  "kind": "native-adapter-assets",
+  "installation": "manual-review",
+  "profiles": {
+    "base": {"default": true},
+    "typed-ui": {"default": false, "patterns": ["**/*.ts", "**/*.tsx", "**/*.vue"]}
+  },
+  "adapters": [
+    {
+      "id": "claude",
+      "router": "AGENTS.md",
+      "router_loading": "import",
+      "files": [
+        {"source": "claude/files/CLAUDE.md", "target": "CLAUDE.md", "profile": "base"},
+        {"source": "claude/files/.claude/rules/agentic-typed-ui.md", "target": ".claude/rules/agentic-typed-ui.md", "profile": "typed-ui"}
+      ],
+      "documentation": "https://code.claude.com/docs/en/memory",
+      "reviewed_at": "2026-09-12",
+      "host_execution": {"status": "not-run", "version": null, "evidence": []}
+    },
+    {
+      "id": "cursor",
+      "router": "AGENTS.md",
+      "router_loading": "native",
+      "files": [
+        {"source": "cursor/files/.cursor/rules/agentic-typed-ui.mdc", "target": ".cursor/rules/agentic-typed-ui.mdc", "profile": "typed-ui"}
+      ],
+      "documentation": "https://cursor.com/docs/rules",
+      "reviewed_at": "2026-09-12",
+      "host_execution": {"status": "not-run", "version": null, "evidence": []}
+    },
+    {
+      "id": "codex",
+      "router": "AGENTS.md",
+      "router_loading": "native",
+      "files": [],
+      "documentation": "https://developers.openai.com/codex/guides/agents-md",
+      "reviewed_at": "2026-09-12",
+      "host_execution": {"status": "not-run", "version": null, "evidence": []}
+    }
+  ],
+  "modifies_host_permissions": false,
+  "executes_commands": false
+}
