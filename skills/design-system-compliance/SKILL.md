@@ -6,31 +6,32 @@ description: "Audit product implementation against an accepted design system for
 
 ## Objective
 
-Determine whether product code conforms to the project's accepted design-system rules and component contracts without treating ordinary design drift or unreviewed analysis as an automatic violation.
+Review implementation against the project's accepted design rules and component contracts. Distinguish a rule violation from ordinary drift, an approved exception and an untested behavior.
 
 ## Inputs
 
-Required: target repository/scope and accepted design-system source. Optional: project-designated approved Design Genome, Design Analysis/Diff artifacts, component inventory/contracts, token definitions, allowed exception paths, visual-regression evidence, and compliance threshold.
+Required: target scope and an identifiable accepted design-system authority. Optional: project-approved Design Genome, token/component contracts, analysis/diff artifacts, design mode, exceptions and visual/runtime evidence. Stop scoring when the accepted authority is missing or contradictory.
 
 ## Context
 
-Read `.agentic/DESIGN.md`, accepted design ADRs, canonical token/component source, and `references/design-intelligence.md`. Use a Design Genome as authority only when the target project designates that artifact/version as accepted truth. If DESIGN.md, ADRs, and Genome conflict, report the conflict instead of choosing silently.
+Resolve design truth through the target's router and manifest, including custom paths. Read only affected rules, token/component definitions and applicable decisions. `.agentic/DESIGN.md` is a target default. A Design Genome is authority only when the target designates its exact version as approved; candidate/import/reference material is not.
+
+The [review guide](references/review-guide.md) and [report template](references/report-template.md) are bundled locally. The [shared design boundaries](references/design-intelligence.md) are an exact bundled copy of the collection reference. No sibling skill or collection checkout is required at runtime.
 
 ## Procedure
 
-1. Identify the accepted design-system authority and exact scope; distinguish canonical rules from candidate/import/reference material.
-2. Run deterministic compliance tooling when it is available and version-compatible; otherwise use focused source inspection and report the fallback.
-3. Detect raw controls, hard-coded visual values, duplicate primitives, invalid variants, direct style bypasses, and confirmed missing behavior against approved component requirements.
-4. Consume Design Analysis/Diff as evidence. A new color, spacing value, component, or changed frequency is **drift**, not a violation unless it conflicts with an accepted rule or contract.
-5. Distinguish `observed`, `violation`, `risk`, and `not_checked`. Static absence of evidence must not become a claim that runtime behavior is broken.
-6. Infer a missing shared abstraction only when repeated product usage justifies it; route creation/evolution of that system to `design-system` and external primitive resolution to `component-resolution`.
-7. Honor documented exceptions and design-mode scope. Explore/revise work can intentionally diverge while still requiring explicit approval before new rules become canonical.
-8. Route accessibility-specific findings to `accessibility-audit`; do not convert generic visual differences into accessibility claims.
+1. Record source identity, reviewed screens/components, accepted authority/version, design mode and exclusions. Resolve authority conflicts explicitly; neither recency, token frequency nor an imported design is automatic approval.
+2. Build a compact rule-to-evidence map for affected tokens, primitive/component reuse, variants, states and documented exceptions. Do not require a universal token scheme, component library or folder layout.
+3. Inspect installed tool versions/help before using deterministic analysis. A compatible trusted CLI may provide static design analysis, component inventory or a diff; it must not rewrite context or approve identity during review. When tooling is unavailable, inspect the mapped source directly and report the reduced coverage.
+4. Trace each hard-coded value, raw control, duplicate primitive or invalid variant to a concrete accepted rule. Inspect generated/vendor code, fixtures, legitimate platform adapters and exception scope before filing a violation. Similar appearance alone does not prove duplicate ownership.
+5. Classify each result as `observed`, `violation`, `risk`, `exception` or `not_checked`. A new value or frequency change is drift unless an accepted rule forbids it. Static markup cannot by itself establish runtime focus, keyboard interaction, responsive behavior or visual equivalence.
+6. Consume previous analysis only with matching inputs/scope and appropriate freshness. Changed source or authority invalidates an earlier conformance conclusion. Record commands/screens actually tested; do not relabel missing visual evidence as a pass.
+7. Propose a scoped repair using approved components/tokens. Route creation or revision to design-system work, identity questions to identity design, and accessibility verification to its specialist when available. Explore/revise scope permits proposals, not publication or automatic approval.
 
 ## Output
 
-Return authority/scope, evidence-backed violations, measurable drift that is not yet a violation, missing-evidence/not-checked areas, documented exceptions, remediation, and a compliance score/status only when deterministic tooling and an accepted rule set support it.
+Return accepted authority/scope, a rule-evidence table, confirmed violations, non-violating drift, applicable exceptions, untested behavior and prioritized remediation. Provide a compliance score only when an accepted rubric and adequate measured coverage support it; otherwise leave it unknown.
 
 ## Completion
 
-Every violation maps to an accepted project rule or verified component requirement; drift alone is not scored as failure; evidence paths are exact; authority conflicts and exceptions are visible; and the audit does not claim visual, runtime, or accessibility verification that was not performed.
+Every violation cites an accepted rule and inspected implementation. Authority conflicts, exceptions and stale artifacts are visible. The report never claims a browser, visual regression, accessibility test or native host ran when it did not. Copying components or finding token files is not verification.
