@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+- deepen broad codebase/architecture review, implementation security review and design-system compliance with local decision guides, counterexamples, report templates and explicit untested boundaries;
+- add documentation-only standalone skill bundles with declared references, optional-tool fallbacks, exact MIT attribution and content inventories;
+- bundle the shared Design Intelligence guide with compliance and detect drift against the collection source;
+- check isolated archives and actual collection ZIP contents; preserve current skill names, triggers and plugin version;
+- document usage and verification limits in [standalone skills](references/standalone-skills.md). Model outcomes, remaining flagship skills and downstream CLI pin verification are not claimed by packaging tests.
+
 ## 0.5.0-beta.1
 
 - add `design-intelligence` lifecycle orchestration for Analyze → Preserve → Compile → Verify;

@@ -7,9 +7,12 @@ import shutil
 import zipfile
 from pathlib import Path
 
+from skill_bundle import enrolled, verify_collection
+
 ROOT = Path(__file__).resolve().parents[2]
 manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
 version = manifest["version"]
+bundles = enrolled(ROOT)
 dist = ROOT / "dist"
 dist.mkdir(exist_ok=True)
 archive = dist / f"agentic-harness-agents-v{version}.zip"
@@ -35,8 +38,10 @@ with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED, compresslev
             if path.is_file() and "__pycache__" not in path.parts:
                 zf.write(path, path.relative_to(ROOT))
 
+verify_collection(archive, bundles)
 digest = hashlib.sha256(archive.read_bytes()).hexdigest()
 checksum = archive.with_suffix(archive.suffix + ".sha256")
 checksum.write_text(f"{digest}  {archive.name}\n", encoding="utf-8")
 print(archive.relative_to(ROOT))
 print(checksum.relative_to(ROOT))
+print(f'{len(bundles)} declared standalone payloads retained in the collection archive')

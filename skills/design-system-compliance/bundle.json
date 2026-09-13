@@ -1,0 +1,20 @@
+{
+  "format_version": 1,
+  "kind": "standalone-skill",
+  "name": "design-system-compliance",
+  "files": [
+    "SKILL.md",
+    "references/review-guide.md",
+    "references/report-template.md",
+    "references/design-intelligence.md"
+  ],
+  "optional_tools": [
+    {
+      "name": "ah",
+      "fallback": "Use the manual review procedure; mark unsupported or unexecuted checks explicitly."
+    }
+  ],
+  "shared_references": {
+    "references/design-intelligence.md": "references/design-intelligence.md"
+  }
+}
