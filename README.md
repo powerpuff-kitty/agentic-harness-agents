@@ -125,7 +125,7 @@ design-intelligence            lifecycle orchestration: Analyze → Preserve →
 
 A **Design Genome** becomes design/identity authority only when the target project designates that artifact/version as accepted truth. Design Analysis is evidence, Design Task is structured implementation scope, and Design Analysis Diff is measurable drift evidence rather than a violation or subjective quality score. References, provider components, AI interpretations, and market prevalence may propose changes but do not silently become project requirements or accepted identity.
 
-See [`manifest.json`](manifest.json) for the complete 30-skill inventory.
+See [`manifest.json`](manifest.json) for the complete 31-skill inventory.
 
 ## Validation
 
