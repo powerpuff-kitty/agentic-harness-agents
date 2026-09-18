@@ -26,5 +26,37 @@
     "codex_marketplace": ".agents/plugins/marketplace.json",
     "release_bundle": "agentic-harness-agents-v{version}.zip"
   },
-  "skills": ["accessibility-audit", "adapter-sync", "adr-management", "agentic-app", "agentic-improvement", "agentic-structure-audit", "api-design", "codebase-audit", "competitive-research", "component-resolution", "database-design", "dependency-upgrade", "design-analysis", "design-intelligence", "design-research", "design-system", "design-system-compliance", "documentation", "identity-design", "implementation-plan", "incident-review", "marketing", "migration", "model-fit", "performance-audit", "product-design", "release", "release-review", "security-review", "threat-model"]
+  "skills": [
+    "accessibility-audit",
+    "adapter-sync",
+    "adr-management",
+    "agentic-app",
+    "agentic-improvement",
+    "agentic-structure-audit",
+    "api-design",
+    "code-quality",
+    "codebase-audit",
+    "competitive-research",
+    "component-resolution",
+    "database-design",
+    "dependency-upgrade",
+    "design-analysis",
+    "design-intelligence",
+    "design-research",
+    "design-system",
+    "design-system-compliance",
+    "documentation",
+    "identity-design",
+    "implementation-plan",
+    "incident-review",
+    "marketing",
+    "migration",
+    "model-fit",
+    "performance-audit",
+    "product-design",
+    "release",
+    "release-review",
+    "security-review",
+    "threat-model"
+  ]
 }
