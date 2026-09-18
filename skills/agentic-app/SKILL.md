@@ -28,6 +28,8 @@ Resolve the current contract/catalog from `agentic-harness`. In a target project
 7. When design work spans multiple stages, route through `design-intelligence` for Analyze → Preserve → Compile → Verify. A broad lifecycle request must not bypass candidate-to-approved Design Genome review gates.
 8. Verify root hygiene, router links, manifest/lock integrity, native tests, relevant quality gates, and exact checks skipped because a capability/provider was unavailable.
 
+When an installed CLI supports `checks complete`, follow the canonical completion contract. Obtain explicit caller review of the exact evidence manifest binding report, producer and reference digests; never calculate and supply approval automatically for arbitrary project evidence. Keep execution approval separate. Report the verdict scope and trust mode, retain producer authentication as unverified, and do not turn declared-check/control acceptance into whole-project readiness. Missing, stale, mismatched or rejected evidence keeps completion unverified.
+
 ## Output
 
 Return resolved composition or audit scope, files/modules affected, delegated skills, assumptions, deterministic command/capability results, artifact/manual fallbacks used, conflicts, approvals, and remaining risks.
