@@ -15,6 +15,7 @@
     "./skills/competitive-research",
     "./skills/component-resolution",
     "./skills/database-design",
+    "./skills/decision-intelligence",
     "./skills/dependency-upgrade",
     "./skills/design-analysis",
     "./skills/design-intelligence",
@@ -37,6 +38,6 @@
   ],
   "interface": {
     "displayName": "Agentic Harness",
-    "shortDescription": "30 skills for agent-native repository engineering"
+    "shortDescription": "31 skills for agent-native repository engineering"
   }
 }

@@ -18,7 +18,7 @@ Choose an existing output directory outside the checkout. Existing outputs are n
 
 The ZIP contains one skill directory, its declared documentation, the exact repository MIT notice and an internal SHA-256 inventory. Repeated packaging of identical inputs produces identical uncompressed ZIP bytes with fixed metadata. The inventory detects byte corruption relative to itself; it is not a signature, proof of trusted authorship or evidence that a model followed the skill.
 
-`bundle.json` and `bundle-lock.json` are this repository's distribution metadata, not additions to the Agent Skills standard or target-project architecture. Only the three declared documentation bundles are supported by this first packager. It does not claim that all 30 skills are standalone-complete or support arbitrary scripts, binary assets or external dependencies.
+`bundle.json` and `bundle-lock.json` are this repository's distribution metadata, not additions to the Agent Skills standard or target-project architecture. Only the three declared documentation bundles are supported by this first packager. It does not claim that all 31 skills are standalone-complete or support arbitrary scripts, binary assets or external dependencies.
 
 ## Dependencies and shared guidance
 
