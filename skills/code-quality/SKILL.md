@@ -14,7 +14,7 @@ Required: target repository and the requested quality scope. Optional: changed r
 
 ## Context
 
-Start with the target's `AGENTS.md` and project-selected architecture/quality context. Detect the languages and existing formatter/linter/typechecker configuration before proposing tooling. When an installed compatible `ah` exists, `ah quality detect` and `ah quality analyze` may provide read-only evidence. Load language/tool guidance only for ecosystems present in scope.
+Start with the target's `AGENTS.md` and project-selected architecture/quality context. Use the [review guide](references/review-guide.md) for TypeScript, Rust, partial-support, baseline and autofix decision examples. Detect the languages and existing formatter/linter/typechecker configuration before proposing tooling. When an installed compatible `ah` exists, `ah quality detect` and `ah quality analyze` may provide read-only evidence. Load language/tool guidance only for ecosystems present in scope.
 
 Project-native conventions outrank generic preferences. Tool presence does not prove execution, and a missing tool does not authorize installing it. Keep architecture dependency rules separate from quality rules while reusing accepted architecture evidence when import/dependency hygiene is in scope.
 
