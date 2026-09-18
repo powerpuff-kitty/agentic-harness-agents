@@ -101,6 +101,7 @@ See [`references/skill-contract.md`](references/skill-contract.md), [`references
 - `agentic-app` — initialize, migrate, upgrade, or audit an agent-native project.
 - `agentic-structure-audit` — score Agentic Readiness without conflating it with ordinary code quality.
 - `model-fit` — compare evidence-backed model profiles for a repository or task.
+- `decision-intelligence` — design and apply bounded semantic classification, scoring, probability, and routing decisions without delegating authorization.
 - `agentic-improvement` — plan and apply targeted agentic-structure improvements.
 - `migration` — migrate legacy repository layouts safely and idempotently.
 - `adr-management` — create, supersede, and index durable decisions.
@@ -125,7 +126,7 @@ design-intelligence            lifecycle orchestration: Analyze → Preserve →
 
 A **Design Genome** becomes design/identity authority only when the target project designates that artifact/version as accepted truth. Design Analysis is evidence, Design Task is structured implementation scope, and Design Analysis Diff is measurable drift evidence rather than a violation or subjective quality score. References, provider components, AI interpretations, and market prevalence may propose changes but do not silently become project requirements or accepted identity.
 
-See [`manifest.json`](manifest.json) for the complete 30-skill inventory.
+See [`manifest.json`](manifest.json) for the complete 31-skill inventory.
 
 ## Validation
 
