@@ -30,6 +30,11 @@
     {"id":"release","prompt":"Prepare and execute the approved release process, versioning, changelog, artifacts, and rollout checks.","expected_skill":"release","must_not_use":["release-review","dependency-upgrade"]},
     {"id":"release-review","prompt":"Review this release candidate and decide whether it satisfies the documented release gates.","expected_skill":"release-review","must_not_use":["release","codebase-audit"]},
     {"id":"security-review","prompt":"Review this implementation for authentication, authorization, secrets, dependency, and input-handling vulnerabilities.","expected_skill":"security-review","must_not_use":["threat-model","codebase-audit"]},
-    {"id":"threat-model","prompt":"Before implementation, map assets, trust boundaries, attackers, abuse cases, and mitigations for this new system.","expected_skill":"threat-model","must_not_use":["security-review","api-design"]}
+    {"id":"threat-model","prompt":"Before implementation, map assets, trust boundaries, attackers, abuse cases, and mitigations for this new system.","expected_skill":"threat-model","must_not_use":["security-review","api-design"]},
+    {"id":"decision-support","prompt":"Judge whether this architectural claim is supported, contradicted or missing evidence, using only the supplied findings and sources.","expected_skill":"decision-intelligence","must_not_use":["codebase-audit","agentic-improvement","model-fit"]},
+    {"id":"decision-jev-guidance","prompt":"Design finite Jev task-classification questions and an abstention path; do not call a provider yet.","expected_skill":"decision-intelligence","must_not_use":["model-fit","agentic-improvement"]},
+    {"id":"optimise-context","prompt":"Reduce repeated source reads, duplicate instructions and verbose handoffs while preserving mandatory context and tests.","expected_skill":"agentic-improvement","must_not_use":["decision-intelligence","performance-audit","model-fit"]},
+    {"id":"native-lint-not-semantic","prompt":"Audit the existing lint results and run the authorised native checks; do not substitute a semantic judgment.","expected_skill":"codebase-audit","must_not_use":["decision-intelligence"]},
+    {"id":"release-not-semantic","prompt":"Review the release candidate against required evidence and owner approval; a confident model answer is not approval.","expected_skill":"release-review","must_not_use":["decision-intelligence"]}
   ]
 }

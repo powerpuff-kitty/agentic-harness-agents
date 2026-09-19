@@ -12,7 +12,7 @@ runpy.run_path(str(HERE / '_validate_agents_structure.py'), run_name='__main__')
 errors = validate_repository()
 if errors:
     raise SystemExit('\n'.join(errors))
-for pattern in ['test_adapter_assets.py', 'test_skill_bundles.py']:
+for pattern in ['test_adapter_assets.py', 'test_skill_bundles.py', 'test_guidance_efficiency.py']:
     suite = unittest.defaultTestLoader.discover(str(HERE), pattern=pattern)
     if not unittest.TextTestRunner(verbosity=1).run(suite).wasSuccessful():
         raise SystemExit(1)
