@@ -1,0 +1,68 @@
+{
+  "format_version": 1,
+  "kind": "conditional-guide-source-baseline",
+  "baseline_revision": "5e35bc52c338baf4a6b6fa2ce25a814ebc574ce3",
+  "measurement_basis": "utf8-source-bytes-not-model-tokens",
+  "guides": [
+    {
+      "parent": "skills/agentic-improvement/references/efficiency.md",
+      "deferred": [
+        "skills/agentic-improvement/references/rule-review.md",
+        "skills/agentic-improvement/references/log-compaction.md"
+      ],
+      "baseline_git_blob": "954941285a3d3a962bc57b88b52ed681d92caf89",
+      "baseline_bytes": 8536,
+      "parent_max_bytes": 5416,
+      "original_prose_sha256": [
+        "373bb0b6c797420a6636ba286894684b49106b16ff8ab46eb7ef2e7a76920099",
+        "ef96e79231d5c3eac91d7e38768aa9edf86913f8799a491cc9d1edf3c31311c5",
+        "b9ccb016b7b21996cd47236fcf37a28ea1f5e05a92c75add1130e8ba63b4126a",
+        "090b4d2061e6fa7ddc86e8d5e076d84c80fa07f800eccc0666c91ac4358dfade",
+        "784eb4c4ba874760c1456abc4b357b6dab286ceb0f75fa8b897d9905be8669eb",
+        "4aaf2ba71e2e9a80aa5a89d04698fd2d8e57801efb6126916917294cf406b324",
+        "bc69044a56e5994d2de2a957c7e2bf51918dadda49758c837e853e544f539a7a",
+        "0128306c05ccb4a93dd98cd599ffeb1811a98e9a4aaa6884b978903c81a7258f",
+        "bf3f62b7cd41a41db70498c458ddc1f031d7058a83ed26596dfaa13f734b02e0",
+        "c3bca95099f3f3ba37bf32e097cc0dc92cb547ba8fdd9600fbc13ea6274319f0",
+        "cb9a161f02a457329e8cc104da6bfcab02e7dc392b1ece8d47da08c4112fdd2f",
+        "0c5d3ac1c2ea7d134531b213f55e692ddd98f568767b86089434fca4c6edc936",
+        "64af667e82e71c81af75e754691959a164d8cab5c405fcb40b4fc0f9fa9b41b0",
+        "3dfd23ec91b22a8d458caf00da1c16ff54eb387d329f8d24f557d62031cde702",
+        "6d0d10c1d53c91d80e1681e0672f5cacc17dbd76648e4ca95ebfba7f0540bcbc",
+        "298945215567845c97022c9326e328a58a5695fa8137d38dc1adde3bef21d25d",
+        "c7504b583ce0de2105e330ed0c52ec6b9d52da5751b5e803d1462629514682f3",
+        "f7a992b76aeec3a46db29aee1a78a1a382ec583f6e9d4200ffbf23941414dafb",
+        "b91e080d3db67b3b5e0741a64811a05cc849febc9cc184c9b0d498dfcb52574b",
+        "04533a6db3eb4e583bb6b716a4c2cf0f73aa1870d44a37e4b5f44575b047bb5b"
+      ]
+    },
+    {
+      "parent": "skills/decision-intelligence/references/decision-guide.md",
+      "deferred": [
+        "skills/decision-intelligence/references/recorded-results.md"
+      ],
+      "baseline_git_blob": "452ed2f0fdbdfca853ae429e0a06dce33ea0549a",
+      "baseline_bytes": 6873,
+      "parent_max_bytes": 4919,
+      "original_prose_sha256": [
+        "3254b87c4c9674a65a080d56b2c51dab6365f0b7c9db490dfab7fcd7982a1420",
+        "667ce112f7edb18a4a1024cc8b931d8e4d7d4fead93c312f739ccd0c50a7e722",
+        "a90a55d9a94973471964a67aac2b4fda7d0a01fe9c1d892089ac7cb2f6925a81",
+        "aee046a477bcb5f7bb5b1d253cbad0c1b59c99ab705c918aea35c8501dcafeae",
+        "d9c62121ad9729347007a5c5d3e2af212070ae5d7c57345a20c46cdbdf5ce8db",
+        "c359b9b0537e6b20a4dfef2627837f683672298ce6c057cace5b10982ab1fef1",
+        "57e33a83ea7e5dfa5dd6238995fca430134671030a8a58fccde917997cd0ec64",
+        "15107986f4145ff529ea8214560ad724e54e19a63bc5a7869a1d86cb71b38bda",
+        "136a64e1e1ba38b5d591fed55d2228b1e5ea7150968c43da52ae232af3483d62",
+        "76a84ea7326a34789f775f527221f41f7ebd26a3b64274639138c64debacd9d9",
+        "5ff464083d41c0133dd32cd4196043c05cc23fe5d5a8e5417c96a194ee4f8e1c",
+        "abd6dcc5e6ef15395121272920eb51bcbbb1ee901295c5d6fb4cf61a84f4472c",
+        "8d2dd4afda6e207396ab52753e999a2691e2e2d8200dedc7f441a2dd7566c42b",
+        "93aeb270318afc25309a1c471972f4f263d5b4c8335b100417de54ae0954be10",
+        "b62d673a4f9933cb557dfb3bbd741f9c393dd31d1ee4f475ee19a0d3d75258bd",
+        "5e7360b2cbf7209e242ef3741e4accc19847ba7582f79ca5f4ad806d9bf03c1e",
+        "b491705fef3e88b91eb1b41cea21bef22aa22e88c31196da5f48641d5fa95062"
+      ]
+    }
+  ]
+}
