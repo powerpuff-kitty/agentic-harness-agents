@@ -130,6 +130,9 @@ def inspect_trace(raw: bytes, *, expected_sha256: str, evidence_kind: str) -> di
     active = None
     open_items: set[str] = set()
     completed_items: set[str] = set()
+    item_origins: dict[str, tuple[str, int | None, int]] = {}
+    item_issues: list[dict] = []
+    warning_events: list[int] = []
     errors: list[int] = []
     external_events: list[int] = []
     snapshots: list[dict] = []
@@ -175,23 +178,61 @@ def inspect_trace(raw: bytes, *, expected_sha256: str, evidence_kind: str) -> di
                 active['status'] = 'failed'
                 reasons.add('failed-turn-usage-unavailable')
             active['end_event'] = line_number
+            if open_items:
+                reasons.add('items-open-at-turn-boundary')
+                item_issues.append({'event_line': line_number, 'observed_turn': active['index'],
+                                    'open_items': len(open_items),
+                                    'reason': 'items-open-at-turn-boundary'})
             active = None
         elif kind in ('item.started', 'item.updated', 'item.completed'):
-            require(set(event) == {'type', 'item'} and active is not None, 'invalid-item-event')
+            require(set(event) == {'type', 'item'}, 'invalid-item-event')
             item = event['item']
             require(type(item) is dict and _identifier(item.get('id'))
                     and _identifier(item.get('type')), 'invalid-item-shape')
+            # The reviewed producer emits config/deprecation/reroute warnings as
+            # completed error items, including outside an active turn. A warning
+            # is neither a fatal stream error nor evidence of model identity.
+            is_warning = kind == 'item.completed' and item['type'] == 'error'
+            require(active is not None or is_warning, 'invalid-item-event')
+            if is_warning:
+                require(type(item.get('message')) is str, 'invalid-warning-item')
+                warning_events.append(line_number)
+                reasons.add('warning-item-reported')
             identity = item['id']
             require(identity not in completed_items, 'item-after-completion')
+            observed_turn = active['index'] if active is not None else None
+            origin = item_origins.get(identity)
+            if origin is None:
+                item_origins[identity] = (item['type'], observed_turn, line_number)
+                if kind == 'item.updated':
+                    reasons.add('item-update-without-start')
+                    item_issues.append({'event_line': line_number, 'observed_turn': observed_turn,
+                                        'reason': 'item-update-without-start'})
+            else:
+                require(origin[0] == item['type'], 'item-type-changed')
+                # Repeated starts and late events remain inspectable; they cannot
+                # silently erase a missing terminal event in the earlier turn.
+                for affected, reason in ((kind == 'item.started', 'duplicate-item-start'),
+                                         (origin[1] != observed_turn, 'item-crosses-turn-boundary')):
+                    if affected:
+                        reasons.add(reason)
+                        item_issues.append({'event_line': line_number, 'observed_turn': observed_turn,
+                                            'first_event': origin[2], 'first_turn': origin[1],
+                                            'reason': reason})
             if kind == 'item.completed':
                 completed_items.add(identity)
                 open_items.discard(identity)
                 if item['type'] == 'command_execution':
                     status = item.get('status')
                     code = item.get('exit_code')
-                    require(status in ('completed', 'failed', 'declined'), 'invalid-command-status')
+                    require(status in ('completed', 'failed', 'declined', 'in_progress'),
+                            'invalid-command-status')
                     require(code is None or type(code) is int and -(2**31) <= code < 2**31,
                             'invalid-command-exit')
+                    # Turn reconciliation may emit item.completed for an item
+                    # still in progress. Envelope completion is not process exit.
+                    if status == 'in_progress' or status == 'completed' and code is None:
+                        reasons.add('command-outcome-unverified')
                     commands.append({'event_line': line_number, 'turn': active['index'],
                                      'item_id_sha256': digest(identity.encode()), 'status': status,
                                      'exit_code': code,
@@ -243,6 +284,8 @@ def inspect_trace(raw: bytes, *, expected_sha256: str, evidence_kind: str) -> di
         'commands': commands, 'recorded_command_failures': sum(c['reported_failure'] for c in commands),
         'stream_error_events': errors, 'external_work_events': external_events,
         'open_items': len(open_items), 'reasons': sorted(reasons),
+        **({'item_lifecycle_issues': item_issues} if item_issues else {}),
+        **({'warning_item_events': warning_events} if warning_events else {}),
         'terminal_sequence_observed': bool(turns) and active is None and newline,
         'model_execution': 'not-performed', 'model_identity': None,
         'source_authenticated': False, 'capture_complete_verified': False,
