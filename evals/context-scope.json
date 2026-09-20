@@ -1,0 +1,66 @@
+{
+  "format_version": 1,
+  "evidence_kind": "synthetic-rubric",
+  "cases": [
+    {
+      "id": "identical-text-different-scope",
+      "prompt": "Remove redundant presentation without broadening or deleting either accepted directory rule.",
+      "skill": "agentic-improvement",
+      "route": "current-agent",
+      "outcome": "preserve-both-scopes",
+      "sources": {
+        "web-rule": "apps/web/AGENTS.md: Use the approved Button component.",
+        "admin-rule": "apps/admin/AGENTS.md: Use the approved Button component.",
+        "scope": "Each nested AGENTS.md applies only below its own directory. No global Button rule has been accepted. Canonical files must remain unchanged."
+      },
+      "required": ["web-rule", "admin-rule", "scope"],
+      "provider_authorized": false,
+      "max_provider_calls": 0
+    },
+    {
+      "id": "same-message-different-checks",
+      "prompt": "Summarise the completed local checks. Repeated text must not hide distinct failures or a passing unrelated check.",
+      "skill": "agentic-improvement",
+      "route": "current-agent",
+      "outcome": "two-failed-checks-one-passed",
+      "sources": {
+        "unit-log": "check=unit attempt=1 phase=assertion test=save file=tests/save.py:42 error=Timed out occurrences=3 exit=1",
+        "browser-log": "check=browser attempt=1 phase=setup test=not-started error=Timed out occurrences=1 exit=1",
+        "schema-log": "check=schema attempt=1 phase=validation result=passed exit=0",
+        "scope": "All three recorded checks are required. These are complete synthetic logs, not executions of real project checks."
+      },
+      "required": ["unit-log", "browser-log", "schema-log", "scope"],
+      "provider_authorized": false,
+      "max_provider_calls": 0
+    },
+    {
+      "id": "unchanged-code-changed-policy",
+      "prompt": "May the prior compliance finding be reused without reviewing the current accepted policy?",
+      "skill": "decision-intelligence",
+      "route": "current-agent",
+      "outcome": "refresh-policy-dependent-finding",
+      "sources": {
+        "prior": "The earlier finding used policy v1 and source revision A. Only authentication was required by v1.",
+        "current": "Source revision A is unchanged. Accepted policy v2 now requires object ownership checks as well as authentication.",
+        "coverage": "No current evidence about object ownership enforcement was supplied."
+      },
+      "required": ["prior", "current", "coverage"],
+      "provider_authorized": false,
+      "max_provider_calls": 0
+    },
+    {
+      "id": "jev-only-no-substitution",
+      "prompt": "Return an actual Jev classification and its recorded provider confidence, not a current-agent estimate.",
+      "skill": "decision-intelligence",
+      "route": "abstain",
+      "outcome": "provider-unavailable",
+      "sources": {
+        "request": "An actual Jev response is required; no substitution, installation or credential access is authorised.",
+        "capability": "No configured provider or recorded response is available."
+      },
+      "required": ["request", "capability"],
+      "provider_authorized": false,
+      "max_provider_calls": 0
+    }
+  ]
+}
