@@ -1,0 +1,7 @@
+{"type": "thread.started", "thread_id": "synthetic-thread"}
+{"type": "turn.started"}
+{"type": "item.completed", "item": {"id": "attempt-1", "type": "command_execution", "command": "synthetic-check", "aggregated_output": "Synthetic failure for accounting tests.", "status": "completed", "exit_code": 1}}
+{"type": "turn.completed", "usage": {"input_tokens": 1000, "cached_input_tokens": 800, "output_tokens": 100}}
+{"type": "turn.started"}
+{"type": "item.completed", "item": {"id": "attempt-2", "type": "command_execution", "command": "synthetic-check", "aggregated_output": "Synthetic retry.", "status": "completed", "exit_code": 0}}
+{"type": "turn.completed", "usage": {"input_tokens": 1500, "cached_input_tokens": 1000, "output_tokens": 140, "reasoning_output_tokens": 50, "cache_write_input_tokens": 100}}
