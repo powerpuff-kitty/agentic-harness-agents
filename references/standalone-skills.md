@@ -1,8 +1,8 @@
 # Self-contained reviews and guidance
 
-The five enrolled bundles are `codebase-audit`, `security-review`, `design-system-compliance`, `agentic-improvement` and `decision-intelligence`. The three review skills retain documentation-only v1 declarations; both guidance skills use explicit optional-script v2 declarations. Review procedures advance agents #25; the two guidance bundles advance #32/#36. Enrollment is not publication, installation or proof of host loading.
+The six enrolled bundles are `codebase-audit`, `security-review`, `design-system-compliance`, `migration`, `agentic-improvement` and `decision-intelligence`. The three review skills and migration use documentation-only v1 declarations; both guidance skills use explicit optional-script v2 declarations. Review/migration procedures advance agents #25; the two guidance bundles advance #32/#36. Enrollment is not publication, installation or proof of host loading.
 
-Each enrolled skill has a compact procedure and local references. Review skills retain their report templates and counterexamples; guidance skills retain the efficiency or decision guide without requiring the full collection, a Harness executable or provider credentials. Applicable target-owned context remains an input and retains authority.
+Each enrolled skill has a compact procedure and local references. Review skills retain their report templates and counterexamples; guidance skills retain the efficiency or decision guide without requiring the full collection, a Harness executable or provider credentials. Applicable target-owned context remains an input and retains authority. Migration's local guide covers preview, conflicts, backup, scoped apply and read-only idempotence; it is not an automatic filesystem migration engine.
 
 ## Build a standalone skill
 
@@ -11,6 +11,7 @@ From a reviewed checkout, with Python 3.10 or newer:
 ```sh
 python3 .github/scripts/skill_bundle.py agentic-improvement --output /tmp/agentic-improvement.skill.zip
 python3 .github/scripts/skill_bundle.py decision-intelligence --output /tmp/decision-intelligence.skill.zip
+python3 .github/scripts/skill_bundle.py migration --output /tmp/migration.skill.zip
 ```
 
 The same command supports the three review skills. Choose an existing output directory outside the checkout. Existing outputs are never overwritten. A write error can leave an incomplete newly created output; inspect it before a manual retry. This repository packaging helper does not install files, execute skills/tools, create parent directories or publish a release.
@@ -25,7 +26,7 @@ Validation and archive inspection treat scripts as opaque UTF-8 source bytes. Th
 
 Local inline Markdown links must resolve inside the payload; required files cannot be missing or undeclared. Optional tools require an explicit fallback. `decision-intelligence` documents `typesafe-ai` as independently optional: guidance-only use never calls it, and an unavailable provider for an actual Jev-only task requires abstention, not invented results or automatic installation. Its optional graph reviewer inspects declared dependencies, not provider state, outcomes or authorization.
 
-Design-system compliance retains a byte-identical local copy of `references/design-intelligence.md`; its shared-reference map detects drift during builds. The two guidance bundles have no collection-wide shared-reference dependency. Comparative-evaluation scripts remain repository development tools, not skill payloads. Unlike those evaluators, the optional log/freshness helpers and decision-graph reviewer ship inside their owning guidance skills.
+Design-system compliance retains a byte-identical local copy of `references/design-intelligence.md`; its shared-reference map detects drift during builds. The two guidance bundles and migration have no collection-wide shared-reference dependency. Comparative-evaluation scripts remain repository development tools, not skill payloads. Unlike those evaluators, the optional log/freshness helpers and decision-graph reviewer ship inside their owning guidance skills.
 
 Copy the entire verified skill directory, not just SKILL.md. Use a reviewed revision, compare existing local content before replacement and preserve customisations. Do not replace a device-global installation merely because a project-local update was requested. Confirm the host's actual discovery/loading behaviour separately; copying bytes does not prove activation or enforcement. No existing project/device or downstream source pin is updated by packaging.
 
@@ -34,11 +35,12 @@ Copy the entire verified skill directory, not just SKILL.md. Use a reviewed revi
 ```sh
 python3 -m unittest discover -s .github/scripts -p test_skill_bundles.py
 python3 -m unittest discover -s .github/scripts -p test_optional_script_bundles.py
+python3 -m unittest discover -s .github/scripts -p test_migration_guidance.py
 python3 .github/scripts/validate_agents.py
 python3 .github/scripts/package_plugin.py
 ```
 
-The validation entrypoint verifies all five bundles. The collection packager checks that every enrolled payload and licence survives in its ZIP. Guidance regressions copy each skill into a disposable source tree, check deterministic bytes, reject missing dependencies, delete the disposable source and verify the archive without reading the collection.
+The validation entrypoint verifies all six bundles. The collection packager checks that every enrolled payload and licence survives in its ZIP. Guidance regressions copy each skill into a disposable source tree, check deterministic bytes, reject missing dependencies, delete the disposable source and verify the archive without reading the collection.
 
 Tests retain malformed/duplicate JSON, symlink/reparse detection, shared-reference drift, tampering, missing entries and no-overwrite checks. v2 tests retain an inert script that raises on execution, verify it without executing it, and compare a v1 archive to its pre-change byte identity. Explicit helper tests separately execute only reviewed code on synthetic local inputs. Neither those tests nor paired-observation arithmetic execute a model or establish model-token savings.
 

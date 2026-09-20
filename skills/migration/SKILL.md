@@ -6,30 +6,29 @@ description: "Migrate legacy Agentic Harness repository layouts or canonical-con
 
 ## Objective
 
-Move legacy harness content to the current canonical project contract without losing project-authored truth or silently resolving divergent sources.
+Migrate context without losing local work, broadening instruction scope or silently resolving divergent truth.
 
 ## Inputs
 
-Required: target repository. Optional: desired target contract version, dry-run/apply mode, backup location, conflict policy, and known legacy paths.
+Required: target repository and reviewed target contract. Optional: approved scope, backup destination and available checks.
 
 ## Context
 
-Read root/legacy instruction files, current `.agentic/` if present, canonical migration guidance, and only source/destination content implicated by the migration.
+Read applicable root/nested rules and affected sources, destinations and references only. For apply, conflicts or recovery, load the [local guide](references/migration-guide.md). Read-only review needs no CLI or Jev; missing contract evidence blocks apply.
 
 ## Procedure
 
-1. Detect legacy and current layouts and classify each source as canonical, duplicate, divergent, generated, or obsolete.
-2. Produce a non-writing move/conflict plan first.
-3. Compare content before deciding whether duplicates are identical; never overwrite divergent canonical truth silently.
-4. Require explicit apply authorization where project policy or conflicts demand it.
-5. Write/verify the destination before deleting or archiving a source; preserve conflicts in a backup/report location.
-6. Update router links, manifest/lock metadata, ADR indexes, and thin adapters.
-7. Run migration again to prove idempotence, then run doctor/validate/audit where available.
+1. Inventory exact source/destination identities, ownership and dirty/untracked context. Classify absent, identical, divergent and unresolved entries; filenames alone do not establish authority.
+2. Produce a non-writing plan, including references, conflicts, backup and required checks. Unresolved conflicts block apply; only a separately approved disjoint subset may proceed.
+3. Bind approval to the plan and recheck inputs/policy before writes; drift requires fresh review. Verify a restorable backup outside the target, including affected local work.
+4. Write and verify approved destinations before separately authorized source removal. Preserve custom routes. On failure stop and inspect partial state before approved recovery; never blind cleanup.
+5. Update only implicated router/adapter links, schema-correct manifest fields, real provenance and decision indexes. Do not invent hashes, results or unsupported commands.
+6. Review the diff and run available permitted checks. Repeat the read-only plan, not apply, for idempotence. Retain conflicts, unavailable validation and unverified host loading.
 
 ## Output
 
-Return dry-run/apply report, moves, duplicates, conflicts, backups, router/metadata changes, verification, and remaining manual decisions.
+Report planned/applied changes, duplicates/conflicts, backup evidence, check attempts and remaining decisions. Reuse an approved record when needed; no routine transcript replay or extra report file.
 
 ## Completion
 
-No source is lost before verification, divergent truth remains reviewable, the target contract validates, and a second migration produces no changes.
+No source was lost; approved changes are verified and a repeat read-only plan proposes no further scoped changes. Missing validation is not success; partial migration is not whole-project completion.
