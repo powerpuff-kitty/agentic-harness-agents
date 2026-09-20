@@ -27,6 +27,10 @@ DIGEST = re.compile(r"sha256:[0-9a-f]{64}\Z")
 class SnapshotError(ValueError):
     """Only fixed codes; never include input contents in diagnostics."""
 
+    def __init__(self, code: str, bytes_read: int = 0):
+        super().__init__(code)
+        self.bytes_read = bytes_read
+
 
 def require(ok: bool, code: str) -> None:
     if not ok:
@@ -82,6 +86,7 @@ def read_text(path: Path, limit: int) -> bytes:
     require(".." not in path.parts, "unsafe-path")
     path = Path(os.path.abspath(path))
     real_directory(path.parent)
+    raw = b""
     try:
         before = path.lstat()
         require(stat.S_ISREG(before.st_mode) and not linked(before), "unsafe-file")
@@ -102,10 +107,13 @@ def read_text(path: Path, limit: int) -> bytes:
         text = raw.decode("utf-8")
         require("\0" not in text, "non-text-input")
         return raw
+    except SnapshotError as error:
+        error.bytes_read = len(raw)
+        raise
     except UnicodeError:
-        raise SnapshotError("non-text-input") from None
+        raise SnapshotError("non-text-input", len(raw)) from None
     except OSError:
-        raise SnapshotError("unavailable-file") from None
+        raise SnapshotError("unavailable-file", len(raw)) from None
 
 
 def scope_hash(scope: str) -> str:
@@ -167,12 +175,14 @@ def compare(root: Path, paths: list[str], scope: str, previous: Any) -> dict[str
     root = real_directory(root)
     old = {item["path"]: item for item in previous["files"]}
     unchanged, changed, added, unavailable = [], [], [], []
-    total = 0
+    total = read_bytes = 0
     for path in paths:
         try:
-            current = entry(root, path, MAX_TOTAL_BYTES - total)
+            current = entry(root, path, max(0, MAX_TOTAL_BYTES - read_bytes))
             total += current["bytes"]
+            read_bytes += current["bytes"]
         except SnapshotError as error:
+            read_bytes += error.bytes_read
             unavailable.append({"path": path, "reason": str(error)})
             continue
         if path not in old:
@@ -192,7 +202,8 @@ def compare(root: Path, paths: list[str], scope: str, previous: Any) -> dict[str
             "selection_matches": set(old) == set(paths),
             "unchanged": unchanged, "changed": changed, "added": added,
             "removed_from_selection": removed, "unavailable": unavailable,
-            "measurement": {"selected_files": len(paths), "hashed_source_bytes": total},
+            "measurement": {"selected_files": len(paths), "hashed_source_bytes": total,
+                            "read_source_bytes": read_bytes},
             "limits": {"unselected_files_checked": False, "atomic_snapshot": False,
                        "prior_observations_authenticated": False, "evidence_sufficient": None,
                        "retained_model_context_verified": False, "checks_verified": False,
