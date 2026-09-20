@@ -18,7 +18,8 @@ for pattern in ['test_adapter_assets.py', 'test_skill_bundles.py', 'test_guidanc
                 'test_compact_log.py', 'test_optional_script_bundles.py',
                 'test_evidence_snapshot.py', 'test_evidence_snapshot_budget.py',
                 'test_evidence_snapshot_distribution.py', 'test_decision_graph_review.py',
-                'test_decision_graph_distribution.py']:
+                'test_decision_graph_distribution.py', 'test_source_excerpts.py',
+                'test_source_excerpt_distribution.py']:
     suite = unittest.defaultTestLoader.discover(str(HERE), pattern=pattern)
     if not unittest.TextTestRunner(verbosity=1).run(suite).wasSuccessful():
         raise SystemExit(1)
