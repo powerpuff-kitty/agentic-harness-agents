@@ -6,30 +6,29 @@ description: "Turn accepted product or architecture scope into an executable, de
 
 ## Objective
 
-Translate accepted scope into a concrete sequence that another agent or engineer can execute and verify without inventing missing decisions.
+Sequence accepted scope into executable, verifiable work without inventing decisions.
 
 ## Inputs
 
-Required: target repository and accepted outcome/scope. Optional: deadline, team boundaries, rollout constraints, migration requirements, test expectations, and target branch/release.
+Repository and accepted scope; optional deadlines, team, rollout/migration constraints, tests and target release.
 
 ## Context
 
-Read relevant product/architecture/security/design truth, accepted ADRs, affected source/tests, and current plans/tasks. Load only areas touched by the requested change.
+Follow project routes to applicable rules, affected source/tests and relevant ADRs/tasks. Expand for unresolved dependencies; refresh reused evidence after source, rules or scope change.
 
 ## Procedure
 
-1. Restate accepted outcome, constraints, and unresolved blockers.
-2. Map affected components, data/API boundaries, dependencies, and migration/rollout concerns.
-3. Sequence work so prerequisites and reversible steps come first.
-4. Define a verification checkpoint and observable completion condition for every major step.
-5. Identify approval gates for schema, infrastructure, production, policy, secret, or destructive changes.
-6. Include rollback/backout strategy where failure could affect users/data.
-7. Keep tasks implementation-sized and avoid prescribing unnecessary reasoning detail.
+1. State outcomes, constraints and unresolved decisions.
+2. Map components, API/data boundaries, dependencies and migration/rollout risks.
+3. Order prerequisites and reversible steps. Give each major task source references and an observable check, not a blanket reading list.
+4. Preserve required checks and approvals for schema, infrastructure, production, policy, secrets and destructive work. Include rollback for user/data risk.
+5. Keep tasks implementation-sized. Delegate only necessary independent work; no default extra agents or Jev calls.
+6. Reuse existing plans. On continuation, update changed steps, evidence and blockers rather than replay history; keep trivial plans inline.
 
 ## Output
 
-Return phases/tasks with dependencies, files/systems likely affected, validation per step, approval gates, risks, rollout/rollback, and definition of done.
+Tasks, dependencies, affected files, checks, gates, risks and rollback. Leave unmeasured cost/token benefits unknown.
 
 ## Completion
 
-The plan is executable from repository truth, blocks on unresolved decisions instead of inventing them, covers verification and rollback where needed, and has no hidden dependency between steps.
+The plan has explicit dependencies, blockers, verification and rollback where needed. Writing it does not execute checks, approve actions or deliver implementation.

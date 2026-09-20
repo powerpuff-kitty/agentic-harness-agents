@@ -1,0 +1,37 @@
+{
+  "format_version": 1,
+  "scope": "selected-entrypoint-source-bytes",
+  "baseline_revision": "2b7a442c38b882827d236469f18f48ae41b6494a",
+  "skills": {
+    "codebase-audit": {
+      "max_bytes": 4500,
+      "trigger_sha256": "1ec8e5588b7f4829b70e2fdd34b22537c1d9008b15512d44aa6d8500b77806ac",
+      "baseline_bytes": 5145,
+      "baseline_blob": "d962ff3c8fc648a8b8d63840b623a1a66110b7b3"
+    },
+    "security-review": {
+      "max_bytes": 4200,
+      "trigger_sha256": "250a5a24ef4bb83f64a8bb1e7d8e2c651a7fdfade4aa8872fc2bc94c85724fae",
+      "baseline_bytes": 4258,
+      "baseline_blob": "2a81c70fb83f2f10a04da8bdb00857283da89546"
+    },
+    "design-system-compliance": {
+      "max_bytes": 4100,
+      "trigger_sha256": "0c19afba2c4c95344891be1db6b3b6f5f60b226713cefed27597196fc1ea014a",
+      "baseline_bytes": 4190,
+      "baseline_blob": "c297c1e9aeee1f4607fa45f38aad4c776be570aa"
+    },
+    "implementation-plan": {
+      "max_bytes": 1900,
+      "trigger_sha256": "def9f21cdeea6e128cf88806d400da04fa8560fcfa6829e5b0dcb20057ce9d56",
+      "baseline_bytes": 1957,
+      "baseline_blob": "7d9d5e6f71805c4f8fb26ba3cdb90a4356d1ecb8"
+    },
+    "documentation": {
+      "max_bytes": 1850,
+      "trigger_sha256": "7237cb50d5b8bfb3d8129a349623072f5956d4215330ef3f2a5e45413e5922ee",
+      "baseline_bytes": 1891,
+      "baseline_blob": "4555bb4e894c80268e400690a24f840810813ba4"
+    }
+  }
+}

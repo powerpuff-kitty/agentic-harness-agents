@@ -1,35 +1,35 @@
 ---
 name: agentic-improvement
-description: "Plan and apply targeted improvements to an existing repository's agentic structure from readiness findings or a model-profile comparison. Use when the user asks to improve context routing, skill design, completion semantics, autonomy, portability, or instruction health. Do not use to produce the initial readiness score or to perform ordinary code-quality refactoring."
+description: "Improve an existing repository's agent instructions, context routing and skill design. Use when the user asks to reduce token use, repeated reads, duplicated guidance or verbose handoffs while preserving evidence and completion checks. Do not use for the initial readiness audit, ordinary code refactoring, typed semantic judgments or model-fit comparisons."
 ---
 # Agentic Improvement
 
 ## Objective
 
-Convert validated agent-readiness findings into a minimal, previewable improvement plan and safe repository changes.
+Make scoped agent workflows clearer and more efficient without weakening accepted project rules, required evidence or verification.
 
 ## Inputs
 
-Required: target repository. Preferred: canonical `ah-agentic`/`ah agentic` audit output. Optional: target model/profile, desired score threshold, scope constraints, and apply authorization.
+Required: target repository and requested improvement. Optional: existing readiness findings, representative task transcripts or usage observations that the user has authorised, target profile and edit permission. A CLI report is useful when available, never a prerequisite.
 
 ## Context
 
-Read only findings and files implicated by those findings, plus relevant canonical readiness/model-profile guidance. Keep project truth model-independent and use `references/context-engineering.md`.
+Read the compact project router, applicable mandatory rules and files implicated by the task/findings. Expand only for a concrete unresolved question. Use [the efficiency guide](references/efficiency.md) for a substantial context-optimisation task. It remains available when this skill is copied alone; no collection-wide reference or executable is required.
 
 ## Procedure
 
-1. Establish a baseline from machine-readable readiness findings; if unavailable, label qualitative fallback clearly.
-2. Rank findings by severity, expected impact, confidence, and dependency order.
-3. Group proposed changes as remove (stale/duplicated), change (routing/trigger/completion/autonomy), or add (missing contract/evidence/validation).
-4. For model-specific improvements, trace every recommendation to the canonical model registry and keep changes in thin adapters/profiles where appropriate.
-5. Preview affected files and expected score/compatibility movement before writing.
-6. Apply only authorized deterministic changes; leave uncertain changes as recommendations.
-7. Re-run readiness audit and compare before/after results.
+1. Establish a baseline from existing evidence. Without a measured readiness/usage report, describe observed instruction and routing problems qualitatively; keep scores, costs and token savings unknown.
+2. Map required evidence separately from optional background. Preserve relevant policy, source qualifiers, contradictions and acceptance checks. Record missing required sources as blockers for the affected claim, not as token savings.
+3. Prioritise removing exact duplication, correcting stale routes and narrowing triggers before adding another skill or summary. Similar text is not proof of equivalent rules. Conflicting authority requires explicit reconciliation.
+4. Replace blanket reads with task-to-source routes. Reuse unchanged evidence by source/configuration/scope identity, but refresh changed working-tree content and retrieve references the host cannot resolve. Keep code interfaces, callers and affected tests when needed for correctness.
+5. Prefer native checks to model reasoning for exact questions. Summarise tool results with scope, exit status, relevant failures and actual retrievable evidence; preserve truncation and unavailable checks. Use compact resumable handoffs rather than full transcripts.
+6. Preview affected files, scope and expected benefit without inventing a score delta. Apply authorised reversible edits; leave unclear semantic merges and policy changes for review. Model-specific guidance belongs in thin adapters, not project truth.
+7. Repeat the same representative task/checks where feasible. Separate source-size estimates, observed submitted tokens, provider billing, auxiliary calls/retries and actual outcomes. Keep omitted measurements unknown. Do not introduce Jev calls or multi-agent work solely to claim optimisation.
 
 ## Output
 
-Return baseline, prioritized change plan, applied changes, before/after scores, evidence/confidence, model-specific deltas, and remaining findings.
+Return the observed baseline, prioritised changes, files edited, preserved evidence/checks, verification results and remaining gaps. Include before/after metrics only when measured with the same scope and identified method. Keep the report compact; persist it only where useful and permitted.
 
 ## Completion
 
-No canonical project truth was made model-specific, high-impact writes respected approval boundaries, the audit was rerun, and any claimed improvement is supported by measured or explicitly heuristic evidence.
+Requested changes are delivered within scope; relevant validators/checks ran or are explicitly unexecuted; required evidence and project authority remain intact. Unknown quality, savings, host behaviour and runtime enforcement are not reported as verified improvements.
