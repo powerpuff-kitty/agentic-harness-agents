@@ -13,7 +13,8 @@ errors = validate_repository()
 if errors:
     raise SystemExit('\n'.join(errors))
 for pattern in ['test_adapter_assets.py', 'test_skill_bundles.py', 'test_guidance_efficiency.py',
-                'test_guidance_comparison.py', 'test_guidance_series.py', 'test_codex_usage.py', 'test_skill_entrypoints.py', 'test_context_scope.py',
+                'test_guidance_comparison.py', 'test_guidance_series.py', 'test_codex_usage.py',
+                'test_codex_usage_lifecycle.py', 'test_skill_entrypoints.py', 'test_context_scope.py',
                 'test_guidance_trial.py', 'test_lifecycle_guidance.py',
                 'test_compact_log.py', 'test_optional_script_bundles.py',
                 'test_evidence_snapshot.py', 'test_evidence_snapshot_budget.py',

@@ -135,3 +135,35 @@ Run `python3 .github/scripts/test_codex_usage.py`. Existing repository validatio
 runs these tests alongside the unchanged pair/series evaluators. Tests cover
 exact hashes, counter semantics, failures, unsupported/malformed input, bounds,
 redacted output, no acquisition in the API and actual file-based execution.
+
+## Item lifecycle and unknown outcomes
+
+The same pinned producer's `reconcile_unfinished_started_items` can emit an
+`item.completed` envelope while a command still has `in_progress` status. A closed
+item envelope therefore does not establish process exit. Such commands, and
+`completed` commands with absent/null exit codes, retain their exact status/code
+and add `command-outcome-unverified`. Unknown is neither success nor a fabricated
+failure. A later successful attempt cannot clear this earlier concern.
+
+The producer also emits configuration, deprecation and model-rerouting warnings
+as completed `error` items, sometimes outside an active turn. They are preserved
+as `warning_item_events` plus `warning-item-reported`, separately from fatal
+`stream_error_events` and failed commands. Warning bodies are not replayed or
+parsed into model identities. Only completed warning items may occur outside a
+turn under this supported profile, after the required thread-start event.
+
+For each observed item ID the inspector retains its initial type, event and turn
+internally. A type substitution fails with `item-type-changed`; completed-only
+items remain supported. Repeated starts, updates without observed starts and
+cross-turn activity stay inspectable but add `item_lifecycle_issues` and reasons.
+Cross-turn diagnostics identify both original and current event/turn locations;
+the command's `turn` field still denotes where its terminal event was observed.
+An open-item turn-boundary concern survives later closure. These diagnostics do
+not prove malformed upstream execution: dropped, repeated or late capture events
+can also require review. No extra commands or token counts are inferred.
+
+The two diagnostic arrays are emitted only when populated, preserving unaffected
+report shapes. Inspection concerns use exit 1; inconsistent item types use exit 2.
+Run `python3 .github/scripts/test_codex_usage_lifecycle.py` for the regressions;
+normal repository validation runs them alongside all earlier importer tests.
+They are synthetic event tests, not live host or model-outcome evidence.
