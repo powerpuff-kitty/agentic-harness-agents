@@ -101,11 +101,19 @@ See [`references/skill-contract.md`](references/skill-contract.md), [`references
 - `agentic-app` — initialize, migrate, upgrade, or audit an agent-native project.
 - `agentic-structure-audit` — score Agentic Readiness without conflating it with ordinary code quality.
 - `model-fit` — compare evidence-backed model profiles for a repository or task.
-- `agentic-improvement` — plan and apply targeted agentic-structure improvements.
+- `agentic-improvement` — improve instructions, task context, evidence reuse and handoff efficiency without requiring a CLI report.
+- `decision-intelligence` — design bounded evidence-backed judgments, abstention and independently optional Jev integration.
+- `code-quality` — review formatting, linting, type-safety and maintainability evidence using project-native tools and bounded fixes.
 - `migration` — migrate legacy repository layouts safely and idempotently.
 - `adr-management` — create, supersede, and index durable decisions.
 - `adapter-sync` — keep vendor adapters thin and canonical.
 - specialist review/design/delivery skills cover security, accessibility, performance, API/data, product, design, releases, incidents, and research.
+
+### Skills-first efficiency and decisions
+
+The two procedures above contain conditional skill-local guides, so their guidance path does not silently depend on a collection-wide file, CLI executable or TypeSafe account. They are ordinary skill directories, not newly published standalone release archives. Copy/install the whole selected skill directory, preserve customised local content and use the host's verified loading workflow. This change does not update existing device/project installations automatically.
+
+`decision-intelligence` defaults to the current coding agent for guidance. It does not provide a local Jev model, make coding-agent inference free, enable hosted calls or authorise actions. Actual TypeSafe integration uses its independently installed official skill and current vendor docs with explicit provider/data permission. `agentic-improvement` preserves mandatory evidence/checks and keeps unknown usage unknown; neither procedure guarantees token savings or host enforcement.
 
 ### Design Intelligence hierarchy
 
@@ -115,7 +123,7 @@ The design suite separates evidence, identity, UX, reusable UI systems, implemen
 design-intelligence            lifecycle orchestration: Analyze → Preserve → Compile → Verify
 ├── design-analysis            interpret measured evidence and imported analysis
 ├── design-research            visual/UI/UX pattern and flow research
-├── identity-design            art direction, distinctiveness, brand-facing visual identity
+├── identity-design             art direction, distinctiveness, brand-facing visual identity
 ├── product-design             user journeys, states, hierarchy, recovery, product UX
 ├── design-system              reusable tokens, components, states, layouts, patterns
 ├── component-resolution       project/internal/external implementation primitives
@@ -125,7 +133,7 @@ design-intelligence            lifecycle orchestration: Analyze → Preserve →
 
 A **Design Genome** becomes design/identity authority only when the target project designates that artifact/version as accepted truth. Design Analysis is evidence, Design Task is structured implementation scope, and Design Analysis Diff is measurable drift evidence rather than a violation or subjective quality score. References, provider components, AI interpretations, and market prevalence may propose changes but do not silently become project requirements or accepted identity.
 
-See [`manifest.json`](manifest.json) for the complete 31-skill inventory.
+See [`manifest.json`](manifest.json) for the complete 32-skill inventory.
 
 ## Validation
 
@@ -138,6 +146,8 @@ python3 .github/scripts/package_plugin.py
 ```
 
 `evals/design-intelligence.json` is a synthetic behavior contract fixture. It does **not** claim that any model has passed the scenarios; recorded model-behavior evaluation remains a separate future/run-specific artifact.
+
+The new [guidance-efficiency cases and grader](evals/guidance-efficiency.md) exercise rubric integrity, missing/stale evidence, provider boundaries, verification claims and usage accounting through the same validation entrypoint. They are synthetic tests, not recorded model runs or a measured saving percentage.
 
 CI runs the same validators and builds the versioned plugin ZIP/checksum under `dist/`.
 

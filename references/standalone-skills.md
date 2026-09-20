@@ -1,49 +1,51 @@
-# Self-contained flagship reviews
+# Self-contained reviews and guidance
 
-Status: initial documentation-bundle implementation for agents #25. The enrolled skills are `codebase-audit`, `security-review` and `design-system-compliance`. Their trigger descriptions and inventory names are unchanged. Migration and verified-completion procedures remain separate unfinished work.
+The five enrolled bundles are `codebase-audit`, `security-review`, `design-system-compliance`, `agentic-improvement` and `decision-intelligence`. The three review skills retain documentation-only v1 declarations; both guidance skills use explicit optional-script v2 declarations. Review procedures advance agents #25; the two guidance bundles advance #32/#36. Enrollment is not publication, installation or proof of host loading.
 
-Each enrolled skill has a compact router procedure, local decision guide, human report template, counterexamples and expected decisions for future model evaluations. Concrete findings require project authority or a demonstrated failure mode; sampled inspection and missing tools never become universal quality/security/conformance claims. Target-owned context remains authoritative and follows the target's custom routes.
+Each enrolled skill has a compact procedure and local references. Review skills retain their report templates and counterexamples; guidance skills retain the efficiency or decision guide without requiring the full collection, a Harness executable or provider credentials. Applicable target-owned context remains an input and retains authority.
 
 ## Build a standalone skill
 
 From a reviewed checkout, with Python 3.10 or newer:
 
 ```sh
-python3 .github/scripts/skill_bundle.py codebase-audit --output /tmp/codebase-audit.skill.zip
-python3 .github/scripts/skill_bundle.py security-review --output /tmp/security-review.skill.zip
-python3 .github/scripts/skill_bundle.py design-system-compliance --output /tmp/design-system-compliance.skill.zip
+python3 .github/scripts/skill_bundle.py agentic-improvement --output /tmp/agentic-improvement.skill.zip
+python3 .github/scripts/skill_bundle.py decision-intelligence --output /tmp/decision-intelligence.skill.zip
 ```
 
-Choose an existing output directory outside the checkout. Existing outputs are never overwritten. A write error can leave an incomplete newly created output; inspect it before a manual retry. The command does not install files in any project, execute a skill/tool, create parent directories or publish a release.
+The same command supports the three review skills. Choose an existing output directory outside the checkout. Existing outputs are never overwritten. A write error can leave an incomplete newly created output; inspect it before a manual retry. This repository packaging helper does not install files, execute skills/tools, create parent directories or publish a release.
 
-The ZIP contains one skill directory, its declared documentation, the exact repository MIT notice and an internal SHA-256 inventory. Repeated packaging of identical inputs produces identical uncompressed ZIP bytes with fixed metadata. The inventory detects byte corruption relative to itself; it is not a signature, proof of trusted authorship or evidence that a model followed the skill.
-
-`bundle.json` and `bundle-lock.json` are this repository's distribution metadata, not additions to the Agent Skills standard or target-project architecture. Only the three declared documentation bundles are supported by this first packager. It does not claim that all 31 skills are standalone-complete or support arbitrary scripts, binary assets or external dependencies.
+The ZIP contains one skill directory, its declared payload, the exact MIT notice and a SHA-256 inventory. Repeated identical inputs produce identical stored ZIP bytes with fixed metadata. The inventory detects corruption relative to itself; it is not a signature or proof of trusted authorship. Distribution metadata `bundle.json`/`bundle-lock.json` is Harness-owned, not an extension to the Agent Skills standard.
 
 ## Dependencies and shared guidance
 
-`bundle.json` lists all required local documents and optional tools with an explicit offline/manual fallback. Required documents must be present, with no undeclared files; local inline Markdown links must resolve inside the declared skill payload. Target-owned files, such as a manifest-designated architecture document, are inputs in the procedure, not files to vendor into the skill.
+Version 1 permits declared documentation only. Version 2 additionally requires a nonempty `optional_scripts` list: each entry names one declared `scripts/*.py` file, `execution: explicit-invocation-only`, and a manual fallback. No auto-run hook or interpreter installation is provided. Other script types and undeclared files remain unsupported. Older v1-only packagers must reject v2 instead of silently omitting its helper; exact source pins still matter.
 
-Design-system compliance includes a byte-identical local copy of `references/design-intelligence.md`. Its `shared_references` map records the collection source. Build-time validation fails if either copy drifts. Runtime standalone use reads only the bundled copy; it does not need the original collection or a sibling skill. Review and update both copies together when the shared guidance changes.
+Validation and archive inspection treat scripts as opaque UTF-8 source bytes. They never import, compile or execute them and do not certify their safety. Script contents are hashed and retained with non-executable archive permissions; deliberate invocation still requires review, a permitted interpreter and target permission. The v1 archive format/bytes are unchanged. v2 lock scope explicitly includes script bytes without claiming execution. The optional helpers use the Python standard library; manual guidance remains usable without Python.
 
-All new references live below each skill folder, so a recursive single-skill or project-local copy can retain them. That layout compatibility is not by itself evidence for a particular CLI source pin or installer. Downstream pinned composition must be tested against the new agents revision before being recorded as verified.
+Local inline Markdown links must resolve inside the payload; required files cannot be missing or undeclared. Optional tools require an explicit fallback. `decision-intelligence` documents `typesafe-ai` as independently optional: guidance-only use never calls it, and an unavailable provider for an actual Jev-only task requires abstention, not invented results or automatic installation. Its optional graph reviewer inspects declared dependencies, not provider state, outcomes or authorization.
+
+Design-system compliance retains a byte-identical local copy of `references/design-intelligence.md`; its shared-reference map detects drift during builds. The two guidance bundles have no collection-wide shared-reference dependency. Comparative-evaluation scripts remain repository development tools, not skill payloads. Unlike those evaluators, the optional log/freshness helpers and decision-graph reviewer ship inside their owning guidance skills.
+
+Copy the entire verified skill directory, not just SKILL.md. Use a reviewed revision, compare existing local content before replacement and preserve customisations. Do not replace a device-global installation merely because a project-local update was requested. Confirm the host's actual discovery/loading behaviour separately; copying bytes does not prove activation or enforcement. No existing project/device or downstream source pin is updated by packaging.
 
 ## Validation
 
 ```sh
-python3 -m unittest discover -s .github/scripts -p 'test_skill_bundles.py'
+python3 -m unittest discover -s .github/scripts -p test_skill_bundles.py
+python3 -m unittest discover -s .github/scripts -p test_optional_script_bundles.py
 python3 .github/scripts/validate_agents.py
 python3 .github/scripts/package_plugin.py
 ```
 
-The existing validation entrypoint runs the bundle regressions without changing workflow YAML. The real collection packager then checks that every enrolled document and license survived into its actual ZIP with the validated bytes. Missing files or changed shared references fail packaging rather than silently producing an incomplete collection.
+The validation entrypoint verifies all five bundles. The collection packager checks that every enrolled payload and licence survives in its ZIP. Guidance regressions copy each skill into a disposable source tree, check deterministic bytes, reject missing dependencies, delete the disposable source and verify the archive without reading the collection.
 
-Tests cover deterministic archives, reference closure, extraction without the original collection, explicit tool fallback, raw input bounds, malformed/duplicate JSON, symlink/reparse detection, shared-reference drift, damaged/missing archive entries, real packager invocation and no-overwrite output. The reparse test exercises the predicate with synthetic metadata; it is not a recorded Windows host session.
+Tests retain malformed/duplicate JSON, symlink/reparse detection, shared-reference drift, tampering, missing entries and no-overwrite checks. v2 tests retain an inert script that raises on execution, verify it without executing it, and compare a v1 archive to its pre-change byte identity. Explicit helper tests separately execute only reviewed code on synthetic local inputs. Neither those tests nor paired-observation arithmetic execute a model or establish model-token savings.
 
-Bounds: 65,536 bytes per file, 1,048,576 total input bytes, 64 entries and four nested directory levels. This is a documentation authoring subset: simple skill-root-relative inline Markdown links are checked, not full Markdown/HTML semantics, fragment correctness, prose file mentions, host loading or prompt interpretation. HTTPS source links are not fetched. Unknown semantic dependencies can still require human review.
+Bounds remain 65,536 bytes per file, 1,048,576 input bytes, 64 entries and four nested levels. Simple skill-root-relative inline Markdown links are checked, not full Markdown/HTML semantics, fragments, prose file mentions or external HTTPS sources. Not all 32 registered skills are standalone-complete. Binary assets and arbitrary executable dependencies remain unsupported.
 
-The code assumes a trusted, quiescent source checkout. It rejects observed links and changed file metadata, but is not a sandbox against hostile concurrent filesystem mutation. ZIP verification reads bounded stored entries without extracting them; model execution remains `not-run` in its report. The guides' clean/violated/stale/missing-tool examples are acceptance expectations, not completed model evaluations.
+The code assumes a trusted, quiescent checkout. It rejects observed links and changed metadata but is not hostile-filesystem isolation. ZIP verification reads bounded stored entries without extracting them; `model_execution` remains `not-run`. Author/source review remains separate from archive consistency.
 
 ## Source basis
 
-Agent Skills specification, reviewed 2026-09-13: https://agentskills.io/specification. The optional reference-directory and progressive-disclosure convention is used here; no claim is made that this project's packaging manifest is a standard field. Canonical project truth and CLI analysis semantics remain owned by their respective repositories.
+[Agent Skills specification](https://agentskills.io/specification), reviewed 2026-09-20: skill-root-relative references and progressive disclosure. Packaging metadata is project-specific. Canonical project truth remains owned by the target project; no provider availability or automatic host behaviour is inferred.

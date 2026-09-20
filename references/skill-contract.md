@@ -36,6 +36,7 @@ Adjacent skills must have explicit exclusions in their descriptions. Examples:
 - `security-review` owns implementation/configuration review; `threat-model` owns pre-change system threat analysis.
 - `migration` owns filesystem/contract migration; `dependency-upgrade` owns package/dependency changes.
 - `design-system` owns creation/evolution; `design-system-compliance` owns conformance checking.
+- `agentic-improvement` owns instruction/context efficiency; `decision-intelligence` owns bounded evidence-backed semantic judgments, not ordinary code reviews or deterministic checks.
 
 ## Procedure quality
 
@@ -45,3 +46,11 @@ Adjacent skills must have explicit exclusions in their descriptions. Examples:
 - Use progressive disclosure from `references/context-engineering.md`.
 - Separate deterministic findings from heuristic judgment.
 - Do not claim checks ran when they did not.
+
+## Efficiency and standalone review
+
+State what evidence is required and when more context should be read. Keep substantial examples conditional and skill-local. Provide a fallback for optional tools and collection-wide references; a copied skill directory must not silently require the Harness CLI or another installed skill for its guidance-only path.
+
+Preserve source authority, missing/contradictory evidence, required checks and explicit approval boundaries during compaction. A token budget cannot justify dropping them. Re-read changed inputs rather than presenting stale summaries as current.
+
+Avoid unnecessary transcript replay, repeated static findings, mandatory report files and model calls for deterministic tasks. Report measurements with their method/scope or leave them unknown. Pair material trigger/procedure changes with positive, exclusion and adversarial cases. Fixture/grader validation and entry-point byte budgets are not model-behaviour or token-saving benchmarks.

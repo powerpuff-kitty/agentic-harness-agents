@@ -1,7 +1,7 @@
 {
   "name": "agentic-harness-agents",
   "version": "0.5.0-beta.1",
-  "description": "Agentic Harness skills for repository architecture, code quality, audits, migrations, model fit, security, design intelligence, delivery, and agent-readiness workflows.",
+  "description": "Agentic Harness skills for repository architecture, code quality, audits, migrations, model fit, security, design intelligence, delivery, bounded decisions and context efficiency.",
   "repository": "https://github.com/powerpuff-kitty/agentic-harness-agents",
   "skills": [
     "./skills/accessibility-audit",
@@ -16,6 +16,7 @@
     "./skills/competitive-research",
     "./skills/component-resolution",
     "./skills/database-design",
+    "./skills/decision-intelligence",
     "./skills/dependency-upgrade",
     "./skills/design-analysis",
     "./skills/design-intelligence",
@@ -38,6 +39,6 @@
   ],
   "interface": {
     "displayName": "Agentic Harness",
-    "shortDescription": "31 skills for agent-native repository engineering"
+    "shortDescription": "32 skills for agent-native repository engineering"
   }
 }

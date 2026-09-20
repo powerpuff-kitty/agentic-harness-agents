@@ -1,0 +1,41 @@
+{
+  "format_version": 1,
+  "evidence_kind": "synthetic-helper-measurement",
+  "basis": "utf8-bytes-including-json-envelope",
+  "helper_git_blob": "9a8aa21f5d23d43466df37818b880714a0efaae2",
+  "cases": [
+    {
+      "case": "synthetic-wide-source",
+      "ranges": [[1001, 1010], [1008, 1013]],
+      "source_bytes": 98000,
+      "source_sha256": "sha256:7e0f109e7200b25a03530e79fbeddec52fd54f21b94eea060b77ffb22a419434",
+      "complete_output_bytes": 1497,
+      "output_sha256": "sha256:dd777196526265e2b444808eeedfef970c2425484c5fd8927494e643c7c01c14",
+      "selected_bytes": 637,
+      "duplicate_lines_avoided": 3
+    },
+    {
+      "case": "tiny-source",
+      "ranges": [[1, 1]],
+      "source_bytes": 6,
+      "source_sha256": "sha256:9e26bf369911c45c243c684147b23fc9e1dcfcf257d299a1c632016a6fcd33f4",
+      "complete_output_bytes": 827,
+      "output_sha256": "sha256:511e7d71c8265b07fa74bb52b4173a79ac9fe6a1c095a1154d7ac190da8eebe9",
+      "selected_bytes": 6,
+      "duplicate_lines_avoided": 0
+    }
+  ],
+  "model_execution": "not-performed",
+  "model_tokens": null,
+  "recipe": {
+    "synthetic-wide-source": "''.join(f'# line {n:04d}: synthetic non-secret source context\\n' for n in range(1,2001)).encode()",
+    "tiny-source": "b'x = 1\\n'",
+    "path": "source.py",
+    "budget_bytes": 65536
+  },
+  "limitations": [
+    "partial excerpts are not proof of evidence sufficiency",
+    "local file hashing still reads complete selected files",
+    "not an end-to-end or model-token benchmark"
+  ]
+}
