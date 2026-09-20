@@ -6,32 +6,32 @@ description: "Audit product implementation against an accepted design system for
 
 ## Objective
 
-Review implementation against the project's accepted design rules and component contracts. Distinguish a rule violation from ordinary drift, an approved exception and an untested behavior.
+Review implementation against accepted design rules and component contracts, distinguishing violations, ordinary drift, approved exceptions and untested behaviour.
 
 ## Inputs
 
-Required: target scope and an identifiable accepted design-system authority. Optional: project-approved Design Genome, token/component contracts, analysis/diff artifacts, design mode, exceptions and visual/runtime evidence. Stop scoring when the accepted authority is missing or contradictory.
+Required: scope and identifiable accepted authority. Optional: approved Design Genome, token/component contracts, analysis/diffs, mode, exceptions and visual/runtime evidence. Missing or conflicting authority prevents scoring.
 
 ## Context
 
-Resolve design truth through the target's router and manifest, including custom paths. Read only affected rules, token/component definitions and applicable decisions. `.agentic/DESIGN.md` is a target default. A Design Genome is authority only when the target designates its exact version as approved; candidate/import/reference material is not.
+Follow target router/manifest custom routes. Read affected rules, components, tokens and decisions. A Genome is authoritative only at the exact version the project approves; imported candidates are not accepted truth.
 
-The [review guide](references/review-guide.md) and [report template](references/report-template.md) are bundled locally. The [shared design boundaries](references/design-intelligence.md) are an exact bundled copy of the collection reference. No sibling skill or collection checkout is required at runtime.
+Consult the local [review guide](references/review-guide.md), [report template](references/report-template.md) and [design boundaries](references/design-intelligence.md) only as needed. The latter is an exact bundled collection copy. No sibling skill or collection checkout is required.
 
 ## Procedure
 
-1. Record source identity, reviewed screens/components, accepted authority/version, design mode and exclusions. Resolve authority conflicts explicitly; neither recency, token frequency nor an imported design is automatic approval.
-2. Build a compact rule-to-evidence map for affected tokens, primitive/component reuse, variants, states and documented exceptions. Do not require a universal token scheme, component library or folder layout.
-3. Inspect installed tool versions/help before using deterministic analysis. A compatible trusted CLI may provide static design analysis, component inventory or a diff; it must not rewrite context or approve identity during review. When tooling is unavailable, inspect the mapped source directly and report the reduced coverage.
-4. Trace each hard-coded value, raw control, duplicate primitive or invalid variant to a concrete accepted rule. Inspect generated/vendor code, fixtures, legitimate platform adapters and exception scope before filing a violation. Similar appearance alone does not prove duplicate ownership.
-5. Classify each result as `observed`, `violation`, `risk`, `exception` or `not_checked`. A new value or frequency change is drift unless an accepted rule forbids it. Static markup cannot by itself establish runtime focus, keyboard interaction, responsive behavior or visual equivalence.
-6. Consume previous analysis only with matching inputs/scope and appropriate freshness. Changed source or authority invalidates an earlier conformance conclusion. Record commands/screens actually tested; do not relabel missing visual evidence as a pass.
-7. Propose a scoped repair using approved components/tokens. Route creation or revision to design-system work, identity questions to identity design, and accessibility verification to its specialist when available. Explore/revise scope permits proposals, not publication or automatic approval.
+1. Record revision, dirty-worktree changes, screens/components, authority/version, mode and exclusions. Neither recency, token frequency nor imported design resolves an authority conflict automatically.
+2. Map affected rules to evidence for token use, component ownership, variants, states and exceptions. Do not impose a universal library, token scheme or folder layout. Expand to callers/definitions when a finding depends on them, not to every screen by default.
+3. Reuse analyses only with matching source, authority, configuration and scope. Refresh changed tokens/components, dependent views and affected checks; a narrow diff does not prove a narrow impact. Preserve exceptions, contrary evidence and required checks rather than trim them for budget.
+4. Check installed capabilities before optional trusted static analysis, inventory or diff tools. They may not rewrite context or approve identity during review. Without a compatible tool, inspect mapped source and state coverage; never invent results or require `ah` installation.
+5. Trace each hard-coded value, raw control, duplicate or invalid variant to an accepted rule. Check vendor/generated code, fixtures, legitimate platform adapters and exception scope. Similar appearance does not establish duplicate ownership.
+6. Classify `observed`, `violation`, `risk`, `exception` or `not_checked`. Frequency/value changes are drift unless forbidden. Static markup cannot verify focus, keyboard, responsive behaviour or visual equivalence. Record actual commands/screens, input identities, exits and relevant failures; use real log references and preserve truncation, not repeated raw logs.
+7. Propose scoped repair with approved components/tokens. Delegate system changes, identity and accessibility only to the relevant available specialist, with bounded evidence. Missing specialists remain gaps; no automatic extra agent/provider call. Explore/revise permits proposals, not publication or approval.
 
 ## Output
 
-Return accepted authority/scope, a rule-evidence table, confirmed violations, non-violating drift, applicable exceptions, untested behavior and prioritized remediation. Provide a compliance score only when an accepted rubric and adequate measured coverage support it; otherwise leave it unknown.
+Authority/scope, rule-evidence table, violations, allowed drift, exceptions, untested behaviour and repair priorities. Scores require an accepted rubric and adequate measured coverage; otherwise unknown. Cite reused evidence rather than copy entire artifacts.
 
 ## Completion
 
-Every violation cites an accepted rule and inspected implementation. Authority conflicts, exceptions and stale artifacts are visible. The report never claims a browser, visual regression, accessibility test or native host ran when it did not. Copying components or finding token files is not verification.
+Every violation cites an accepted rule and inspected implementation. Conflicts, exceptions, stale artifacts and missing checks remain visible. Never claim browser, visual, accessibility or host execution that did not occur; copied components and token files are not verification.
