@@ -15,3 +15,8 @@ python3 .github/scripts/validate_design_intelligence.py
 ```
 
 The Design Intelligence scenario file is a **behavior contract fixture**, not a recorded model run. It must not be cited as evidence that any model passes the scenarios. Fixtures are synthetic and do not copy restricted provider screens or datasets.
+
+Context-efficiency workflow: [prepare matched treatments](prepared-guidance-trials.md),
+[stage checked participant-only inputs](staged-guidance-trials.md), then review actual
+sessions with the [repeated-trial reporter](repeated-guidance-trials.md). Preparation
+and staging do not execute models or establish token savings.
