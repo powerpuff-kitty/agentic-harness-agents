@@ -11,3 +11,5 @@ For a real trial, preserve the exact task/source/skill revisions, host/model ide
 Submitted-token accounting sums input/output per actual model call, including retries and auxiliary providers. Tool content already included in input is not counted twice. That sum is not a cost estimate: cached-input pricing and provider billing need separate evidence. The helper cannot detect an omitted call, so completeness must come from the retained trace.
 
 Run the local grader regression tests with `python3 -m unittest discover -s .github/scripts -p test_guidance_efficiency.py`. They also run through the existing `validate_agents.py` entrypoint. No CLI or model credentials are required.
+
+For repeated supplied trials, use [the pinned-series reporter](repeated-guidance-trials.md). It retains every planned run, separates acceptance from cost, and withholds aggregate token comparisons when the cohort is incomplete or mismatched. It does not execute or authenticate sessions.
