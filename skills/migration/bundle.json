@@ -1,0 +1,8 @@
+{
+  "format_version": 1,
+  "kind": "standalone-skill",
+  "name": "migration",
+  "files": ["SKILL.md", "references/migration-guide.md"],
+  "optional_tools": [],
+  "shared_references": {}
+}

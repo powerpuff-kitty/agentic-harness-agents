@@ -17,7 +17,7 @@ import zipfile
 import skill_bundle as bundle
 
 SKILLS = ('codebase-audit', 'design-system-compliance', 'security-review',
-          'agentic-improvement', 'decision-intelligence')
+          'agentic-improvement', 'decision-intelligence', 'migration')
 
 
 class SkillBundles(unittest.TestCase):
