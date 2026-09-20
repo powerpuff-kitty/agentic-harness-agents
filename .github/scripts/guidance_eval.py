@@ -25,7 +25,7 @@ def validate_case(case: dict[str, Any]) -> None:
     if any(not isinstance(case[k], str) or not case[k].strip()
            for k in ("id", "prompt", "skill", "outcome")):
         raise ValueError("nonempty case text required")
-    if case["route"] not in ROUTES:
+    if not isinstance(case["route"], str) or case["route"] not in ROUTES:
         raise ValueError("invalid route")
     if not isinstance(case["sources"], dict) or any(
         not isinstance(k, str) or not k or not isinstance(v, str) or not v

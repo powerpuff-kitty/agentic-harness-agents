@@ -16,7 +16,8 @@ import zipfile
 
 import skill_bundle as bundle
 
-SKILLS = ('codebase-audit', 'design-system-compliance', 'security-review')
+SKILLS = ('codebase-audit', 'design-system-compliance', 'security-review',
+          'agentic-improvement', 'decision-intelligence')
 
 
 class SkillBundles(unittest.TestCase):
@@ -57,6 +58,21 @@ class SkillBundles(unittest.TestCase):
                 result = bundle.verify_archive(bundle.build_archive(bundle.ROOT, name))
                 self.assertEqual(result['name'], name)
                 self.assertEqual(result['model_execution'], 'not-run')
+
+    def test_guidance_bundles_are_independent_and_detect_missing_reference(self):
+        for name, guide in [('agentic-improvement', 'efficiency.md'),
+                             ('decision-intelligence', 'decision-guide.md')]:
+            with self.subTest(name=name):
+                target = self.root / 'skills' / name
+                shutil.copytree(bundle.ROOT / 'skills' / name, target)
+                data = bundle.build_archive(self.root, name)
+                self.assertEqual(data, bundle.build_archive(self.root, name))
+                (target / 'references' / guide).unlink()
+                with self.assertRaises(bundle.BundleError):
+                    bundle.build_archive(self.root, name)
+                shutil.rmtree(target)  # Disposable test-owned copy only.
+                with patch.object(bundle, 'read_file', side_effect=AssertionError('source dependency')):
+                    self.assertEqual(bundle.verify_archive(data)['name'], name)
 
     def test_repeated_build_is_byte_deterministic(self):
         self.assertEqual(bundle.build_archive(self.root, self.name), bundle.build_archive(self.root, self.name))
