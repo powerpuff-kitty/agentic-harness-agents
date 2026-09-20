@@ -1,0 +1,11 @@
+{
+  "format_version": 1,
+  "source": {"kind":"artifact","analyzer":"synthetic-fixture"},
+  "domains": {"spacing":{"measurements":[{"id":"spacing.fixture","metric":"spacing-px-frequency","value":[{"value":"16px","count":2}],"source_type":"static"}]}},
+  "findings": [
+    {"id":"spacing.observation","domain":"spacing","classification":"observation","severity":"info","statement":"Synthetic fixture: two 16px spacing occurrences.","source_type":"static","measurement_refs":["spacing.fixture"]},
+    {"id":"ai.spacing-review","domain":"spacing","classification":"recommendation","severity":"info","statement":"Review whether the repeated spacing is intentional; frequency alone does not establish an approved scale.","source_type":"ai","measurement_refs":["spacing.fixture"]}
+  ],
+  "checks": {"performed":["static.spacing-px"],"not_checked":["runtime.contrast","runtime.accessibility"]},
+  "metadata": {"synthetic":true}
+}
