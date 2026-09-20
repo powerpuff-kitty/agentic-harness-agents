@@ -1,0 +1,21 @@
+{
+  "evidence_kind": "synthetic",
+  "format_version": 1,
+  "identity": {
+    "checks_snapshot": "sha256:24c91727db6a1851282f8e6f47c6e585639e51a99a792430914e2d58e6f3fa70",
+    "host": "synthetic-host",
+    "model": "synthetic-model",
+    "policy_snapshot": "sha256:638572e25d7e62248cf3171b91113dca57db6246046a46470aad356ffa7bea40",
+    "settings_snapshot": "sha256:709f5bac4cd5a50060b0a4ec73a4ccc87ecdd740435491d5e3dee4bd63b8f1fa",
+    "source_snapshot": "sha256:fbea141a5d5b274002b3400aefa9f1de4d059ff8dd3017c1e3baf28f97a70889"
+  },
+  "kind": "guidance-series-configuration",
+  "pair_ids": [
+    "r1",
+    "r2",
+    "r3"
+  ],
+  "required_checks": [
+    "reviewed-acceptance"
+  ]
+}

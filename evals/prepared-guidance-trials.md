@@ -68,6 +68,84 @@ must derive the existing observation fields from that evidence, not the answer
 key. Follow `paired-guidance.md` for matched records and independent review. Do
 not convert a preparation record to a passing trial merely by filling flags.
 
+## Prepare an evaluator-compatible series
+
+The optional `prepare_guidance_series.py` connects this preparer to the existing
+[pinned-series reporter](repeated-guidance-trials.md). It builds both disclosure
+modes together, verifies matching task/evidence/guidance identities, derives the
+plan's treatment hashes from the exact TASK.md bytes, and initializes every planned
+baseline/candidate record to null. It never invents an answer, check or usage count.
+
+A runnable **synthetic configuration** is included; it is not a real environment:
+
+```sh
+python3 .github/scripts/prepare_guidance_series.py \
+  --case supported-claim \
+  --config evals/fixtures/guidance-series/preparation-config.json \
+  --output /tmp/guidance-series
+
+python3 .github/scripts/guidance_series.py \
+  /tmp/guidance-series/review/plan.json \
+  /tmp/guidance-series/review/pairs.json \
+  --expected-plan-sha256 "$(cat /tmp/guidance-series/review/plan.sha256)"
+```
+
+The first command exits 0 for successful preparation. The second intentionally
+exits 1 with `incomplete-series`: three planned pairs, six missing session records,
+no task acceptance and no token statistics. Re-running preparation into the same
+output exits 2 without overwriting it. The existing single-treatment commands and
+all participant prompt bytes remain unchanged.
+
+The configuration has exactly these fields: `format_version: 1`,
+`kind: guidance-series-configuration`, `evidence_kind`, `identity`, `required_checks`
+and `pair_ids`. `identity` uses the existing series contract's six keys: `host`,
+`model`, `source_snapshot`, `policy_snapshot`, `checks_snapshot`, `settings_snapshot`.
+Supply reviewed real identities for recorded sessions; none are inferred or verified
+from the machine running this tool. Unknown identities must not be filled using the
+synthetic example. Check names are declarations, not executed checks; the checks
+snapshot must independently identify the actual acceptance implementation. The
+configuration and plan can be changed by their author and are not authenticated.
+The file command accepts at most 64 KiB of configuration; the existing plan validator
+bounds repetitions to 128 and rejects unknown identities and duplicate run IDs.
+
+Output separates reviewer data from two reusable participant templates:
+
+```text
+REVIEWER.json                       completion marker and exact artifact inventory
+review/plan.json                    existing guidance-series-plan v1
+review/plan.sha256                  canonical plan fingerprint, not a raw-file hash
+review/pairs.json                   all planned records initially null
+review/full-preparation.json        reviewer-only grading and source identities
+review/progressive-preparation.json reviewer-only grading and source identities
+treatments/full/participant/        identical to existing full preparation
+treatments/progressive/participant/ identical to existing progressive preparation
+```
+
+Pin the reviewed plan **before** collecting outcomes and retain that pin separately.
+For each separately authorized fresh session, copy only the selected participant
+template to a new isolated workspace. Never give a participant the parent experiment
+directory: the plan and reviewer records contain expected grading data. Templates
+are not isolated executions or proof of independent repetitions. No provider call,
+script execution or automatic native skill activation is authorized by preparation.
+
+After independent review, add actual v1 trial records to a working copy of pairs.json,
+retaining all planned IDs, failures and unavailable measurements. Use the exact
+specification fingerprint and treatment identity from the pinned plan. This helper
+does not normalize answers into passing records or turn cumulative usage snapshots
+into fabricated per-call counts. The original empty roster's hash in REVIEWER.json
+records preparation, not an assertion that a later populated roster is unchanged.
+
+Output must be a new directory outside the checkout, under an existing non-linked
+parent. New directories use mode 0700 and files mode 0600 where supported. Inputs and
+output parents must be trusted and quiescent; this is not protection against hostile
+concurrent filesystem replacement. All output is bounded to 16 MiB. An interrupted
+write can leave partial new files; do not remove or repair them automatically.
+REVIEWER.json is written last, but its presence alone is insufficient: retain the
+successful command result and verify its parsed artifact hashes before using output.
+
+Run `python3 .github/scripts/test_guidance_series_preparation.py` for actual packet,
+plan and evaluator integration tests. They exercise preparation, not model behavior.
+
 ## Native checks and limits
 
 ```sh
