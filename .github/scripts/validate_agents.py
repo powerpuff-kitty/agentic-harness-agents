@@ -14,7 +14,7 @@ if errors:
     raise SystemExit('\n'.join(errors))
 for pattern in ['test_adapter_assets.py', 'test_skill_bundles.py', 'test_guidance_efficiency.py',
                 'test_guidance_comparison.py', 'test_skill_entrypoints.py', 'test_context_scope.py',
-                'test_guidance_trial.py']:
+                'test_guidance_trial.py', 'test_lifecycle_guidance.py']:
     suite = unittest.defaultTestLoader.discover(str(HERE), pattern=pattern)
     if not unittest.TextTestRunner(verbosity=1).run(suite).wasSuccessful():
         raise SystemExit(1)
