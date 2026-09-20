@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bounded documentation-only skill bundles. Never execute tools or skill content."""
+"""Bounded skill bundles: v1 documentation, v2 explicit optional scripts. Never execute content."""
 from __future__ import annotations
 
 import argparse
@@ -136,21 +136,39 @@ def payload(root: Path, name: str) -> dict[str, bytes]:
 def validate_payload(name: str, files: dict[str, bytes]) -> None:
     require('bundle.json' in files, 'bundle: standalone declaration required')
     declaration = decode(files['bundle.json'])
-    require(isinstance(declaration, dict) and set(declaration) == {
-        'format_version', 'kind', 'name', 'files', 'optional_tools', 'shared_references'}, 'bundle: invalid declaration fields')
-    require(type(declaration['format_version']) is int and declaration['format_version'] == 1
-            and declaration['kind'] == 'standalone-skill' and declaration['name'] == name,
+    require(isinstance(declaration, dict), 'bundle: invalid declaration')
+    version = declaration.get('format_version')
+    require(type(version) is int and version in (1, 2), 'bundle: incompatible declaration')
+    fields = {'format_version', 'kind', 'name', 'files', 'optional_tools', 'shared_references'}
+    require(set(declaration) == fields | ({'optional_scripts'} if version == 2 else set()),
+            'bundle: invalid declaration fields')
+    require(declaration['kind'] == 'standalone-skill' and declaration['name'] == name,
             'bundle: incompatible declaration')
     declared = declaration['files']
     require(isinstance(declared, list) and 1 <= len(declared) <= MAX_FILES
             and all(safe_path(p) for p in declared), 'bundle: invalid declared paths')
+    scripts = declaration.get('optional_scripts', [])
+    require(isinstance(scripts, list) and len(scripts) <= 4
+            and (version == 1 or bool(scripts)), 'bundle: explicit optional scripts required')
+    script_paths = set()
+    for script in scripts:
+        require(isinstance(script, dict) and set(script) == {'path', 'execution', 'fallback'},
+                'bundle: invalid optional script')
+        path = script['path']
+        require(safe_path(path) and bool(re.fullmatch(r'scripts/[A-Za-z0-9_-]+\.py', path))
+                and path in declared and path not in script_paths, 'bundle: invalid script path')
+        require(script['execution'] == 'explicit-invocation-only', 'bundle: automatic execution refused')
+        require(isinstance(script['fallback'], str) and 0 < len(script['fallback']) <= 1024
+                and script['fallback'].strip() == script['fallback'], 'bundle: script fallback required')
+        script_paths.add(path)
     require(len(set(declared)) == len(declared) and 'SKILL.md' in declared
-            and all(p == 'SKILL.md' or (p.startswith('references/') and p.endswith('.md')) for p in declared),
-            'bundle: only declared documentation is supported')
+            and all(p == 'SKILL.md' or (p.startswith('references/') and p.endswith('.md'))
+                    or p in script_paths for p in declared),
+            'bundle: only declared documentation and explicit v2 scripts are supported')
     require(set(files) == set(declared) | {'bundle.json'}, 'bundle: missing or undeclared file')
     shared = declaration['shared_references']
     require(isinstance(shared, dict) and len(shared) <= 8
-            and all(safe_path(p) and p in declared and safe_path(source)
+            and all(safe_path(p) and p in declared and p not in script_paths and safe_path(source)
                     and source.startswith('references/') and source.endswith('.md')
                     for p, source in shared.items()), 'bundle: invalid shared references')
     tools = declaration['optional_tools']
@@ -167,8 +185,10 @@ def validate_payload(name: str, files: dict[str, bytes]) -> None:
         try:
             text = files[path].decode('utf-8')
         except UnicodeError:
-            raise BundleError('bundle: documentation must be UTF-8') from None
-        require('\x00' not in text, 'bundle: NUL in documentation')
+            raise BundleError('bundle: payload must be UTF-8') from None
+        require('\x00' not in text, 'bundle: NUL in payload')
+        if path in script_paths:
+            continue  # Opaque source bytes, never import, compile, execute or certify safety.
         # Authoring subset: plain inline, skill-root-relative Markdown links.
         # This is not a complete Markdown parser or a semantic dependency detector.
         for match in LINK.finditer(text):
@@ -202,11 +222,17 @@ def enrolled(root: Path = ROOT) -> dict[str, dict[str, bytes]]:
     return result
 
 
+def verification_scope(files: dict[str, bytes]) -> str:
+    if decode(files['bundle.json'])['format_version'] == 2:
+        return 'payload bytes and declared local links; no script, host or model execution'
+    return 'document bytes and declared local links; no host or model execution'
+
+
 def build_archive(root: Path, name: str) -> bytes:
     files = payload(root, name)
     lock = {'format_version': 1, 'kind': 'skill-bundle-lock', 'name': name,
             'files': {p: hashlib.sha256(data).hexdigest() for p, data in sorted(files.items())},
-            'verification_scope': 'document bytes and declared local links; no host or model execution'}
+            'verification_scope': verification_scope(files)}
     files['bundle-lock.json'] = (json.dumps(lock, sort_keys=True, indent=2) + '\n').encode()
     output = io.BytesIO()
     with zipfile.ZipFile(output, 'w', compression=zipfile.ZIP_STORED) as archive:
@@ -240,14 +266,16 @@ def verify_archive(data: bytes) -> dict:
     lock = decode(files.pop('bundle-lock.json'))
     require(isinstance(lock, dict) and set(lock) == {'format_version', 'kind', 'name', 'files', 'verification_scope'}
             and type(lock['format_version']) is int and lock['format_version'] == 1
-            and lock['kind'] == 'skill-bundle-lock' and lock['name'] == name
-            and lock['verification_scope'] == 'document bytes and declared local links; no host or model execution', 'bundle: invalid lock')
+            and lock['kind'] == 'skill-bundle-lock' and lock['name'] == name, 'bundle: invalid lock')
     require(lock['files'] == {p: hashlib.sha256(b).hexdigest() for p, b in sorted(files.items())},
             'bundle: archive content identity mismatch')
     require(bool(files.pop('LICENSE').strip()), 'bundle: missing license text')
     validate_payload(name, files)
+    require(lock['verification_scope'] == verification_scope(files), 'bundle: incorrect verification scope')
     return {'name': name, 'file_count': len(entries), 'sha256': hashlib.sha256(data).hexdigest(),
-            'verified': 'document bytes and declared local links only', 'model_execution': 'not-run'}
+            'verified': (verification_scope(files) if decode(files['bundle.json'])['format_version'] == 2
+                         else 'document bytes and declared local links only'),
+            'model_execution': 'not-run', 'script_execution': 'not-run'}
 
 
 def verify_collection(archive_path: Path, bundles: dict[str, dict[str, bytes]]) -> None:

@@ -1,0 +1,26 @@
+{
+  "kind": "synthetic-log-byte-measurements",
+  "model_execution": "not-performed",
+  "model_tokens": null,
+  "source_script_sha256": "fa7fb2465d330857348e16fe551d57299ebcbf14c0579d1880749909a81ab045",
+  "measurements": [
+    {
+      "fixture": "repeated.log",
+      "source_sha256": "5aff6646204ea972285fd857fc7ac57e07a2e0374cea17a30c67224d299fa4c5",
+      "source_bytes": 152105,
+      "output_bytes": 739,
+      "encoding": "adjacent-lines",
+      "output_sha256": "3ffbfd2504b3bac49bb8f5c90d22912a5665230f6144646b570cc9cb7ca3a697",
+      "exit": 0
+    },
+    {
+      "fixture": "distinct.log",
+      "source_sha256": "4df599c956fbab14e591e2629e77a8369d7fcf87578e0dd2d831a0db166f0ddd",
+      "source_bytes": 5103,
+      "output_bytes": 5737,
+      "encoding": "literal",
+      "output_sha256": "d28e80a94864ca22770efea4820ab704be566ed6cf6149a8c0816317023b6963",
+      "exit": 0
+    }
+  ]
+}
