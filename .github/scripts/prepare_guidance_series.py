@@ -140,6 +140,7 @@ def prepare_series(root: Path, case_id: str, configuration: Any, output: Path) -
         with os.fdopen(fd, 'wb') as stream:
             stream.write(raw)
     return {'kind': 'guidance-series-prepared', 'directory': str(target),
+            'reviewer_sha256': sha(encode(report)),
             'plan_sha256': report['plan_sha256'], 'planned_pairs': report['planned_pairs'],
             'observed_sessions': 0, 'model_execution': 'not-performed',
             'token_savings_verified': False}
