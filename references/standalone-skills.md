@@ -42,7 +42,7 @@ The validation entrypoint verifies all five bundles. The collection packager che
 
 Tests retain malformed/duplicate JSON, symlink/reparse detection, shared-reference drift, tampering, missing entries and no-overwrite checks. v2 tests retain an inert script that raises on execution, verify it without executing it, and compare a v1 archive to its pre-change byte identity. Explicit helper tests separately execute only reviewed code on synthetic local inputs. Neither those tests nor paired-observation arithmetic execute a model or establish model-token savings.
 
-Bounds remain 65,536 bytes per file, 1,048,576 input bytes, 64 entries and four nested levels. Simple skill-root-relative inline Markdown links are checked, not full Markdown/HTML semantics, fragments, prose file mentions or external HTTPS sources. Not all 31 registered skills are standalone-complete. Binary assets and arbitrary executable dependencies remain unsupported.
+Bounds remain 65,536 bytes per file, 1,048,576 input bytes, 64 entries and four nested levels. Simple skill-root-relative inline Markdown links are checked, not full Markdown/HTML semantics, fragments, prose file mentions or external HTTPS sources. Not all 32 registered skills are standalone-complete. Binary assets and arbitrary executable dependencies remain unsupported.
 
 The code assumes a trusted, quiescent checkout. It rejects observed links and changed metadata but is not hostile-filesystem isolation. ZIP verification reads bounded stored entries without extracting them; `model_execution` remains `not-run`. Author/source review remains separate from archive consistency.
 
