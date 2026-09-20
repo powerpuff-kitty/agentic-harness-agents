@@ -13,3 +13,5 @@ Submitted-token accounting sums input/output per actual model call, including re
 Run the local grader regression tests with `python3 -m unittest discover -s .github/scripts -p test_guidance_efficiency.py`. They also run through the existing `validate_agents.py` entrypoint. No CLI or model credentials are required.
 
 For repeated supplied trials, use [the pinned-series reporter](repeated-guidance-trials.md). It retains every planned run, separates acceptance from cost, and withholds aggregate token comparisons when the cohort is incomplete or mismatched. It does not execute or authenticate sessions.
+
+For reviewed Codex exec JSONL captures, use the optional [usage snapshot inspector](codex-usage-import.md). Cumulative thread counters are not per-call totals; incomplete accounting remains unavailable to comparative trials.
