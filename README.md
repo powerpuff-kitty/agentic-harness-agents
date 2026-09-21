@@ -104,6 +104,7 @@ See [`references/skill-contract.md`](references/skill-contract.md), [`references
 - `agentic-improvement` — improve instructions, task context, evidence reuse and handoff efficiency without requiring a CLI report.
 - `decision-intelligence` — design bounded evidence-backed judgments, abstention and independently optional Jev integration.
 - `code-quality` — review formatting, linting, type-safety and maintainability evidence using project-native tools and bounded fixes.
+- `seo-audit` — audit public-web crawlability, indexability, rendering, canonical/localized URLs, structured data, programmatic pages and provider-specific AI discovery evidence.
 - `migration` — migrate legacy repository layouts safely and idempotently.
 - `adr-management` — create, supersede, and index durable decisions.
 - `adapter-sync` — keep vendor adapters thin and canonical.
@@ -133,7 +134,7 @@ design-intelligence            lifecycle orchestration: Analyze → Preserve →
 
 A **Design Genome** becomes design/identity authority only when the target project designates that artifact/version as accepted truth. Design Analysis is evidence, Design Task is structured implementation scope, and Design Analysis Diff is measurable drift evidence rather than a violation or subjective quality score. References, provider components, AI interpretations, and market prevalence may propose changes but do not silently become project requirements or accepted identity.
 
-See [`manifest.json`](manifest.json) for the complete 32-skill inventory.
+See [`manifest.json`](manifest.json) for the complete 33-skill inventory.
 
 ## Validation
 
