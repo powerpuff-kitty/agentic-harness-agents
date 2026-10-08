@@ -1,9 +1,9 @@
 # Agentic Harness Agents
 
-[![Status: Beta](https://img.shields.io/badge/status-beta-orange)](.agentic/PRODUCT.md)
-[![Validate agents](https://github.com/powerpuff-kitty/agentic-harness-agents/actions/workflows/validate.yml/badge.svg)](https://github.com/powerpuff-kitty/agentic-harness-agents/actions/workflows/validate.yml)
-
 **Installable Agent Skills for Codex, plus compatible procedures and adapters for Claude Code, Cursor, GitHub Copilot, Gemini CLI, and other coding agents.**
+
+[![Status: Beta](https://img.shields.io/badge/status-beta-orange)](.agentic/PRODUCT.md)
+[![Validate agents](https://github.com/powerpuff-kitty/agentic-harness-agents/actions/workflows/validate.yml/badge.svg?branch=main&event=push)](https://github.com/powerpuff-kitty/agentic-harness-agents/actions/workflows/validate.yml)
 
 Current distribution version: **`0.5.0-beta.1`**.
 
