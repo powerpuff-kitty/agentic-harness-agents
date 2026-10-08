@@ -152,6 +152,11 @@ The new [guidance-efficiency cases and grader](evals/guidance-efficiency.md) exe
 
 CI runs the same validators and builds the versioned plugin ZIP/checksum under `dist/`.
 
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the skill contract, canonical ownership boundaries and local validation commands. Pull requests should include evidence of relevant behavioural checks.
+
 ## License
 
 Authored code and content are available under the [MIT License](LICENSE).
