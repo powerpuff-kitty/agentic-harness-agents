@@ -1,7 +1,7 @@
 # AI Skills
 
 [![Format: SKILL.md](https://img.shields.io/badge/format-SKILL.md-blue)](INSTALL.md)
-[![Version: 0.6.0-beta.1](https://img.shields.io/badge/version-0.6.0--beta.1-blue)](https://github.com/powerpuff-kitty/ai-skills/releases/tag/v0.6.0-beta.1)
+[![Version: 0.6.1-beta.1](https://img.shields.io/badge/version-0.6.1--beta.1-blue)](https://github.com/powerpuff-kitty/ai-skills/releases/tag/v0.6.1-beta.1)
 [![AI Skills: 62](https://img.shields.io/badge/AI%20Skills-62-blue)](#skill-catalog)
 [![License: MIT per skill](https://img.shields.io/badge/license-MIT-green)](INSTALL.md)
 

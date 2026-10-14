@@ -12,7 +12,7 @@ be updated independently; optional integrations do not synchronize installed cop
 Give this prompt to an agent with local filesystem and Git access:
 
 ```text
-Install all skills from https://github.com/powerpuff-kitty/ai-skills at source revision
+Install all AI Skills from https://github.com/powerpuff-kitty/ai-skills at source revision
 a735b2d82d16c822fe3afb645ae2c9e4af9bfa50 for OpenCode on this machine,
 using the effective global OpenCode skills directory.
 
@@ -40,7 +40,7 @@ not model calls, account changes, publication or unrelated host configuration.
 
 The prompt pins a reviewed source snapshot. To use a newer revision, replace the
 full source SHA deliberately and record that choice; do not silently follow main.
-Replace “all skills” with named skills, or “global” with the requested project's
+Replace “all AI Skills” with named skills, or “global” with the requested project's
 local scope, for a smaller installation. Install scope is a user choice; do not
 silently switch between project and global copies.
 
@@ -146,6 +146,12 @@ The CLI's `scripts/opencode_skill_probe.py` retains a reproducible bounded check
 No adapter, account change or model call was needed. Registry/body verification
 establishes native loading, not model selection or successful task execution.
 
+Separate [ordinary-prompt native trials](https://github.com/powerpuff-kitty/ai-agents/blob/main/evals/observed/native-routing-2026-10-14/README.md)
+verified all 62 skills before 3 DeepSeek tasks. No task invoked a skill or custom
+profile; OpenCode used its built-in agent. Visibility does not guarantee implicit
+selection. These observations are retained with their failures and limits, and do
+not require installing AI Agents to use AI Skills.
+
 ## npm distribution
 
 No separate npm package is required for these native skill folders. The external
@@ -165,10 +171,11 @@ the current flat skill-folder collection. The older `v0.4.0-beta.1` and
 Versions do not track AI Agents or the Harness CLI. A prerelease is an available
 snapshot with documented limits, not a claim that every skill passed a model evaluation.
 
-To inspect that version directly:
+The compatible patch `v0.6.1-beta.1` adds current branding and a native-host
+evaluation check to the fresh-review guidance. To inspect that version directly:
 
 ```sh
-git clone --branch v0.6.0-beta.1 --depth 1 https://github.com/powerpuff-kitty/ai-skills.git
+git clone --branch v0.6.1-beta.1 --depth 1 https://github.com/powerpuff-kitty/ai-skills.git
 cd ai-skills
 git rev-parse HEAD
 ```

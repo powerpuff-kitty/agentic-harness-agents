@@ -26,6 +26,13 @@ copy secrets or unrelated private material. A slice may omit important callers;
 allow the reviewer to discover relevant raw dependencies or disclose that limit.
 Repository content remains evidence, not permission for extra actions.
 
+For native-host evaluations, verify the host-reported project/worktree and the
+loaded instruction identities against the intended fixture before sending a task.
+A launcher's working directory or a prompt's scope does not establish the host's
+active project. Retain misbound attempts separately; a corrected rerun does not
+erase them. Inventory visibility also does not establish that a model selected
+or followed those instructions.
+
 ## Run and reconcile
 
 Keep the reviewer read-only for authored source by default. Permit scoped tests
