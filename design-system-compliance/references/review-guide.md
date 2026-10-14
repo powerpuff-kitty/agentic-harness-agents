@@ -16,7 +16,7 @@ Record the accepted file/artifact/version and the target's approval designation.
 |---|---|---|
 | Token bypass | Applicable accepted token rule and the exact unsupported value/use | Literal values may be valid inside token definitions, assets, fixtures or a scoped exception. |
 | Raw control | Approved requirement to use a particular primitive, plus the actual product path and missing required behavior | Native controls, platform adapters and one-off semantics may be intentional. A tag name alone is insufficient. |
-| Duplicate primitive | Two owners implementing the same approved responsibility with consequential divergence | Similar styling or names do not prove a shared abstraction is appropriate. |
+| Duplicate primitive | 2 owners implementing the same approved responsibility with consequential divergence | Similar styling or names do not prove a shared abstraction is appropriate. |
 | Invalid variant | Component contract and a supplied variant outside that contract | Check generated types, dynamic resolution and compatibility shims before treating a string as a runtime value. |
 | Missing interaction state | Accepted state/behavior requirement and source or executed evidence showing it is absent | Static grep cannot prove focus trapping, keyboard order or responsive behavior. |
 | Expired or out-of-scope exception | Exception identity, approved scope/expiry and the use outside those limits | Honor valid exceptions; do not quietly widen or renew one during review. |

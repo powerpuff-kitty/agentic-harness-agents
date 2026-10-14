@@ -14,7 +14,7 @@ Required: component need and target project stack. Optional: approved Design Gen
 
 ## Context
 
-Read `.agentic/DESIGN.md`, approved component contracts, architecture/dependency constraints, and `references/design-intelligence.md`. Project-owned approved components take precedence over external providers.
+Read `.agentic/DESIGN.md`, approved component contracts, architecture/dependency constraints, and [references/design-intelligence.md](references/design-intelligence.md). Project-owned approved components take precedence over external providers.
 
 ## Procedure
 

@@ -18,7 +18,7 @@ Counterevidence checked and remaining prerequisites: ...
 Impact, smallest remediation and proposed local regression: ...
 Reproduction status: source-only / approved synthetic test actually executed / not verified.
 
-Synthetic example: an authenticated read handler queries an object by a supplied ID without applying the accepted ownership predicate. Cite the handler, query and mandatory-route evidence; describe a regression using two invented owners. Do not claim the deployed service is exploitable without its routing/configuration evidence. Do not attach real objects or credentials.
+Synthetic example: an authenticated read handler queries an object by a supplied ID without applying the accepted ownership predicate. Cite the handler, query and mandatory-route evidence; describe a regression using 2 invented owners. Do not claim the deployed service is exploitable without its routing/configuration evidence. Do not attach real objects or credentials.
 
 Counterexample: the handler delegates to a query abstraction that always scopes by principal and tenant. Verify the abstraction and alternate routes; missing inline checks alone are not a confirmed defect.
 

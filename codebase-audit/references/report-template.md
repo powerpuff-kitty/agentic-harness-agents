@@ -15,7 +15,7 @@ For each: **ID / classification / severity / confidence**, exact source path and
 
 Example (synthetic, not an executed test): `ARCH-1 / violation / medium / high`. Accepted target rule `project-context/layers.md:12` prohibits product views from importing the HTTP client. `src/views/orders.ts:8` imports `src/api/client.ts` directly and uses it at line 31; the generated-file exception does not apply. Route the call through the existing order service; add an import-boundary regression. No browser or application tests ran. These paths are example placeholders, not actual evidence.
 
-Counterexample: two `Button` files, one generated vendor adapter and one product wrapper, do not establish harmful duplication merely because their names match. Record their distinct responsibilities or the precise overlap that remains to be checked.
+Counterexample: 2 `Button` files, one generated vendor adapter and one product wrapper, do not establish harmful duplication merely because their names match. Record their distinct responsibilities or the precise overlap that remains to be checked.
 
 ## Verification ledger
 

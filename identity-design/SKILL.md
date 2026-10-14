@@ -14,7 +14,7 @@ Required: product purpose/audience or an existing approved identity. Optional: c
 
 ## Context
 
-Read `.agentic/PRODUCT.md`, `.agentic/DESIGN.md`, `.agentic/REFERENCE.md`, accepted design ADRs, and task-relevant research. Follow `references/design-intelligence.md`. Treat references as evidence, not authority.
+Read `.agentic/PRODUCT.md`, `.agentic/DESIGN.md`, `.agentic/REFERENCE.md`, accepted design ADRs, and task-relevant research. Follow [references/design-intelligence.md](references/design-intelligence.md). Treat references as evidence, not authority.
 
 ## Procedure
 

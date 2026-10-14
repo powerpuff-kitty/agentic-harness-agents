@@ -14,7 +14,7 @@ Required: research question, target surface/flow/pattern, and relevant product c
 
 ## Context
 
-Read `.agentic/PRODUCT.md`, `.agentic/DESIGN.md`, `.agentic/REFERENCE.md`, accepted research/ADR context, and `references/design-intelligence.md`. Respect provider licensing, retention, redistribution, and benchmarking restrictions.
+Read `.agentic/PRODUCT.md`, `.agentic/DESIGN.md`, `.agentic/REFERENCE.md`, accepted research/ADR context, and [references/design-intelligence.md](references/design-intelligence.md). Respect provider licensing, retention, redistribution, and benchmarking restrictions.
 
 ## Procedure
 

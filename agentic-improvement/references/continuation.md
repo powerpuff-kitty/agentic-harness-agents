@@ -42,7 +42,7 @@ Otherwise use the human-readable handoff; JSON is not inherently smaller than pr
 ## Select what needs refreshing
 
 When the target's accepted repository tooling exposes `context_checkpoint.plan_refresh`,
-it can compare two valid v1 checkpoints with an explicit `current_source_ids` selection.
+it can compare 2 valid v1 checkpoints with an explicit `current_source_ids` selection.
 This is optional contract tooling, not bundled execution or a requirement to install
 Harness. Without it, compare the recorded sources and dependent notes manually.
 

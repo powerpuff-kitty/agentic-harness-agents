@@ -14,7 +14,7 @@ Required: Design Analysis artifact, measured report, or clearly scoped existing 
 
 ## Context
 
-Read task-relevant DESIGN.md, REFERENCE.md and accepted Genome/ADR context. Follow bundled `references/design-intelligence.md` when present; standalone installs use project-local pinned contracts and [enrichment guidance](references/enrichment.md). Do not require network access to interpret supplied evidence.
+Read task-relevant DESIGN.md, REFERENCE.md and accepted Genome/ADR context. Follow bundled [references/design-intelligence.md](references/design-intelligence.md) when present; standalone installs use project-local pinned contracts and [enrichment guidance](references/enrichment.md). Do not require network access to interpret supplied evidence.
 
 ## Procedure
 

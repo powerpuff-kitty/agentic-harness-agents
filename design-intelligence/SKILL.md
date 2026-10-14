@@ -14,7 +14,7 @@ Required: target project or existing design artifacts and the requested lifecycl
 
 ## Context
 
-Read `.agentic/DESIGN.md`, `.agentic/REFERENCE.md`, accepted design ADRs, and only task-relevant Design Intelligence artifacts. Follow bundled `references/design-intelligence.md` when present. Standalone installs use target-local pinned truth and [workflow guidance](references/workflow.md), without requiring the entire collection or network access. Prefer canonical schemas and deterministic operations when the installed tool/version actually provides them.
+Read `.agentic/DESIGN.md`, `.agentic/REFERENCE.md`, accepted design ADRs, and only task-relevant Design Intelligence artifacts. Follow bundled [references/design-intelligence.md](references/design-intelligence.md) when present. Standalone installs use target-local pinned truth and [workflow guidance](references/workflow.md), without requiring the entire collection or network access. Prefer canonical schemas and deterministic operations when the installed tool/version actually provides them.
 
 ## Procedure
 

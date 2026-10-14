@@ -18,7 +18,7 @@ Follow entrypoint -> validation/authorization -> state owner -> external effect 
 |---|---|---|
 | Layer violation | An accepted dependency rule plus the actual prohibited edge, source path and target resolution | Directory naming is insufficient. Check type-only imports, public facades, aliases, generated files and scoped exceptions. |
 | Import cycle | A concrete edge chain returning to its origin and whether edges participate at runtime | A type-only cycle is not a runtime initialization failure. Unresolved/dynamic edges reduce coverage. |
-| State ownership conflict | Two independently mutable owners of the same invariant with an inconsistent update path | Derived/read-only projections and intentional caches are not automatically duplicated truth. |
+| State ownership conflict | 2 independently mutable owners of the same invariant with an inconsistent update path | Derived/read-only projections and intentional caches are not automatically duplicated truth. |
 | Boundary leakage | Public consumers depend on documented private internals or storage details | Check declared extension points and compatibility adapters before proposing a rewrite. |
 | Error-swallowing | A reachable failure loses required state, response or recovery information | An intentional best-effort branch may be valid; verify its observable contract. |
 

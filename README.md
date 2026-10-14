@@ -1,5 +1,9 @@
 # Skills
 
+[![Consumer CI](https://img.shields.io/github/actions/workflow/status/powerpuff-kitty/agentic-harness-cli/ci.yml?branch=main&event=push&label=consumer%20CI)](https://github.com/powerpuff-kitty/agentic-harness-cli/actions/workflows/ci.yml)
+[![Skills: 51](https://img.shields.io/badge/skills-51-blue)](#skill-catalog)
+[![License: MIT per skill](https://img.shields.io/badge/license-MIT-green)](INSTALL.md)
+
 51 portable task procedures for AI agents, covering engineering, design,
 repository maintenance, decisions and delivery. Each skill lives directly at the
 repository root in `<name>/SKILL.md`, alongside its MIT license and any local
@@ -131,3 +135,6 @@ historical; current installs use the root skill folders.
 project contract and catalog. Its
 [CLI](https://github.com/powerpuff-kitty/agentic-harness-cli) composes pinned sources.
 Each skill carries its own MIT [license](systematic-debugging/LICENSE).
+
+The consumer CI badge concerns the CLI’s pinned Skills snapshot, not an independent
+workflow in this repository. Each skill retains its own MIT license.

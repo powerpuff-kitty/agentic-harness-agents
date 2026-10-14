@@ -26,7 +26,7 @@ representation and factual errors need quoted evidence and an approved fact sour
 Use [the metric rules and worked example](references/method.md) and
 [the observation/report template](assets/report-template.md). Define each numerator,
 denominator and missing-response policy before calculating. Report small samples
-as observations. Repetition from one provider is correlated and is not a market-wide
+as observations. Repetition from 1 provider is correlated and is not a market-wide
 visibility estimate. A before/after observation alone cannot establish causality.
 
 For repeat measurement, hold the panel/settings stable or report cohort changes.

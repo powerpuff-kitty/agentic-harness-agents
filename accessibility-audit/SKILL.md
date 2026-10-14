@@ -14,7 +14,7 @@ Required: target repository or changed UI scope. Optional: target standard/level
 
 ## Context
 
-Read `.agentic/DESIGN.md`, accessibility/testing docs, accepted ADRs, task-relevant approved Design Genome rules, relevant UI code, and `references/design-intelligence.md`. Use Design Analysis measurements only for checks they actually performed; preserve `not_checked` exactly.
+Read `.agentic/DESIGN.md`, accessibility/testing docs, accepted ADRs, task-relevant approved Design Genome rules, relevant UI code, and [references/design-intelligence.md](references/design-intelligence.md). Use Design Analysis measurements only for checks they actually performed; preserve `not_checked` exactly.
 
 ## Procedure
 

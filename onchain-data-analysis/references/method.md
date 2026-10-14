@@ -5,7 +5,7 @@
 Record chain ID/network, block number AND hash, finality/confirmation policy,
 source node/indexer, query/version, retrieval time, address/contract and covered
 range. Preserve reorg removals and pagination/rate-limit gaps. A block height can
-refer to different hashes across forks; two sources using latest can observe
+refer to different hashes across forks; 2 sources using latest can observe
 different states. Do not join rows by address or height without chain context.
 
 For modern EVM data, inspect receipt success and canonical logs when inferring
@@ -30,10 +30,10 @@ optional; missing/untrusted metadata remains unknown until corroborated.
 Check ABI/event signatures and proxy implementation at the relevant block, not
 only the current explorer source. Mint/burn, rebases, fees, wrappers and bridges
 can break a naive sum-of-Transfer-events balance reconstruction. Bridge activity
-on two chains is not automatically two new units of wealth. Native transfers,
+on 2 chains is not automatically 2 new units of wealth. Native transfers,
 internal calls and token transfers need distinct definitions.
 
-Synthetic case: two identical log rows share chain, block hash, transaction hash
+Synthetic case: 2 identical log rows share chain, block hash, transaction hash
 and log index; count the event once under the declared indexing contract. A record
 with the same transaction hash on a different chain must not be deduplicated into
 it. If the block is later orphaned, do not retain its event as canonical history.

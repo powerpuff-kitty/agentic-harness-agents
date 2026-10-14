@@ -1,7 +1,7 @@
 # Example: unsupported comparison
 
 Draft: “Our tool always saves every customer 50% and is certified secure.”
-Evidence: one pilot measured a 20% median reduction for ten users; no certification.
+Evidence: one pilot measured a 20% median reduction for 10 users; no certification.
 
 Do not polish this into “Guaranteed savings, certified protection.” If pilot use
 is approved, offer an accurately scoped sentence about that pilot with its source

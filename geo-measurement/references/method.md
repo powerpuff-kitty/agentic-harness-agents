@@ -2,7 +2,7 @@
 
 An observation is one retained answer for one panel prompt/provider/settings/time.
 Keep a planned observation ledger including failures and exclusions. Use exact
-entity aliases and predeclare whether duplicates in one answer count once (the
+entity aliases and predeclare whether duplicates in 1 answer count once (the
 usual answer-level rate) or as occurrences. Never mix those units.
 
 Example: 6 planned unbranded observations, 4 usable responses, 1 provider error,

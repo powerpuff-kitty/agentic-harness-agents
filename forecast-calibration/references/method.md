@@ -36,7 +36,7 @@ reviewed 2026-10-14. Match the actual task/platform score and weighting when nee
 
 ## Calibration and uncertainty
 
-For the synthetic data, two bins [0,.5) and [.5,1] have means .3 and .7, while each
+For the synthetic data, 2 bins [0,.5) and [.5,1] have means .3 and .7, while each
 has observed event rate .5 and n=2. State bin edges/counts and wide sample
 uncertainty. Low Brier does not by itself prove reliability; calibration error
 estimates depend on bins and sampling. A constant base-rate predictor can be

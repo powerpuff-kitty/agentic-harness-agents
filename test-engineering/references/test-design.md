@@ -6,7 +6,7 @@ rounding and invalid-input cases; an API integration additionally needs serializ
 authorization/error mapping and rollback behavior when those are accepted requirements.
 
 Prefer actual local boundaries for integration tests. A mock that returns the exact
-value asserted cannot establish that two real components agree. External services
+value asserted cannot establish that 2 real components agree. External services
 may require recorded/synthetic fixtures or stubs; record which behavior they cannot
 verify. Never use a production account or send real messages merely to test a flow.
 

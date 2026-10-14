@@ -8,7 +8,7 @@ Record the source and working-tree inputs, relevant rules/configuration, exact p
 
 Check router links, root hygiene, manifest/lock and required module/reference integrity where touched. Run the project's required native tests/quality gates when authorised. A discovered check, planned command or valid report shape is not execution. Report installed structure, project configuration, check configuration and verified behaviour separately.
 
-## Keep the two approvals separate
+## Keep the 2 approvals separate
 
 Approval to execute a command does not approve its result as completion evidence. When the installed trusted CLI supports checks complete, follow the target's canonical contract. Obtain explicit caller review of the exact evidence manifest binding report, producer and reference digests. Do not calculate a digest and submit it as the caller's approval. A model's confidence, previous approval of different bytes or a supplied receipt cannot grant approval.
 

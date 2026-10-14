@@ -72,18 +72,11 @@ preserve local changes. Renaming this repository or updating a clone does not
 refresh installed copies. Earlier aggregate plugin releases remain historical;
 current root-folder installs do not use those plugin manifests.
 
-`SKILL.md` is authoritative for a skill's trigger and procedure. Resolve Markdown
-resource links relative to the document containing them. Use the skill-local checks where supplied, from the source root:
-
-```sh
-python3 -B -m unittest discover -s agentic-improvement/tests
-python3 -B -m unittest discover -s decision-intelligence/tests
-python3 -B -m unittest discover -s adapter-sync/tests
-```
-
-These are verification commands, not installation steps. Case specifications marked `not_run` are not recorded
-model outcomes. No automatic collection CI or host-loading certification is
-implied by this source repository.
+`SKILL.md` owns a skill's trigger and procedure. Resolve resource links relative
+to their containing document. Run only relevant skill-local checks when the task
+requires them; installation does not execute helpers. Case specifications are
+separate from observed outcomes. The CLI consumer CI validates its pinned source;
+this source-only repository has no independent collection workflow.
 
 ## Managed installation, domains and updates
 

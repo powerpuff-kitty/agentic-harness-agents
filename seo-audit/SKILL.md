@@ -16,7 +16,7 @@ Required: target repository/site and public surface or routes in scope. Optional
 
 Start with project-owned public URL, publication, privacy, localization, deployment, and rendering truth. Inspect only the route/build/server/middleware/metadata code needed to establish crawl behavior. When available, use the canonical Harness search-visibility rules (for example `pattern/search-visibility/1`) as stable finding semantics; the skill remains usable without a CLI or installed registry.
 
-Keep four evidence classes distinct:
+Keep 4 evidence classes distinct:
 
 1. **source** — code/configuration expresses intended behavior;
 2. **build artifact** — generated HTML/sitemap/assets actually contain it;

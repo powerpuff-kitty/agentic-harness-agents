@@ -43,7 +43,7 @@ eligibility or legal conclusion is supplied by this skill.
 
 ## Report decisions
 
-Confirmed: two captured contracts have materially different event definitions.
+Confirmed: 2 captured contracts have materially different event definitions.
 Conditional: supplied outcome facts satisfy one interpretation, but timezone or
 rule version is missing. Not checked: no authoritative resolution/status evidence
 is available. In each case, distinguish hypothetical payout reasoning from an

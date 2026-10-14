@@ -14,7 +14,7 @@ Required: product/UI scope and accepted design intent or desired reusable-system
 
 ## Context
 
-Read `.agentic/DESIGN.md`, accepted design ADRs, relevant component/token source, `references/design-intelligence.md`, and a Design Genome only when the target project designates that artifact/version as accepted truth. If accepted sources conflict, surface the conflict and request/record resolution rather than silently choosing the Genome or the newest file. Route unresolved art direction to `identity-design`, research to `design-research`, and provider selection to `component-resolution`.
+Read `.agentic/DESIGN.md`, accepted design ADRs, relevant component/token source, [references/design-intelligence.md](references/design-intelligence.md), and a Design Genome only when the target project designates that artifact/version as accepted truth. If accepted sources conflict, surface the conflict and request/record resolution rather than silently choosing the Genome or the newest file. Route unresolved art direction to `identity-design`, research to `design-research`, and provider selection to `component-resolution`.
 
 ## Procedure
 

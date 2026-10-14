@@ -58,7 +58,7 @@ is a conditional discrepancy, not automatically an erroneous provider.
 ## Corporate actions, returns and universes
 
 Synthetic split case: an asset closes at 100 before a 2-for-1 split and 50 after it.
-A holder of one pre-split share then owns two shares worth 100 in total. The raw
+A holder of one pre-split share then owns 2 shares worth 100 in total. The raw
 price ratio alone suggests -50%, while the split-adjusted economic price return
 is 0%, before costs/dividends. Check exactly which series the provider adjusted;
 do not split-adjust again or add dividends twice to a total-return series.
@@ -77,7 +77,7 @@ calendar, currency, return type, rebalance timestamps and fees.
 
 - Confirmed: the same instrument/time key appears twice with conflicting closes.
   Preserve both raw records and identify a source resolution rule before deduping.
-- Conditional: one provider differs on a split date; its adjustment convention is
+- Conditional: 1 provider differs on a split date; its adjustment convention is
   missing. Do not choose the series with the better strategy return.
 - Not checked: no historical constituent or publication archive is available.
   A price-quality pass cannot support a point-in-time backtest claim.

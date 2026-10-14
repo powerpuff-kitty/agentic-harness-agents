@@ -12,9 +12,9 @@ For large selected JS/TS files with unknown definition locations, the optional [
 
 ## Rule identity, not just text identity
 
-Deduplication applies to repeated presentation, not automatically to source files. Match authority, applicability, conditions and exceptions before combining rules; retain every source and its scope. Identical sentences in two nested AGENTS.md files may govern different directories. Do not delete either file or hoist the rule globally to save tokens. A reviewed compiled view may state the sentence once with both scopes; the original routing and authority must survive.
+Deduplication applies to repeated presentation, not automatically to source files. Match authority, applicability, conditions and exceptions before combining rules; retain every source and its scope. Identical sentences in 2 nested AGENTS.md files may govern different directories. Do not delete either file or hoist the rule globally to save tokens. A reviewed compiled view may state the sentence once with both scopes; the original routing and authority must survive.
 
-Near-duplicates may differ materially. Keep unresolved conflicts visible. Prefer narrow triggers and one specialist owner to overlapping skills. Put examples behind conditional local links. JSON/YAML can support validation but is not inherently shorter.
+Near-duplicates may differ materially. Keep unresolved conflicts visible. Prefer narrow triggers and 1 specialist owner to overlapping skills. Put examples behind conditional local links. JSON/YAML can support validation but is not inherently shorter.
 
 For substantial rule inventories or source-bound compilation, load the [rule-compilation guide](rule-review.md) before using its optional API. Manual comparison remains available; generated views cannot grant authority or discard required context. Skip API details when no compiled inventory is involved.
 

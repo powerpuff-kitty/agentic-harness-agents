@@ -14,7 +14,7 @@ Required: target user/problem and feature scope. Optional: project-designated ap
 
 ## Context
 
-Read `.agentic/PRODUCT.md`, `.agentic/DESIGN.md`, accepted ADRs, current flows/components, and `references/design-intelligence.md`. Use a Design Genome when the project designates its version as accepted truth; if accepted design sources conflict, surface the conflict rather than silently choosing one. Research is evidence, not a substitute for product decisions. Route primary reference research to `design-research` and identity questions to `identity-design`.
+Read `.agentic/PRODUCT.md`, `.agentic/DESIGN.md`, accepted ADRs, current flows/components, and [references/design-intelligence.md](references/design-intelligence.md). Use a Design Genome when the project designates its version as accepted truth; if accepted design sources conflict, surface the conflict rather than silently choosing one. Research is evidence, not a substitute for product decisions. Route primary reference research to `design-research` and identity questions to `identity-design`.
 
 ## Procedure
 
