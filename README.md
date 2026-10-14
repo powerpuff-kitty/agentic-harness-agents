@@ -1,6 +1,6 @@
 # Skills
 
-[![Consumer CI](https://img.shields.io/github/actions/workflow/status/powerpuff-kitty/agentic-harness-cli/ci.yml?branch=main&event=push&label=consumer%20CI)](https://github.com/powerpuff-kitty/agentic-harness-cli/actions/workflows/ci.yml)
+[![Format: SKILL.md](https://img.shields.io/badge/format-SKILL.md-blue)](INSTALL.md)
 [![Skills: 62](https://img.shields.io/badge/skills-62-blue)](#skill-catalog)
 [![License: MIT per skill](https://img.shields.io/badge/license-MIT-green)](INSTALL.md)
 
@@ -13,7 +13,10 @@ references, helpers, assets or checks.
 
 Use the [copyable installation prompt](INSTALL.md). Install selected skills or the
 whole collection, preserve local customizations and record the source revision.
-The optional CLI supports domain presets, managed updates, previews and rollback.
+Install directly from a reviewed Git checkout by copying complete skill folders.
+No CLI, Agents checkout or Harness project is required. The
+[optional CLI](INSTALL.md#optional-managed-installation-domains-and-updates) supports
+domain presets, managed updates, previews and rollback for its bundled snapshot.
 OpenCode supports the native `SKILL.md` format; no skill adapter is required.
 An isolated persistent OpenCode v2.0.27 check registered all 62 skills with matching
 paths and instruction bodies; allow its configuration plugins time to initialize.
@@ -147,10 +150,10 @@ acceptance specifications and observed model outcomes. Run applicable
 establish host loading or model adherence. Earlier aggregate plugin releases are
 historical; current installs use the root skill folders.
 
-[Agentic Harness](https://github.com/powerpuff-kitty/agentic-harness) owns the
-project contract and catalog. Its
-[CLI](https://github.com/powerpuff-kitty/agentic-harness-cli) composes pinned sources.
-Each skill carries its own MIT [license](systematic-debugging/LICENSE).
-
-The consumer CI badge concerns the CLI’s pinned Skills snapshot, not an independent
-workflow in this repository. Each skill retains its own MIT license.
+[Agents](https://github.com/powerpuff-kitty/ai-agents) provides optional role profiles
+and teams. [Agentic Harness](https://github.com/powerpuff-kitty/agentic-harness) owns
+its project contract; related skills use that contract when the task calls for it.
+These integrations do not control installation or releases of this collection.
+The CLI consumes a pinned Skills snapshot and validates it in its own CI; that
+consumer check is separate from current source validation. Each skill carries its
+own MIT [license](systematic-debugging/LICENSE).

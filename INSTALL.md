@@ -3,7 +3,9 @@
 This repository contains self-contained skill folders directly at its root.
 `README.md` and `INSTALL.md` are the collection-level entrypoints. Each skill owns `SKILL.md`, its
 MIT `LICENSE` and any required local references, helpers, assets or tests. No
-aggregate plugin or renderer is required. The optional CLI supplies managed installation.
+aggregate plugin or renderer is required. Install directly from Git without the
+Agentic Harness CLI, an Agents checkout or a Harness project. Each repository can
+be updated independently; optional integrations do not synchronize installed copies.
 
 ## Copyable installation prompt
 
@@ -24,9 +26,10 @@ Resolve the actual OpenCode configuration location. Inspect existing skills acro
 its supported discovery paths to avoid conflicting duplicate names. Copy real
 folders into the selected skill location. Leave identical copies alone and preserve
 unrelated or locally customized files; report conflicts for a concrete decision
-instead of overwriting them or changing host permissions. Use the managed CLI
-when available; preview the named selection before applying it. Record conflicts
-and do not report a preview containing conflicts as ready to apply.
+instead of overwriting them or changing host permissions. Use this direct-folder
+installation path; do not install a CLI or the Agents collection as a prerequisite.
+If existing files are managed by an installer, report that ownership before changing
+them and preserve its state. Record conflicts before applying any copies.
 
 Verify installed file identity and actual OpenCode discovery/loading using the
 installed executable's supported inspection commands. Report revision, installed,
@@ -70,8 +73,12 @@ portable folder contents where supported.
 
 ## Updates and validation
 
-Use a known source revision, compare the installed folder before replacement and
-preserve local changes. Renaming this repository or updating a clone does not
+For direct installs, review a newer Git revision, compare each selected complete
+folder with its installed copy, and replace only unchanged copies after preserving
+local changes and recording the new revision. Keep unrelated installed skills.
+A smaller selection does not authorize deleting earlier installations. If an
+existing copy belongs to a manager, use its update path or deliberately migrate
+ownership; do not leave its recorded hashes out of sync. Renaming this repository or updating a clone does not
 refresh installed copies. Earlier aggregate plugin releases remain historical;
 current root-folder installs do not use those plugin manifests.
 
@@ -81,10 +88,12 @@ requires them; installation does not execute helpers. Case specifications are
 separate from observed outcomes. The CLI consumer CI validates its pinned source;
 this source-only repository has no independent collection workflow.
 
-## Managed installation, domains and updates
+## Optional managed installation, domains and updates
 
 The [Agentic Harness CLI](https://github.com/powerpuff-kitty/agentic-harness-cli)
-embeds an exact Skills revision. Its `skills` command installs portable folders
+embeds an exact Skills revision for users who choose that installer. It is a
+downstream consumer, not a prerequisite or the source of this collection. Its
+`skills` command installs portable folders
 without initializing a Harness project or changing host permissions/configuration.
 Use a CLI build containing this lifecycle command; historical binaries may lack it.
 Inspect `ah skills list` for the actual embedded revision and domain membership.
