@@ -1,0 +1,23 @@
+{
+  "kind": "synthetic-experiment-readout",
+  "assignment_unit": "account",
+  "planned_allocation": {
+    "control": 0.5,
+    "treatment": 0.5
+  },
+  "counts": {
+    "control": {
+      "assigned": 900,
+      "converted": 45
+    },
+    "treatment": {
+      "assigned": 1100,
+      "converted": 66
+    }
+  },
+  "exposure_logs": "not supplied",
+  "assignment_implementation": "not inspected",
+  "primary": "converted accounts / assigned accounts within declared window",
+  "predeclared_stopping_policy": "fixed horizon; sample delivered at its scheduled cutoff",
+  "guardrails": "not supplied"
+}

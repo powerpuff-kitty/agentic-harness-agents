@@ -31,6 +31,10 @@ Read `.agentic/PRODUCT.md`, `.agentic/DESIGN.md`, accepted ADRs, current flows/c
 
 Return flow/state model, screen/interaction requirements, edge cases, component/system dependencies, research-derived observations vs project decisions, design-authority conflicts, accessibility considerations, Design Task inputs, acceptance criteria, and open decisions.
 
+Use participant evidence from `user-research` when available for discovery questions;
+external interface references remain `design-research`. A heuristic walkthrough is
+not an executed participant study or permission to contact users.
+
 ## Completion
 
 The primary journey and recovery states are covered; accepted identity/system constraints are respected; research did not silently create product requirements; source-of-truth conflicts are explicit; component/system gaps are routed to the correct specialist; and unresolved business/product choices are not invented.

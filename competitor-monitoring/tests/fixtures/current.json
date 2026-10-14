@@ -1,0 +1,37 @@
+{
+  "format_version": 1,
+  "captured_at": "2026-10-15T12:00:00Z",
+  "sources": [
+    {
+      "id": "pricing",
+      "locator": "https://vendor.example/pricing",
+      "status": "ok",
+      "observed_at": "2026-10-15T11:00:00Z",
+      "facts": [
+        {
+          "key": "pro-price",
+          "value": "39",
+          "qualifiers": {
+            "currency": "USD",
+            "period": "month",
+            "unit": "seat"
+          },
+          "evidence": "synthetic source:1"
+        },
+        {
+          "key": "plan-name",
+          "value": " Pro  plan ",
+          "qualifiers": {},
+          "evidence": "synthetic source:2"
+        }
+      ]
+    },
+    {
+      "id": "release-notes",
+      "locator": "https://vendor.example/releases",
+      "status": "unavailable",
+      "observed_at": null,
+      "facts": []
+    }
+  ]
+}

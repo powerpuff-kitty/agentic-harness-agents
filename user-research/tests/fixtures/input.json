@@ -1,0 +1,33 @@
+{
+  "kind": "synthetic-research-records",
+  "sampling": "convenience sample; not representative",
+  "records": [
+    {
+      "id": "P01",
+      "method": "interview",
+      "analysis_allowed": true,
+      "quote_allowed": true,
+      "note": "I need to export a copy for an external reviewer.",
+      "observation_type": "said"
+    },
+    {
+      "id": "P02",
+      "method": "interview",
+      "analysis_allowed": true,
+      "quote_allowed": false,
+      "note": "Automatic cloud sharing would make me stop using this.",
+      "observation_type": "said"
+    },
+    {
+      "id": "P03",
+      "method": "task walkthrough",
+      "analysis_allowed": true,
+      "quote_allowed": true,
+      "task": "Find how to export a copy.",
+      "note": "Could not locate export without a moderator hint.",
+      "observation_type": "did"
+    }
+  ],
+  "product_decision": "Whether to investigate export discoverability and sharing controls",
+  "recruitment_authorization": "not granted; supplied synthetic data only"
+}

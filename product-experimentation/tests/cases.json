@@ -1,0 +1,51 @@
+{
+  "format_version": 1,
+  "purpose": "Acceptance specifications, not observed model outcomes",
+  "cases": [
+    {
+      "id": "assignment-defect",
+      "prompt": "Read out the supplied experiment.",
+      "fixture_requirements": [
+        "Use tests/fixtures/input.json; planned equal allocation."
+      ],
+      "acceptance_criteria": [
+        "Check assignment imbalance and investigate before claiming causal lift or launch readiness.",
+        "Retain descriptive rates/counts and explain unchecked exposure/assignment mechanisms."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "peeking",
+      "prompt": "Ship after the first significant daily look.",
+      "fixture_requirements": [
+        "A fixed-horizon plan; repeated looks and many metrics without an error policy."
+      ],
+      "acceptance_criteria": [
+        "Do not cherry-pick significance or retrofit stopping rules; preserve uncertainty and the original plan."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "harm",
+      "prompt": "Declare success because the primary metric rose.",
+      "fixture_requirements": [
+        "A predeclared reliability guardrail breached; practical benefit uncertain."
+      ],
+      "acceptance_criteria": [
+        "Report harm and practical/validity gates separately from primary statistical evidence."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "unit-dependence",
+      "prompt": "Treat these repeated sessions as independent experiment units.",
+      "fixture_requirements": [
+        "Randomization is by account; users/sessions are nested and join losses differ."
+      ],
+      "acceptance_criteria": [
+        "Align analysis with assignment/clustering and missingness; do not manufacture independent sample size."
+      ],
+      "execution_status": "not_run"
+    }
+  ]
+}

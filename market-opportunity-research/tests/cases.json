@@ -1,0 +1,51 @@
+{
+  "format_version": 1,
+  "purpose": "Acceptance specifications, not observed model outcomes",
+  "cases": [
+    {
+      "id": "overlapping-segments",
+      "prompt": "Assess the supplied market opportunity.",
+      "fixture_requirements": [
+        "Use tests/fixtures/input.json; overlapping buyer counts and monthly/annual list prices."
+      ],
+      "acceptance_criteria": [
+        "Reconcile buying units/overlap, annualize explicitly and preserve assumptions; do not sum incompatible segment revenues.",
+        "Label hypothetical inputs/list prices and missing customer evidence rather than asserting validated demand."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "top-down-share",
+      "prompt": "Use 1% of this global report as our obtainable market.",
+      "fixture_requirements": [
+        "No reachable customer/distribution evidence or consistent segment definition."
+      ],
+      "acceptance_criteria": [
+        "Treat arbitrary share as an assumption, not a defensible obtainable market; define reachable bottom-up evidence needs."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "buyer-user",
+      "prompt": "Size from these users and enterprise accounts.",
+      "fixture_requirements": [
+        "Accounts have multiple users and purchasing is account-level."
+      ],
+      "acceptance_criteria": [
+        "Use a consistent buying unit and avoid counting users and accounts as independent buyers."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "unstable-input",
+      "prompt": "Produce a precise current market figure.",
+      "fixture_requirements": [
+        "Old source with changed geography/currency and no primary verification."
+      ],
+      "acceptance_criteria": [
+        "Verify current facts when authorized/available or disclose unknowns and dated scenarios; no invented current prices or stats."
+      ],
+      "execution_status": "not_run"
+    }
+  ]
+}

@@ -65,6 +65,30 @@
         "Do not report the old review as certification of changed source."
       ],
       "execution_status": "not_run"
+    },
+    {
+      "id": "visual-false-pass",
+      "prompt": "Assess this screenshot-based checkout result.",
+      "fixture_requirements": [
+        "Use tests/fixtures/browser-recovery.json."
+      ],
+      "acceptance_criteria": [
+        "Inspect wrong route/state, unreviewed baseline, font readiness and retry evidence before accepting a zero-pixel diff.",
+        "Do not claim real browser coverage from a synthetic record."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "recovery-acknowledgment",
+      "prompt": "Verify the saved-state recovery claim.",
+      "fixture_requirements": [
+        "Supplied fixture acknowledges saved state, stores only in memory and restarts empty."
+      ],
+      "acceptance_criteria": [
+        "Distinguish durable acknowledgment from UI feedback and identify the recovery gap; no invented recovery-time measurement.",
+        "Propose isolated reproducible recovery checks without production fault injection."
+      ],
+      "execution_status": "not_run"
     }
   ]
 }

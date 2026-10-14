@@ -1,0 +1,29 @@
+{
+  "kind": "hypothetical-opportunity-input",
+  "geography": "synthetic region",
+  "period": "illustrative annual",
+  "segments": [
+    {
+      "id": "solo",
+      "buying_units": 3000,
+      "list_price": 1000,
+      "currency": "USD",
+      "price_period": "year"
+    },
+    {
+      "id": "agency",
+      "buying_units": 1000,
+      "list_price": 100,
+      "currency": "USD",
+      "price_period": "month"
+    }
+  ],
+  "overlap": {
+    "buying_units_in_both": 500,
+    "revenue_assignment": "not supplied; do not bill overlapping units twice"
+  },
+  "sources": "hypothetical fixture assumptions, not market observations",
+  "customer_research": "not supplied",
+  "reachable_distribution": "not supplied",
+  "willingness_to_pay": "not measured"
+}

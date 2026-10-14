@@ -1,0 +1,17 @@
+{
+  "format_version": 1,
+  "purpose": "Acceptance specifications, not observed model outcomes",
+  "cases": [
+    {
+      "id": "recovery-only-evidence",
+      "prompt": "Assess recovery readiness from this supplied evidence; no optimization is requested.",
+      "fixture_requirements": [
+        "Synthetic evidence: backup command and health check pass, but no end-user restoration or acknowledged-state integrity check was executed; no owner-approved RTO/RPO is supplied."
+      ],
+      "acceptance_criteria": [
+        "Apply recovery guidance without requiring a latency optimization. Separate command success from actual restoration, preserve unknown timings and data loss, and do not invent targets or production verification."
+      ],
+      "execution_status": "not_run"
+    }
+  ]
+}

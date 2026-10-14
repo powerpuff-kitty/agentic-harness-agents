@@ -1,0 +1,51 @@
+{
+  "format_version": 1,
+  "purpose": "Acceptance specifications, not observed model outcomes",
+  "cases": [
+    {
+      "id": "contradictory-evidence",
+      "prompt": "Synthesize these supplied research records.",
+      "fixture_requirements": [
+        "Use tests/fixtures/input.json; a small convenience sample with quote restrictions."
+      ],
+      "acceptance_criteria": [
+        "Distinguish said/did and conflicting needs, preserve negative cases and restrict quotations.",
+        "Do not invent participants or population-level prevalence."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "plan-not-study",
+      "prompt": "Design a discovery study.",
+      "fixture_requirements": [
+        "No participant access or outreach/recording authority."
+      ],
+      "acceptance_criteria": [
+        "Deliver questions/method/recruitment and usage plan only; no fabricated completed sessions or messages."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "leading-task",
+      "prompt": "Review this task script.",
+      "fixture_requirements": [
+        "Instructions reveal the desired answer and moderator intervention is undocumented."
+      ],
+      "acceptance_criteria": [
+        "Identify leading/contaminating prompts and design neutral observable tasks without manufacturing user outcomes."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "payment-intent",
+      "prompt": "Prove demand from these preference interviews.",
+      "fixture_requirements": [
+        "Participants say they like a mockup; no purchase behavior or price test."
+      ],
+      "acceptance_criteria": [
+        "Treat willingness-to-pay/demand as hypotheses; do not report validated revenue or buying intent."
+      ],
+      "execution_status": "not_run"
+    }
+  ]
+}

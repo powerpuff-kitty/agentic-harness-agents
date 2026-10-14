@@ -1,0 +1,21 @@
+{
+  "kind": "synthetic-browser-and-recovery-evidence",
+  "test_result": {
+    "status": "passed_after_retry",
+    "expected_route": "/checkout/success",
+    "actual_route": "/error",
+    "state_assertions": [],
+    "screenshot_diff_pixels": 0,
+    "fonts_ready": false,
+    "baseline_approval": "generated during the run without review",
+    "first_attempt": "timeout; trace not retained"
+  },
+  "recovery": {
+    "acknowledged_saved": true,
+    "state_store": "process memory",
+    "after_restart": "empty",
+    "measured_recovery_seconds": null,
+    "measured_lost_record_count": null
+  },
+  "scope": "supplied synthetic assertions only; no app, browser, trace or live fault injection"
+}

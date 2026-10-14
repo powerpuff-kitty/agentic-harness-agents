@@ -1,0 +1,50 @@
+{
+  "kind": "synthetic-tracking-qa",
+  "contract": {
+    "event": "signup_completed",
+    "version": 1,
+    "required": [
+      "event_id",
+      "occurred_at",
+      "anonymous_id"
+    ],
+    "allowed": [
+      "event_id",
+      "occurred_at",
+      "anonymous_id",
+      "event",
+      "schema_version"
+    ],
+    "trigger": "business-confirmed signup, not button click"
+  },
+  "events": [
+    {
+      "event": "signup_completed",
+      "schema_version": 1,
+      "event_id": "e1",
+      "occurred_at": "2026-10-01T12:00:00Z",
+      "anonymous_id": "synthetic-a"
+    },
+    {
+      "event": "signup_completed",
+      "schema_version": 1,
+      "event_id": "e1",
+      "occurred_at": "2026-10-01T12:00:00Z",
+      "anonymous_id": "synthetic-a"
+    },
+    {
+      "event": "signup_completed",
+      "schema_version": 1,
+      "event_id": "e2",
+      "anonymous_id": "synthetic-b"
+    },
+    {
+      "event": "signup_completed",
+      "schema_version": 1,
+      "event_id": "e3",
+      "occurred_at": "2026-10-01T12:01:00Z",
+      "anonymous_id": "synthetic-c",
+      "email": "synthetic@example.test"
+    }
+  ]
+}

@@ -30,6 +30,11 @@ Read approved product positioning and prior research from `.agentic/` only as fr
 
 Return comparison matrix or narrative, citations/provenance, confidence, gaps/opportunities, and explicit unknowns; keep recommendations separate from observed facts.
 
+For repeated baseline/change detection, use `competitor-monitoring` when available.
+For segment demand, willingness-to-pay evidence and bottom-up sizing, use
+`market-opportunity-research`. Keep the same scoped evidence method when those
+procedures are absent; no provider or recurring scheduler is implied.
+
 ## Completion
 
 Every material current claim is sourced, stale/uncertain evidence is labeled, comparison criteria are consistent, and conclusions do not exceed the evidence.

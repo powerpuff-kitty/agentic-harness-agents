@@ -1,0 +1,19 @@
+{
+  "kind": "synthetic-native-recovery-scenario",
+  "platforms": [
+    "iOS",
+    "Android"
+  ],
+  "stack": "not supplied",
+  "reported_behavior": [
+    "User submits a draft while offline; intent exists only in process memory.",
+    "The process terminates before connectivity returns.",
+    "In another attempt, the server accepts the submit but the response is lost; the client retries with a new request ID."
+  ],
+  "requirements": [
+    "Do not lose an acknowledged saved draft.",
+    "Do not create duplicate accepted business submissions.",
+    "Show pending, retry and recovery status without claiming server guarantees not evidenced."
+  ],
+  "available_evidence": "scenario only; no app source, SDK, backend contract or device results"
+}

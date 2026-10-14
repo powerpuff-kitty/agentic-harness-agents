@@ -1,10 +1,10 @@
 # Skills
 
 [![Consumer CI](https://img.shields.io/github/actions/workflow/status/powerpuff-kitty/agentic-harness-cli/ci.yml?branch=main&event=push&label=consumer%20CI)](https://github.com/powerpuff-kitty/agentic-harness-cli/actions/workflows/ci.yml)
-[![Skills: 52](https://img.shields.io/badge/skills-52-blue)](#skill-catalog)
+[![Skills: 59](https://img.shields.io/badge/skills-59-blue)](#skill-catalog)
 [![License: MIT per skill](https://img.shields.io/badge/license-MIT-green)](INSTALL.md)
 
-52 portable task procedures for AI agents, covering engineering, design,
+59 portable task procedures for AI agents, covering engineering, design,
 repository maintenance, decisions and delivery. Each skill lives directly at the
 repository root in `<name>/SKILL.md`, alongside its MIT license and any local
 references, helpers, assets or checks.
@@ -15,7 +15,7 @@ Use the [copyable installation prompt](INSTALL.md). Install selected skills or t
 whole collection, preserve local customizations and record the source revision.
 The optional CLI supports domain presets, managed updates, previews and rollback.
 OpenCode supports the native `SKILL.md` format; no skill adapter is required.
-An isolated persistent OpenCode v2.0.27 check registered all 52 skills with matching
+An isolated persistent OpenCode v2.0.27 check registered all 59 skills with matching
 paths and instruction bodies; allow its configuration plugins time to initialize.
 See [installation and verification details](INSTALL.md#opencode-placement-and-verification).
 
@@ -41,6 +41,7 @@ scope and completion conditions. Helpers are run only when the task calls for th
 | Skill | Purpose |
 | --- | --- |
 | [systematic-debugging](systematic-debugging/SKILL.md) | Reproduce defects, establish causes and verify fixes. |
+| [native-app-delivery](native-app-delivery/SKILL.md) | Implement and verify scoped iOS/Android lifecycle, offline and device delivery. |
 | [test-engineering](test-engineering/SKILL.md) | Design meaningful tests and diagnose unreliable coverage. |
 | [change-review](change-review/SKILL.md) | Review a scoped change for defects and regressions. |
 | [ci-triage](ci-triage/SKILL.md) | Investigate failing or stuck CI with exact run evidence. |
@@ -58,6 +59,7 @@ scope and completion conditions. Helpers are run only when the task calls for th
 | Skill | Purpose |
 | --- | --- |
 | [product-design](product-design/SKILL.md) | Define product flows, behavior and interaction states. |
+| [user-research](user-research/SKILL.md) | Plan and synthesize participant-based research without inventing studies. |
 | [design-research](design-research/SKILL.md) | Research design references and supporting evidence. |
 | [design-extraction](design-extraction/SKILL.md) | Extract evidence, taste profiles and candidate design-system reports from existing interfaces. |
 | [design-analysis](design-analysis/SKILL.md) | Analyze visual and interaction design evidence. |
@@ -80,6 +82,8 @@ scope and completion conditions. Helpers are run only when the task calls for th
 | [incident-review](incident-review/SKILL.md) | Review incidents and identify corrective actions. |
 | [release-review](release-review/SKILL.md) | Assess release readiness against documented gates. |
 | [release](release/SKILL.md) | Prepare and execute an explicitly approved release. |
+| [competitor-monitoring](competitor-monitoring/SKILL.md) | Compare dated competitor baselines and hand off authorized repeat runs. |
+| [market-opportunity-research](market-opportunity-research/SKILL.md) | Assess segments, demand evidence and bottom-up opportunity ranges. |
 | [competitive-research](competitive-research/SKILL.md) | Research current competitors and alternatives. |
 | [marketing](marketing/SKILL.md) | Write positioning and messaging from approved facts. |
 | [seo-audit](seo-audit/SKILL.md) | Audit crawlability, indexing and search retrieval readiness. |
@@ -92,6 +96,14 @@ scope and completion conditions. Helpers are run only when the task calls for th
 | [copy-editing](copy-editing/SKILL.md) | Edit drafts while preserving intent and substantiating claims. |
 | [content-repurposing](content-repurposing/SKILL.md) | Adapt approved source content for distinct channels. |
 | [geo-measurement](geo-measurement/SKILL.md) | Measure observed AI-answer mentions, citations and representation. |
+
+### Product measurement
+
+| Skill | Purpose |
+| --- | --- |
+| [product-instrumentation](product-instrumentation/SKILL.md) | Define event contracts, identity/retry semantics and payload QA. |
+| [product-analytics](product-analytics/SKILL.md) | Reproduce product funnels, cohorts and retention with honest denominators. |
+| [product-experimentation](product-experimentation/SKILL.md) | Plan and assess controlled product experiments and validity gates. |
 
 ### Financial research and validation
 

@@ -14,7 +14,7 @@ Required: behavior, change or test problem and the repository. Optional: accepta
 
 ## Context
 
-Read project-required checks, existing test conventions, public interfaces and the affected implementation. Load the [test-design guide](references/test-design.md) for boundary selection, browser coverage or flakiness. For requested independent audits/test reviews or consequential verification gaps, use the [fresh-session review method](references/fresh-review.md) when delegation is available and authorized. Use existing trusted tooling; a missing runner is not automatic installation permission.
+Read project-required checks, existing test conventions, public interfaces and the affected implementation. Load the [test-design guide](references/test-design.md) for boundary selection, browser coverage or flakiness. Load [browser and recovery evidence](references/browser-recovery.md) for visual baselines, browser-state matrices or failure restoration. For requested independent audits/test reviews or consequential verification gaps, use the [fresh-session review method](references/fresh-review.md) when delegation is available and authorized. Use existing trusted tooling; a missing runner is not automatic installation permission.
 
 ## Procedure
 

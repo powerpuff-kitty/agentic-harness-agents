@@ -1,0 +1,24 @@
+{
+  "kind": "synthetic-watch-handoff",
+  "watchlist": [
+    {
+      "id": "vendor-pricing",
+      "locator": "https://vendor.example/pricing",
+      "facts": [
+        "pro-price",
+        "export-feature"
+      ],
+      "qualifiers": {
+        "currency": "USD",
+        "period": "month",
+        "unit": "seat",
+        "region": "US",
+        "billing": "monthly"
+      }
+    }
+  ],
+  "cadence": null,
+  "scheduler": "not configured",
+  "notifications": "not authorized",
+  "materiality": "Qualifying like-for-like price or explicitly evidenced capability change; cosmetic whitespace excluded"
+}

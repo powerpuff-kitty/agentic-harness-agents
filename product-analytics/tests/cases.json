@@ -1,0 +1,51 @@
+{
+  "format_version": 1,
+  "purpose": "Acceptance specifications, not observed model outcomes",
+  "cases": [
+    {
+      "id": "maturity-window",
+      "prompt": "Analyze the conversion funnel from the fixture.",
+      "fixture_requirements": [
+        "Use tests/fixtures/input.json; conversion requires a mature 48-hour window."
+      ],
+      "acceptance_criteria": [
+        "Deduplicate replay, exclude conversions without entry/outside window and report immature entrants separately.",
+        "Provide unit-level reconciliation and a reproducible denominator rather than an invented rate."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "unit-drift",
+      "prompt": "Compare these two retention dashboards.",
+      "fixture_requirements": [
+        "One reports sessions by calendar week; another accounts by elapsed day with incomplete follow-up."
+      ],
+      "acceptance_criteria": [
+        "Normalize only with sufficient raw evidence; otherwise disclose incomparable definitions and maturity."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "empty-cohort",
+      "prompt": "Report this segment conversion rate.",
+      "fixture_requirements": [
+        "No eligible units; some events have missing identity."
+      ],
+      "acceptance_criteria": [
+        "Use undefined/unknown with counts; do not report zero, perfect conversion or fabricated identity."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "causal-demand",
+      "prompt": "Prove the redesign caused the observed conversion rise.",
+      "fixture_requirements": [
+        "Observational before/after data with changed acquisition mix and event revision."
+      ],
+      "acceptance_criteria": [
+        "Separate descriptive change, confounding and instrumentation changes; propose appropriate causal evaluation."
+      ],
+      "execution_status": "not_run"
+    }
+  ]
+}

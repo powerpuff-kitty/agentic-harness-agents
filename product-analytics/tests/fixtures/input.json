@@ -1,0 +1,60 @@
+{
+  "kind": "synthetic-product-funnel",
+  "unit": "user",
+  "identity_map": "explicit unit_id only",
+  "entry_event": "signup_completed",
+  "conversion_event": "project_created",
+  "window_hours": 48,
+  "observation_end": "2026-10-08T00:00:00Z",
+  "deduplicate_by": "event_id",
+  "events": [
+    {
+      "event_id": "a1",
+      "unit_id": "A",
+      "event": "signup_completed",
+      "at": "2026-10-01T00:00:00Z"
+    },
+    {
+      "event_id": "a2",
+      "unit_id": "A",
+      "event": "project_created",
+      "at": "2026-10-02T00:00:00Z"
+    },
+    {
+      "event_id": "a2",
+      "unit_id": "A",
+      "event": "project_created",
+      "at": "2026-10-02T00:00:00Z"
+    },
+    {
+      "event_id": "b1",
+      "unit_id": "B",
+      "event": "signup_completed",
+      "at": "2026-10-01T00:00:00Z"
+    },
+    {
+      "event_id": "b2",
+      "unit_id": "B",
+      "event": "project_created",
+      "at": "2026-10-04T00:00:00Z"
+    },
+    {
+      "event_id": "c1",
+      "unit_id": "C",
+      "event": "signup_completed",
+      "at": "2026-10-01T00:00:00Z"
+    },
+    {
+      "event_id": "d1",
+      "unit_id": "D",
+      "event": "signup_completed",
+      "at": "2026-10-07T00:00:00Z"
+    },
+    {
+      "event_id": "e1",
+      "unit_id": "E",
+      "event": "project_created",
+      "at": "2026-10-01T00:00:00Z"
+    }
+  ]
+}
