@@ -1,0 +1,15 @@
+:root {
+  --ink: #111111;
+  --surface: #ffffff;
+  --space-small: 8px;
+  --radius-control: 4px;
+}
+body { color: var(--ink); background: var(--surface); font-family: system-ui, sans-serif; }
+.layout { max-width: 64rem; padding: 24px; margin-inline: auto; display: grid; gap: 16px; }
+h1 { font-size: 2rem; line-height: 1.2; }
+.action { color: var(--surface); background: var(--ink); padding: 8px 16px; border-radius: var(--radius-control); }
+.action:hover { opacity: 0.8; }
+.action:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.panel { padding: 16px; border: 1px solid var(--ink); }
+@media (max-width: 40rem) { .layout { padding: 16px; } }
+@media (prefers-color-scheme: dark) { :root { --ink: #ffffff; --surface: #111111; } }

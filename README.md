@@ -1,10 +1,10 @@
 # Skills
 
 [![Consumer CI](https://img.shields.io/github/actions/workflow/status/powerpuff-kitty/agentic-harness-cli/ci.yml?branch=main&event=push&label=consumer%20CI)](https://github.com/powerpuff-kitty/agentic-harness-cli/actions/workflows/ci.yml)
-[![Skills: 51](https://img.shields.io/badge/skills-51-blue)](#skill-catalog)
+[![Skills: 52](https://img.shields.io/badge/skills-52-blue)](#skill-catalog)
 [![License: MIT per skill](https://img.shields.io/badge/license-MIT-green)](INSTALL.md)
 
-51 portable task procedures for AI agents, covering engineering, design,
+52 portable task procedures for AI agents, covering engineering, design,
 repository maintenance, decisions and delivery. Each skill lives directly at the
 repository root in `<name>/SKILL.md`, alongside its MIT license and any local
 references, helpers, assets or checks.
@@ -15,7 +15,7 @@ Use the [copyable installation prompt](INSTALL.md). Install selected skills or t
 whole collection, preserve local customizations and record the source revision.
 The optional CLI supports domain presets, managed updates, previews and rollback.
 OpenCode supports the native `SKILL.md` format; no skill adapter is required.
-An isolated persistent OpenCode v2.0.27 check registered all 51 skills with matching
+An isolated persistent OpenCode v2.0.27 check registered all 52 skills with matching
 paths and instruction bodies; allow its configuration plugins time to initialize.
 See [installation and verification details](INSTALL.md#opencode-placement-and-verification).
 
@@ -59,6 +59,7 @@ scope and completion conditions. Helpers are run only when the task calls for th
 | --- | --- |
 | [product-design](product-design/SKILL.md) | Define product flows, behavior and interaction states. |
 | [design-research](design-research/SKILL.md) | Research design references and supporting evidence. |
+| [design-extraction](design-extraction/SKILL.md) | Extract evidence, taste profiles and candidate design-system reports from existing interfaces. |
 | [design-analysis](design-analysis/SKILL.md) | Analyze visual and interaction design evidence. |
 | [design-intelligence](design-intelligence/SKILL.md) | Coordinate analysis, preservation, compilation and design verification. |
 | [identity-design](identity-design/SKILL.md) | Develop brand identity and visual direction. |

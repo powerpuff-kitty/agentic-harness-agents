@@ -129,7 +129,7 @@ Inspect other host discovery paths for duplicate IDs before choosing scope.
 
 ## Observed native host verification
 
-On 2026-10-14, an isolated persistent OpenCode v2.0.27 server registered all 51
+On 2026-10-14, an isolated persistent OpenCode v2.0.27 server registered all 52
 skills and returned their exact expected Markdown bodies and project paths.
 A fresh server's first inventory was empty; the second query on the same server
 succeeded. Repeating `--standalone` creates a fresh server and repeats that race.

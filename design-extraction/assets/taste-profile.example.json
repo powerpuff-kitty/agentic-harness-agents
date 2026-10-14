@@ -1,0 +1,45 @@
+{
+  "purpose": "Illustrative local handoff, not a canonical Harness artifact or observed evaluation",
+  "status": "candidate",
+  "reference": {
+    "id": "example-reference",
+    "source": "supplied reference.css",
+    "platform": "web",
+    "captured_at": null,
+    "capture_mode": "source-only",
+    "style_tags": ["restrained-geometry"]
+  },
+  "evidence": [
+    {
+      "id": "E1",
+      "locator": "reference.css:5",
+      "class": "observation",
+      "context": "source declaration; runtime use not checked",
+      "property": "border-radius",
+      "value": 4,
+      "unit": "px",
+      "artifact_sha256": null
+    }
+  ],
+  "profile": {
+    "hierarchy": {"value": null, "class": "unknown", "evidence_ids": []},
+    "density": {"value": null, "class": "unknown", "evidence_ids": []},
+    "contrast_character": {"value": null, "class": "unknown", "evidence_ids": []},
+    "typography": {"value": null, "class": "unknown", "evidence_ids": []},
+    "geometry": {
+      "value": "Restrained corner treatment in the sampled declaration",
+      "class": "inference",
+      "evidence_ids": ["E1"],
+      "counterevidence": "Other components have not been sampled"
+    },
+    "imagery": {"value": null, "class": "unknown", "evidence_ids": []},
+    "motion": {"value": null, "class": "unknown", "evidence_ids": []}
+  },
+  "token_proposals": [
+    {"name": "radius-control", "value": 4, "unit": "px", "class": "recommendation", "evidence_ids": ["E1"]}
+  ],
+  "checks": {
+    "performed": [],
+    "not_checked": ["runtime styles", "interaction behavior", "accessibility", "full-product coverage"]
+  }
+}
