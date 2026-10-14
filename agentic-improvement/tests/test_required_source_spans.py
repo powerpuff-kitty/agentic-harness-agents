@@ -23,7 +23,7 @@ class RequiredSourceSpans(unittest.TestCase):
     def setUp(self):
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)
-        self.root = Path(temporary.name)
+        self.root = Path(temporary.name).resolve()
         self.raw = b'claim\ncontrary evidence\nqualification\noptional example\n'
         (self.root / 'source.txt').write_bytes(self.raw)
 

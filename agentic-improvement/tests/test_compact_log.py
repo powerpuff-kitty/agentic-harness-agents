@@ -82,6 +82,15 @@ class CompactLog(unittest.TestCase):
         record = self.round_trip(b'FAIL unique issue\n', budget=10000)
         self.assertFalse(record['measurement']['over_budget'])
 
+    def test_accounting_decimal_and_budget_boundaries(self):
+        for repeats in range(310, 355):
+            self.round_trip(b'x\n' * repeats)
+        # Sweep both sides of serialized-size and boolean-width boundaries.
+        for budget in range(560, 660):
+            record = self.round_trip(b'hello\n', budget=budget)
+            self.assertEqual(record['measurement']['over_budget'],
+                             len(log.encoded(record)) > budget)
+
     def test_repeatability(self):
         raw = b'warn\n' * 100
         self.assertEqual(log.encoded(log.compact(raw, 'test.log')),
@@ -164,7 +173,7 @@ class CompactLogFiles(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
+        self.root = Path(self.temp.name).resolve()
         self.path = self.root / 'reviewed.log'
         self.raw = b'check=synthetic\n' + b'FAIL assertion\n' * 1000 + b'no final newline'
         self.path.write_bytes(self.raw)

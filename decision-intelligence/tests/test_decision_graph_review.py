@@ -234,7 +234,7 @@ class DecisionGraphReview(unittest.TestCase):
 
     def test_actual_copied_helper_subprocess_and_no_writes(self):
         with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
+            root = Path(temporary).resolve()
             helper = root / 'review_graph.py'
             shutil.copyfile(HELPER, helper)
             source = root / 'graph.json'
@@ -250,7 +250,7 @@ class DecisionGraphReview(unittest.TestCase):
 
     def test_actual_blocked_and_invalid_exit_codes(self):
         with tempfile.TemporaryDirectory() as temporary:
-            source = Path(temporary) / 'graph.json'
+            source = Path(temporary).resolve() / 'graph.json'
             value = fixture()
             value['nodes'][0]['depends_on'] = ['missing']
             source.write_bytes(graph.encoded(value))
@@ -266,7 +266,7 @@ class DecisionGraphReview(unittest.TestCase):
 
     def test_linked_file_parent_and_traversal_rejected(self):
         with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
+            root = Path(temporary).resolve()
             folder = root / 'real'
             folder.mkdir()
             source = folder / 'graph.json'
@@ -286,7 +286,7 @@ class DecisionGraphReview(unittest.TestCase):
 
     def test_unavailable_directory_fifo_and_large_input(self):
         with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
+            root = Path(temporary).resolve()
             for path in (root / 'missing', root):
                 with self.assertRaises(graph.GraphError):
                     graph.read_graph(path)

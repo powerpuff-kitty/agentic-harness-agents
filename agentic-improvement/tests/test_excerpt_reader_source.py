@@ -19,7 +19,7 @@ class ExcerptReaderSource(unittest.TestCase):
     def setUp(self):
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)
-        self.root = Path(temporary.name)
+        self.root = Path(temporary.name).resolve()
         self.helper = self.root / 'extract_context.py'
         self.reader = self.root / 'evidence_snapshot.py'
         shutil.copyfile(HELPER, self.helper)

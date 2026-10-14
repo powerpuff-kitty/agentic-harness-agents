@@ -26,6 +26,15 @@ Read project review rules, current worktree state, the change and affected calle
 6. Check that important changed behavior has meaningful verification. Keep unavailable checks explicit. Do not expand every review into a full security, performance or repository audit.
 7. Review requests are read-only by default. Apply fixes or resolve feedback only when authorized, recheck the affected snapshot and preserve independent-review boundaries. Approving, merging or posting comments requires the existing task's action scope; a role or skill name grants none.
 
+## Independent reviewer context
+
+When an independent pass is requested, use a separate fresh reviewer session with
+history inheritance disabled when supported. Pass accepted requirements, project
+rules and raw compared source; omit the author’s diagnosis, desired verdict and
+prior review conclusions until the initial report is retained. Report unavailable
+isolation honestly. Reproduce findings and recheck after source changes; changing
+role names within the author session does not establish independence.
+
 ## Output
 
 Lead with prioritized findings and exact source references, then questions and verification gaps. If no actionable defect is established, say so with the inspected scope and check limits. Separate comments considered, confirmed, refuted and unresolved when reviewing feedback.

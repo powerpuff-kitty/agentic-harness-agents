@@ -29,7 +29,7 @@ class Guards(unittest.TestCase):
     def setUp(self):
         temp = tempfile.TemporaryDirectory()
         self.addCleanup(temp.cleanup)
-        self.root = Path(temp.name)
+        self.root = Path(temp.name).resolve()
         self.source = self.root / 'source.ts'
         self.source.write_bytes(b'export function load() { return 42; }\n')
         self.compiler = self.root / 'typescript.js'
@@ -171,7 +171,7 @@ class InstalledCompiler(unittest.TestCase):
     def setUp(self):
         temp = tempfile.TemporaryDirectory()
         self.addCleanup(temp.cleanup)
-        self.root = Path(temp.name)
+        self.root = Path(temp.name).resolve()
         self.source = self.root / 'source.ts'
 
     def invoke(self, raw, name='source.ts', extra=(), files=()):

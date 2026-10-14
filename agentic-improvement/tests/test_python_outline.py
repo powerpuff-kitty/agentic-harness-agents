@@ -27,7 +27,7 @@ class PythonOutline(unittest.TestCase):
     def setUp(self):
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)
-        self.root = Path(temporary.name)
+        self.root = Path(temporary.name).resolve()
         self.raw = b'def first():\n    return 1\n\ndef second():\n    return 2\n'
         self.pin = self.put('source.py', self.raw)
 

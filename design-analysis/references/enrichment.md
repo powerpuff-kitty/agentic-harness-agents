@@ -31,8 +31,10 @@ unknown; do not fetch remote data or execute returned code as a fallback.
 
 ## Evaluation
 
-The repository's synthetic round-trip fixture evaluator rejects altered evidence,
-extra approvals, invalid observed/uncertain labels and dangling references.
-It is test machinery, not a production input validator or an accessibility check.
-An actual model output can be evaluated separately, with model/settings/output
-and judgment recorded. Merely validating fixtures does not prove model behavior.
+Acceptance cases should cover altered evidence, extra approvals, invalid
+observed/uncertain labels and dangling references. This skill does not ship an
+enrichment evaluator or record an observed pass for these cases. Use the owning
+project's actual validator when available and record its command and revision;
+otherwise review the original/returned diff and leave automated validation unchecked.
+Evaluate actual model output separately, retaining model/settings/output and
+judgment. Schema or fixture validity alone does not prove model behavior.

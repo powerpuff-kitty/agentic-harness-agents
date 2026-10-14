@@ -14,7 +14,7 @@ Required: behavior, change or test problem and the repository. Optional: accepta
 
 ## Context
 
-Read project-required checks, existing test conventions, public interfaces and the affected implementation. Load the [test-design guide](references/test-design.md) only for boundary selection, browser coverage or flakiness. Use existing trusted tooling; a missing runner is not automatic installation permission.
+Read project-required checks, existing test conventions, public interfaces and the affected implementation. Load the [test-design guide](references/test-design.md) for boundary selection, browser coverage or flakiness. For requested independent audits/test reviews or consequential verification gaps, use the [fresh-session review method](references/fresh-review.md) when delegation is available and authorized. Use existing trusted tooling; a missing runner is not automatic installation permission.
 
 ## Procedure
 
@@ -24,11 +24,12 @@ Read project-required checks, existing test conventions, public interfaces and t
 4. Use representative inputs, boundaries and failure paths. Assert public behavior and important side effects; avoid assertions that merely mirror internal calls or repeat the algorithm. Mock only the boundary whose real dependency is outside the test's intended scope.
 5. Make timing, randomness, locale, filesystem and network assumptions explicit. Prefer isolated fixtures, controlled clocks and condition-based waits. Preserve failures when diagnosing flaky tests; retries, skipped assertions or longer sleeps do not establish correctness.
 6. Run the relevant test through the actual supported runner, then applicable regression/project checks. For browser work, observe rendered behavior, exercise relevant states and retain useful screenshots or traces without private data. A screenshot alone does not prove the journey passed.
-7. Review whether a plausible broken implementation would fail the test. Report untested platforms, environment limitations and baseline failures separately. Remove redundant tests only when authorized and their important behavioral coverage is retained.
+7. For an independent pass, use a separate reviewer session without inherited author conversation. Supply accepted requirements, project rules and raw snapshot evidence, not the author’s conclusions or expected findings. Record actual isolation support; if unavailable, label the missing independent perspective. Reproduce and triage findings before accepting them, then recheck changed source.
+8. Review whether a plausible broken implementation would fail the test. Report untested platforms, environment limitations and baseline failures separately. Remove redundant tests only when authorized and their important behavioral coverage is retained.
 
 ## Output
 
-Give the behavior/risk matrix, tests changed, actual commands and environment, results, flaky/baseline findings and remaining coverage gaps. A discovered test, fixture or test plan is not an executed result.
+Give the behavior/risk matrix, tests changed, actual commands and environment, results, flaky/baseline findings and remaining coverage gaps. For a delegated review, retain the brief, source identity, actual context-isolation mode, original report and finding dispositions; a fresh reviewer does not establish exhaustive coverage. A discovered test, fixture or test plan is not an executed result.
 
 ## Completion
 

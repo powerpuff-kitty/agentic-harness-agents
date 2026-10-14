@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Tests of actual shipped bytes and registry constraints; no coding host is run."""
 import copy
+from pathlib import Path
+import shutil
+import tempfile
 import unittest
 from validate_adapter_assets import FILES, ROOT, frontmatter, load_bundle, validate_bundle, validate_repository
 
@@ -11,6 +14,14 @@ class AdapterAssetsTests(unittest.TestCase):
 
     def invalid(self):
         self.assertTrue(validate_bundle(self.index, self.assets))
+
+    def test_repository_rejects_unlisted_file_without_opening_it(self):
+        with tempfile.TemporaryDirectory() as raw:
+            root = Path(raw).resolve() / 'adapter-sync'
+            shutil.copytree(ROOT, root)
+            (root / 'assets/unapproved.sh').write_bytes(b'\xff inert unknown bytes')
+            self.assertEqual(validate_repository(root),
+                             ['adapters: missing or unexpected shipped asset'])
 
     def test_shipped_bundle_is_valid(self):
         self.assertEqual(validate_bundle(self.index, self.assets), [])

@@ -2,24 +2,24 @@
   "kind": "synthetic-log-byte-measurements",
   "model_execution": "not-performed",
   "model_tokens": null,
-  "source_script_sha256": "fa7fb2465d330857348e16fe551d57299ebcbf14c0579d1880749909a81ab045",
+  "source_script_sha256": "9909e02b0ba5369b7d3ef3409ea67cc9c8bc19b750059a6c6089637f28c054be",
   "measurements": [
     {
       "fixture": "repeated.log",
       "source_sha256": "5aff6646204ea972285fd857fc7ac57e07a2e0374cea17a30c67224d299fa4c5",
       "source_bytes": 152105,
-      "output_bytes": 739,
+      "output_bytes": 752,
       "encoding": "adjacent-lines",
-      "output_sha256": "3ffbfd2504b3bac49bb8f5c90d22912a5665230f6144646b570cc9cb7ca3a697",
+      "output_sha256": "9c448b694711c862b11a4cb7798be2212d5e107d7522396722fb4f30d694eff4",
       "exit": 0
     },
     {
       "fixture": "distinct.log",
       "source_sha256": "4df599c956fbab14e591e2629e77a8369d7fcf87578e0dd2d831a0db166f0ddd",
       "source_bytes": 5103,
-      "output_bytes": 5737,
+      "output_bytes": 5750,
       "encoding": "literal",
-      "output_sha256": "d28e80a94864ca22770efea4820ab704be566ed6cf6149a8c0816317023b6963",
+      "output_sha256": "995eab67a49c92460cd25c41f8ab50cb89b558680a8ad576aa3ecd856fc3240b",
       "exit": 0
     }
   ]

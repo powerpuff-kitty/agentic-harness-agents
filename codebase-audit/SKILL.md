@@ -29,6 +29,17 @@ Open the local [review guide](references/review-guide.md) for sampling/failure h
 7. Separate defects, policy violations, risks, observations and unknowns; rank severity, confidence and blast radius separately. Challenge high-severity claims with counterexamples. Delegate only necessary specialist questions with a bounded evidence handoff; missing specialists remain gaps, not automatic extra agents or Jev calls.
 8. Return prioritised repairs and verification per fix. Numeric scores require an accepted rubric and sufficient evidence; unknown dimensions stay unknown. Stop unless implementation is separately authorised.
 
+## Fresh independent audit
+
+For requested independent audits, start a separate reviewer session without the
+author conversation when the host supports it. Supply scope, accepted requirements,
+project rules and raw repository snapshot; do not seed author explanations, prior
+findings or expected verdicts. Keep source edits with the authorized writer and
+let the reviewer run scoped checks in isolation. Retain the original report,
+actual isolation mode, source identity and limits; reproduce/triage findings and
+revalidate them after source changes. If fresh isolation is unavailable, label
+self-review and the missing independent perspective instead of claiming it.
+
 ## Output
 
 Scope/identity, authorities, sampled flows, findings and counterevidence, severity/confidence, performed/unperformed checks, analyzer coverage and repair sequence. Reference already-inspected evidence instead of repeating files/logs. Use a human report, not a fabricated canonical execution artifact; exclude credentials and private identifiers.

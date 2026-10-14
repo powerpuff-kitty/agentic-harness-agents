@@ -128,17 +128,24 @@ def restore(record: Any) -> bytes:
 
 def measured(record: dict[str, Any], limit: int | None) -> dict[str, Any]:
     record["measurement"] = {"unit": "utf8-bytes", "output_bytes": 0,
-                             "reduction_bytes": 0, "budget_bytes": limit, "over_budget": False}
-    # Include the envelope and its own accounting fields, not only encoded lines.
-    for _ in range(16):
-        size = len(encoded(record))
-        values = {"unit": "utf8-bytes", "output_bytes": size,
-                  "reduction_bytes": record["source"]["bytes"] - size,
-                  "budget_bytes": limit, "over_budget": limit is not None and size > limit}
-        if values == record["measurement"]:
+                             "reduction_bytes": 0, "budget_bytes": limit,
+                             "over_budget": False, "padding": ""}
+    size = len(encoded(record))
+    # Numeric widths and true/false can prevent a serialization fixed point.
+    # Grow the target monotonically; harmless spaces inside a dedicated field
+    # fill any undershoot. Field widths are bounded by the input/reference limits,
+    # so growth terminates without assuming that oscillation will converge.
+    while True:
+        record["measurement"] = {"unit": "utf8-bytes", "output_bytes": size,
+                                 "reduction_bytes": record["source"]["bytes"] - size,
+                                 "budget_bytes": limit,
+                                 "over_budget": limit is not None and size > limit,
+                                 "padding": ""}
+        actual = len(encoded(record))
+        if actual <= size:
+            record["measurement"]["padding"] = " " * (size - actual)
             return record
-        record["measurement"] = values
-    raise LogError("output accounting did not converge")
+        size = actual
 
 
 def compact(data: bytes, reference: str, budget: int | None = None) -> dict[str, Any]:

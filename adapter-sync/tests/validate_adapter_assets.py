@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -118,6 +119,17 @@ def load_bundle(root: Path = ROOT) -> tuple[dict, dict[str, str]]:
 
 def validate_repository(root: Path = ROOT) -> list[str]:
     try:
+        expected = {'assets.json'} | {s for entries in FILES.values() for s,_,_ in entries}
+        actual = set()
+        # Inventory names without reading unknown contents or traversing linked
+        # directories. Do not derive trusted read paths from the manifest.
+        for directory, folders, files in os.walk(root / 'assets', followlinks=False):
+            for name in folders + files:
+                path = Path(directory) / name
+                if path.is_symlink() or name in files:
+                    actual.add(path.relative_to(root / 'assets').as_posix())
+        if actual != expected:
+            return ['adapters: missing or unexpected shipped asset']
         index, assets = load_bundle(root)
         errors = validate_bundle(index, assets)
         return errors

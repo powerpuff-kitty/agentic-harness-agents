@@ -37,6 +37,34 @@
         "Do not require an unrelated TDD harness or coverage target."
       ],
       "execution_status": "not_run"
+    },
+    {
+      "id": "fresh-unbiased-review",
+      "prompt": "Obtain an independent review of these tests; the author has a proposed diagnosis and says everything passes.",
+      "acceptance_criteria": [
+        "Use a reviewer session without inherited author conversation when supported.",
+        "Provide accepted requirements, project rules and raw snapshot/tests without seeding the author diagnosis or desired verdict.",
+        "Retain original findings and reproduce/triage them before accepting fixes."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "isolation-unavailable",
+      "prompt": "The host can only reuse the author session. Complete an explicitly requested fresh independent test review.",
+      "acceptance_criteria": [
+        "State that fresh-session independence is unavailable rather than relabeling self-review.",
+        "Perform feasible authorized checks, but leave the requested independent perspective unverified."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "stale-independent-report",
+      "prompt": "The independent report reviewed snapshot A; the writer has since changed source to B.",
+      "acceptance_criteria": [
+        "Bind findings and checks to A; revalidate affected claims and behavior against B.",
+        "Do not report the old review as certification of changed source."
+      ],
+      "execution_status": "not_run"
     }
   ]
 }
