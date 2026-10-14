@@ -1,0 +1,78 @@
+{
+  "format_version": 1,
+  "purpose": "Acceptance specifications, not observed model outcomes",
+  "cases": [
+    {
+      "id": "brier-small",
+      "prompt": "Evaluate recorded binary forecasts.",
+      "fixture_requirements": [
+        "p=[.8,.6,.2,.4], y=[1,0,0,1], predeclared baseline .5."
+      ],
+      "acceptance_criteria": [
+        "Compute mean Brier .20 versus .25 baseline.",
+        "Do not infer calibration, significance or profit from four records."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "unresolved",
+      "prompt": "Score supplied forecast records.",
+      "fixture_requirements": [
+        "Some outcome labels are unresolved or cancelled."
+      ],
+      "acceptance_criteria": [
+        "Preserve statuses/excluded counts and consider selection.",
+        "Do not encode unknown as y=0."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "zero-log",
+      "prompt": "Compute log loss for a resolved event.",
+      "fixture_requirements": [
+        "Forecast p=0 and outcome y=1."
+      ],
+      "acceptance_criteria": [
+        "Report mathematically infinite log loss.",
+        "Disclose any separately requested clipping rather than silently change the metric."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "reused-fit",
+      "prompt": "Certify a calibration transform.",
+      "fixture_requirements": [
+        "Transform fitted and scored on the same final labels."
+      ],
+      "acceptance_criteria": [
+        "Identify fit/evaluation leakage and need for separate evaluation.",
+        "Do not call in-sample improvement out-of-sample validation."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "dependent-updates",
+      "prompt": "Compare reliability from many forecast rows.",
+      "fixture_requirements": [
+        "Many updates per event and overlapping horizons."
+      ],
+      "acceptance_criteria": [
+        "Define per-question/time weighting and dependence.",
+        "Do not treat every update as an independent trial."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "bin-evidence",
+      "prompt": "Explain reliability for the four-record fixture.",
+      "fixture_requirements": [
+        "Bins [0,.5) and [.5,1] with two records each."
+      ],
+      "acceptance_criteria": [
+        "Report mean predictions .3/.7 and observed rates .5/.5 with n=2.",
+        "Preserve bin choices and substantial uncertainty."
+      ],
+      "execution_status": "not_run"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Skills
 
-41 portable task procedures for AI agents, covering engineering, design,
+47 portable task procedures for AI agents, covering engineering, design,
 repository maintenance, decisions and delivery. Each skill lives directly at the
 repository root in `<name>/SKILL.md`, alongside its MIT license and any local
 references, helpers, assets or checks.
@@ -88,6 +88,20 @@ scope and completion conditions. Helpers are run only when the task calls for th
 
 These are analytical procedures with worked references and report templates.
 They do not connect accounts or execute financial transactions.
+
+### Crypto, DeFi and probabilistic analysis
+
+| Skill | Purpose |
+| --- | --- |
+| [onchain-data-analysis](onchain-data-analysis/SKILL.md) | Analyze chain/state/events with block, finality, units and attribution evidence. |
+| [smart-contract-review](smart-contract-review/SKILL.md) | Review scoped EVM/Solidity control paths, accounting and upgrade risks. |
+| [defi-risk-analysis](defi-risk-analysis/SKILL.md) | Assess protocol/position mechanisms, collateral, liquidity and dependency scenarios. |
+| [odds-analysis](odds-analysis/SKILL.md) | Convert quotes, inspect margin and calculate conditional fee-adjusted payoffs. |
+| [forecast-calibration](forecast-calibration/SKILL.md) | Evaluate recorded probabilities with proper scores, calibration counts and uncertainty. |
+| [settlement-rule-review](settlement-rule-review/SKILL.md) | Compare event definitions, payout terms and actual resolution/finality evidence. |
+
+Each includes focused references, synthetic worked examples and a report template.
+The procedures do not supply wallet/account, trade, betting or resolution execution.
 
 ## Structure and maintenance
 

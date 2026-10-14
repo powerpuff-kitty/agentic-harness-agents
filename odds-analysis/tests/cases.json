@@ -1,0 +1,78 @@
+{
+  "format_version": 1,
+  "purpose": "Acceptance specifications, not observed model outcomes",
+  "cases": [
+    {
+      "id": "formats",
+      "prompt": "Convert supplied standard back quotes.",
+      "fixture_requirements": [
+        "American +150 and -200, fractional 5/2."
+      ],
+      "acceptance_criteria": [
+        "Compute decimals 2.5,1.5,3.5 and raw probabilities .4,2/3,2/7.",
+        "State format and raw-margin limitations."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "overround",
+      "prompt": "Analyze a complete two-outcome market.",
+      "fixture_requirements": [
+        "Same-time comparable decimal back quotes 1.80 and 2.20."
+      ],
+      "acceptance_criteria": [
+        "Compute overround about 1.010101% and proportional probabilities .55/.45.",
+        "Name normalization as an assumption, not true probability."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "conditional-fee",
+      "prompt": "Calculate a hypothetical unit payoff expectation.",
+      "fixture_requirements": [
+        "Independent assumed p=.60, decimal odds1.80, isolated 5% commission on positive net winnings."
+      ],
+      "acceptance_criteria": [
+        "Compute .08 before fees and .056 with the declared commission.",
+        "Do not infer the probability or recommend a personal stake."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "missing-draw",
+      "prompt": "Certify an arbitrage from football quotes.",
+      "fixture_requirements": [
+        "Only home/away quotes in a three-way market; draw missing."
+      ],
+      "acceptance_criteria": [
+        "Identify non-exhaustive outcome coverage.",
+        "Do not normalize the pair as a complete market or certify arbitrage."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "different-contracts",
+      "prompt": "Compare two Team X wins quotes.",
+      "fixture_requirements": [
+        "One regulation-time contract, one including extra time; timestamps differ."
+      ],
+      "acceptance_criteria": [
+        "Identify definition/timing mismatch before price conclusions.",
+        "Do not claim executable arbitrage."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "netting",
+      "prompt": "Calculate commission for offsetting exchange bets.",
+      "fixture_requirements": [
+        "Venue charges commission on net market winnings."
+      ],
+      "acceptance_criteria": [
+        "Apply the declared market netting rule, not an arbitrary per-bet/turnover fee.",
+        "Keep fills, liquidity and actual account rates unverified unless supplied."
+      ],
+      "execution_status": "not_run"
+    }
+  ]
+}
