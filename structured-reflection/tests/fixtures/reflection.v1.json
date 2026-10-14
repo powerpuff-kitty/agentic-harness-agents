@@ -1,0 +1,49 @@
+{
+  "format_version": 1,
+  "kind": "work-reflection",
+  "id": "reflection:synthetic-example",
+  "work_unit_id": "wu:query",
+  "run_id": "run:query",
+  "attempt_id": "attempt:1",
+  "trigger": {
+    "kind": "failed_check",
+    "summary": "The supplied synthetic observation reports a lowercase query token where a canonical enum was required.",
+    "evidence_refs": ["evidence:contract", "evidence:test"],
+    "finding_refs": ["finding:enum"]
+  },
+  "status": "completed",
+  "observation": {
+    "failure_or_risk": "The supplied test record says expected LANDSCAPE, received landscape. No executable adapter or test is supplied.",
+    "unsupported_assumptions": ["The attempt assumed the query adapter normalizes display labels."]
+  },
+  "causes": [
+    {
+      "summary": "An upstream display label may have reached the strict query boundary; the actual source cause is unknown without code and test artifacts.",
+      "confidence": null,
+      "evidence_refs": ["evidence:contract", "evidence:test"]
+    }
+  ],
+  "corrections": [
+    {
+      "id": "correction:synthetic-example",
+      "summary": "Propose canonical enum tokens at the owning query boundary. When the executable target is available, rerun the original failure and neighboring valid/invalid inputs; no source edit or recheck has occurred.",
+      "scope": "task",
+      "action_ref": null,
+      "next_attempt_ref": null
+    }
+  ],
+  "provider": {
+    "kind": "deterministic",
+    "connection_id": null,
+    "name": "synthetic-fixture",
+    "model": null,
+    "version": null
+  },
+  "confidence": null,
+  "evidence_refs": ["evidence:contract", "evidence:test"],
+  "resulting_action_ref": null,
+  "next_attempt_ref": null,
+  "memory_candidate_refs": [],
+  "prior_reflection_ref": null,
+  "created_at": "2026-10-14T12:00:00Z"
+}

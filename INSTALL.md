@@ -155,3 +155,35 @@ Keep the chosen manager, source revision and host scope explicit. Installing an 
 archive alone does not register a skill with a host. The
 [distribution assessment](https://github.com/powerpuff-kitty/ai-agents/blob/main/docs/DISTRIBUTION.md)
 records the channel choices; this repo retains its folder-only layout.
+
+## Versions and release history
+
+Git tags and this repository's [release notes](https://github.com/powerpuff-kitty/ai-skills/releases)
+identify independently versioned snapshots. `v0.6.0-beta.1` is the first release of
+the current flat skill-folder collection. The older `v0.4.0-beta.1` and
+`v0.5.0-beta.1` releases describe the retired aggregate layout; retain them as history.
+Versions do not track Agents or the Harness CLI. A prerelease is an available
+snapshot with documented limits, not a claim that every skill passed a model evaluation.
+
+To inspect that version directly:
+
+```sh
+git clone --branch v0.6.0-beta.1 --depth 1 https://github.com/powerpuff-kitty/ai-skills.git
+cd ai-skills
+git rev-parse HEAD
+```
+
+Use the full resolved commit in the installation prompt. Compare release notes and
+installed file changes before updating; preserve local edits and the chosen scope.
+For rollback, deliberately select the earlier reviewed revision and restore only
+the affected skills after comparing local changes. Downgrading a clone does not
+automatically roll back installed folders.
+
+Maintainers release Skills independently: validate names/descriptions, licenses and
+local resources, run relevant skill-local checks, and inspect direct-install file
+identity at the target commit. Retain unexecuted cases as specifications. Create a
+new tag at that exact commit, build the source archive with `git archive`, attach
+its SHA-256 checksum and source metadata, and publish notes describing actual checks
+and limits. Do not move old tags or wait for a coordinated CLI/Agents release. The
+CLI's consumer CI concerns its own pinned snapshot, not a gate on this collection.
+Checksums detect archive changes; they are not publisher signatures.

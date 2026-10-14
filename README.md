@@ -1,6 +1,7 @@
 # Skills
 
 [![Format: SKILL.md](https://img.shields.io/badge/format-SKILL.md-blue)](INSTALL.md)
+[![Version: 0.6.0-beta.1](https://img.shields.io/badge/version-0.6.0--beta.1-blue)](https://github.com/powerpuff-kitty/ai-skills/releases/tag/v0.6.0-beta.1)
 [![Skills: 62](https://img.shields.io/badge/skills-62-blue)](#skill-catalog)
 [![License: MIT per skill](https://img.shields.io/badge/license-MIT-green)](INSTALL.md)
 
@@ -21,6 +22,8 @@ OpenCode supports the native `SKILL.md` format; no skill adapter is required.
 An isolated persistent OpenCode v2.0.27 check registered all 62 skills with matching
 paths and instruction bodies; allow its configuration plugins time to initialize.
 See [installation and verification details](INSTALL.md#opencode-placement-and-verification).
+Use an [independent release](INSTALL.md#versions-and-release-history) to pin a reviewed
+snapshot; updating the CLI or Agents is a separate choice.
 
 Skills define procedures. They do not supply model access, tools or additional
 permissions. A skill's frontmatter and instructions define its actual trigger,

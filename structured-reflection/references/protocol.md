@@ -14,3 +14,10 @@ Completed requires observed evidence and a proposed correction. Insufficient evi
 or abstention carries no corrections, resulting action or candidate memory. Check
 both JSON schema and canonical semantic rules when available. A schema pass does
 not prove that evidence exists, an action executed or a correction succeeded.
+
+The [synthetic serialized example](../tests/fixtures/reflection.v1.json) maps the
+supplied [input](../tests/fixtures/input.json) to that schema. Its example ID,
+producer and timestamp identify fixture data, not an actual run or receipt.
+`completed` describes the reflection proposal; action/next-attempt references stay
+null and no memory is promoted. Replace fixture metadata with actual supplied or
+newly recorded identities only when producing a real artifact.
