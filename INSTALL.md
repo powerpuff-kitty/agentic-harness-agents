@@ -11,7 +11,7 @@ Give this prompt to an agent with local filesystem and Git access:
 
 ```text
 Install all skills from https://github.com/powerpuff-kitty/skills at source revision
-4ae2b2a5db2e11f7ff4feb74a9c9083eb24f0f18 for OpenCode on this machine,
+fd16e782cbbb3d5cf37c4dc11836c195aa9da25d for OpenCode on this machine,
 using the effective global OpenCode skills directory.
 
 Inspect a temporary checkout and record its exact revision before installing.
