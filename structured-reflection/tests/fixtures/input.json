@@ -1,0 +1,26 @@
+{
+  "task": "Reflect on the failed synthetic query attempt and propose a bounded correction; do not edit source or persist memory.",
+  "attempt_id": "attempt:1",
+  "work_unit_id": "wu:query",
+  "run_id": "run:query",
+  "evidence": [
+    {
+      "id": "evidence:contract",
+      "text": "The query boundary accepts only enum LANDSCAPE or PORTRAIT; display labels are not accepted."
+    },
+    {
+      "id": "evidence:test",
+      "text": "Synthetic test observation: expected LANDSCAPE, received landscape. The test failed."
+    }
+  ],
+  "attempt_note": "The attempt assumed the query adapter normalizes display labels.",
+  "finding_id": "finding:enum",
+  "provider_identity": {
+    "kind": "agent",
+    "connection_id": null,
+    "name": "evaluating-agent",
+    "model": null,
+    "version": null
+  },
+  "created_at": "2026-10-14T12:00:00Z"
+}

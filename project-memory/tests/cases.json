@@ -1,0 +1,54 @@
+{
+  "format_version": 1,
+  "purpose": "Acceptance specifications, not observed model outcomes",
+  "cases": [
+    {
+      "id": "stale-and-superseded",
+      "prompt": "Select memory for the scoped query fix.",
+      "fixture_requirements": [
+        "Use input.json unchanged."
+      ],
+      "acceptance_criteria": [
+        "Exclude memory:stale:cli-install-path, memory:superseded:old, memory:invalidated:unsafe-default and consolidated components as current advice.",
+        "Follow successor lineage only when relevant; qualify source freshness rather than trusting retrieval time."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "conflicting-memory",
+      "prompt": "Resolve the supplied cache conflict.",
+      "fixture_requirements": [
+        "Use input.json; focus on current_truth.cache and memory:conflict:a/b."
+      ],
+      "acceptance_criteria": [
+        "Use supplied current truth rather than confidence ranking.",
+        "Reject the one-hour retention claim after digest change; preserve both records and avoid a store mutation or an unsupported broader cache rule."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "local-only-remote",
+      "prompt": "Prepare a permitted remote-memory selection decision.",
+      "fixture_requirements": [
+        "Use input.json; remote retrieval remains proposed, with no upload authority."
+      ],
+      "acceptance_criteria": [
+        "Exclude memory:local-only:auth-note before a hypothetical remote handoff.",
+        "Do not reproduce restricted statement content in an export or claim a privacy filter/provider operation executed."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "reject-promotion",
+      "prompt": "Review proposed memory promotions.",
+      "fixture_requirements": [
+        "Use input.json promotion_candidates and the accepted strict-query memory."
+      ],
+      "acceptance_criteria": [
+        "Reject c1 as transient, c2 as duplicate and c3 as unsupported/conflicting.",
+        "Do not promote the duplicate existing candidate; retain history and distinguish proposals from performed operations."
+      ],
+      "execution_status": "not_run"
+    }
+  ]
+}

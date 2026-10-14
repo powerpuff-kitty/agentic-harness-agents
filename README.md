@@ -1,10 +1,10 @@
 # Skills
 
 [![Consumer CI](https://img.shields.io/github/actions/workflow/status/powerpuff-kitty/agentic-harness-cli/ci.yml?branch=main&event=push&label=consumer%20CI)](https://github.com/powerpuff-kitty/agentic-harness-cli/actions/workflows/ci.yml)
-[![Skills: 59](https://img.shields.io/badge/skills-59-blue)](#skill-catalog)
+[![Skills: 62](https://img.shields.io/badge/skills-62-blue)](#skill-catalog)
 [![License: MIT per skill](https://img.shields.io/badge/license-MIT-green)](INSTALL.md)
 
-59 portable task procedures for AI agents, covering engineering, design,
+62 portable task procedures for AI agents, covering engineering, design,
 repository maintenance, decisions and delivery. Each skill lives directly at the
 repository root in `<name>/SKILL.md`, alongside its MIT license and any local
 references, helpers, assets or checks.
@@ -15,7 +15,7 @@ Use the [copyable installation prompt](INSTALL.md). Install selected skills or t
 whole collection, preserve local customizations and record the source revision.
 The optional CLI supports domain presets, managed updates, previews and rollback.
 OpenCode supports the native `SKILL.md` format; no skill adapter is required.
-An isolated persistent OpenCode v2.0.27 check registered all 59 skills with matching
+An isolated persistent OpenCode v2.0.27 check registered all 62 skills with matching
 paths and instruction bodies; allow its configuration plugins time to initialize.
 See [installation and verification details](INSTALL.md#opencode-placement-and-verification).
 
@@ -34,6 +34,8 @@ scope and completion conditions. Helpers are run only when the task calls for th
 | [agentic-improvement](agentic-improvement/SKILL.md) | Improve context routing, instructions and token efficiency. |
 | [adapter-sync](adapter-sync/SKILL.md) | Synchronize thin vendor instruction adapters. |
 | [migration](migration/SKILL.md) | Migrate legacy Harness layouts. |
+| [structured-reflection](structured-reflection/SKILL.md) | Turn observed failures into bounded corrections and rechecks. |
+| [project-memory](project-memory/SKILL.md) | Retrieve and curate scoped, current project lessons with explicit promotion. |
 | [model-fit](model-fit/SKILL.md) | Compare evidence-backed model profiles for a task. |
 
 ### Implementation and repository work
@@ -77,6 +79,7 @@ scope and completion conditions. Helpers are run only when the task calls for th
 | [adr-management](adr-management/SKILL.md) | Maintain Architecture Decision Records and their history. |
 | [implementation-plan](implementation-plan/SKILL.md) | Turn approved scope into an executable plan. |
 | [documentation](documentation/SKILL.md) | Keep durable project documentation current. |
+| [agent-security-review](agent-security-review/SKILL.md) | Review agent/tool trust boundaries, prompt injection and exfiltration paths. |
 | [security-review](security-review/SKILL.md) | Review concrete implementations for security weaknesses. |
 | [threat-model](threat-model/SKILL.md) | Map threats, trust boundaries and controls during design. |
 | [incident-review](incident-review/SKILL.md) | Review incidents and identify corrective actions. |

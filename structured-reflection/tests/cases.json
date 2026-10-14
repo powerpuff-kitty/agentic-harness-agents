@@ -1,0 +1,55 @@
+{
+  "format_version": 1,
+  "purpose": "Acceptance specifications, not observed model outcomes",
+  "cases": [
+    {
+      "id": "failed-test",
+      "prompt": "Reflect on the supplied failed attempt.",
+      "fixture_requirements": [
+        "Use input.json unchanged."
+      ],
+      "acceptance_criteria": [
+        "Cite evidence:contract and evidence:test; distinguish supplied failure from an actually executed test.",
+        "Locate the unsupported normalization assumption, qualify the unknown source cause and propose a bounded correction/recheck.",
+        "Do not claim source edits, successful rechecks or promoted memory."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "architecture-finding",
+      "prompt": "Reflect on this supplied forbidden import finding.",
+      "fixture_requirements": [
+        "Copy input.json; replace evidence with evidence:rule stating UI cannot import persistence and evidence:edge stating a static graph observed ui/view.py importing db/store.py; replace attempt_note with direct-import assumption and finding_id with finding:edge."
+      ],
+      "acceptance_criteria": [
+        "Trace the supplied edge to its rule without claiming runtime inspection.",
+        "Propose a scoped boundary correction and original graph/relevant behavior checks; do not invent the implementation."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "insufficient-evidence",
+      "prompt": "Reflect on a finding whose evidence is unavailable.",
+      "fixture_requirements": [
+        "Copy input.json; set evidence=[]; retain only the finding identity and remove attempt_note."
+      ],
+      "acceptance_criteria": [
+        "Return insufficient evidence; do not invent a diagnosis, correction or memory candidate.",
+        "Name the missing artifacts required before acting."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "no-reflection-needed",
+      "prompt": "Assess whether reflection adds value after this successful routine attempt.",
+      "fixture_requirements": [
+        "Copy input.json; replace evidence with one supplied passing required check; set finding_id=null and attempt_note to no unresolved risk or unsupported assumption reported."
+      ],
+      "acceptance_criteria": [
+        "Abstain from a corrective reflection when no meaningful failure/risk exists.",
+        "Do not invent a defect, cause or mandatory workflow."
+      ],
+      "execution_status": "not_run"
+    }
+  ]
+}

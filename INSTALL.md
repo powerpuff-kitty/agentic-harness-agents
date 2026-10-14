@@ -129,10 +129,20 @@ Inspect other host discovery paths for duplicate IDs before choosing scope.
 
 ## Observed native host verification
 
-On 2026-10-14, an isolated persistent OpenCode v2.0.27 server registered all 59
+On 2026-10-14, an isolated persistent OpenCode v2.0.27 server registered all 62
 skills and returned their exact expected Markdown bodies and project paths.
 A fresh server's first inventory was empty; the second query on the same server
 succeeded. Repeating `--standalone` creates a fresh server and repeats that race.
 The CLI's `scripts/opencode_skill_probe.py` retains a reproducible bounded check.
 No adapter, account change or model call was needed. Registry/body verification
 establishes native loading, not model selection or successful task execution.
+
+## npm distribution
+
+No separate npm package is required for these native skill folders. The external
+[Skills CLI](https://github.com/vercel-labs/skills) supports GitHub sources and partial
+selection; its installer behavior is separate from the verified `ah skills` lifecycle.
+Keep the chosen manager, source revision and host scope explicit. Installing an npm
+archive alone does not register a skill with a host. The
+[distribution assessment](https://github.com/powerpuff-kitty/ai-agents/blob/main/docs/DISTRIBUTION.md)
+records the channel choices; this repo retains its folder-only layout.
