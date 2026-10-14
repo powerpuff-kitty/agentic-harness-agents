@@ -10,8 +10,9 @@ aggregate plugin or renderer is required. The optional CLI supplies managed inst
 Give this prompt to an agent with local filesystem and Git access:
 
 ```text
-Install all skills from https://github.com/powerpuff-kitty/skills for OpenCode
-on this machine, using the effective global OpenCode skills directory.
+Install all skills from https://github.com/powerpuff-kitty/skills at source revision
+41dc4b57a064c2602b95b0c802fb6f2d5ece9511 for OpenCode on this machine,
+using the effective global OpenCode skills directory.
 
 Inspect a temporary checkout and record its exact revision before installing.
 Discover skill folders by their SKILL.md files at the repository root; README.md and INSTALL.md
@@ -34,6 +35,8 @@ loading cannot be checked, state that limit. This authorizes skill installation,
 not model calls, account changes, publication or unrelated host configuration.
 ```
 
+The prompt pins a reviewed source snapshot. To use a newer revision, replace the
+full source SHA deliberately and record that choice; do not silently follow main.
 Replace “all skills” with named skills, or “global” with the requested project's
 local scope, for a smaller installation. Install scope is a user choice; do not
 silently switch between project and global copies.
