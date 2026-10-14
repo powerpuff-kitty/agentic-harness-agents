@@ -1,8 +1,8 @@
-# Skills
+# AI Skills
 
 [![Format: SKILL.md](https://img.shields.io/badge/format-SKILL.md-blue)](INSTALL.md)
 [![Version: 0.6.0-beta.1](https://img.shields.io/badge/version-0.6.0--beta.1-blue)](https://github.com/powerpuff-kitty/ai-skills/releases/tag/v0.6.0-beta.1)
-[![Skills: 62](https://img.shields.io/badge/skills-62-blue)](#skill-catalog)
+[![AI Skills: 62](https://img.shields.io/badge/AI%20Skills-62-blue)](#skill-catalog)
 [![License: MIT per skill](https://img.shields.io/badge/license-MIT-green)](INSTALL.md)
 
 62 portable task procedures for AI agents, covering engineering, design,
@@ -15,7 +15,7 @@ references, helpers, assets or checks.
 Use the [copyable installation prompt](INSTALL.md). Install selected skills or the
 whole collection, preserve local customizations and record the source revision.
 Install directly from a reviewed Git checkout by copying complete skill folders.
-No CLI, Agents checkout or Harness project is required. The
+No CLI, AI Agents checkout or Harness project is required. The
 [optional CLI](INSTALL.md#optional-managed-installation-domains-and-updates) supports
 domain presets, managed updates, previews and rollback for its bundled snapshot.
 OpenCode supports the native `SKILL.md` format; no skill adapter is required.
@@ -23,9 +23,9 @@ An isolated persistent OpenCode v2.0.27 check registered all 62 skills with matc
 paths and instruction bodies; allow its configuration plugins time to initialize.
 See [installation and verification details](INSTALL.md#opencode-placement-and-verification).
 Use an [independent release](INSTALL.md#versions-and-release-history) to pin a reviewed
-snapshot; updating the CLI or Agents is a separate choice.
+snapshot; updating the CLI or AI Agents is a separate choice.
 
-Skills define procedures. They do not supply model access, tools or additional
+AI Skills provides procedures. The procedures do not supply model access, tools or additional
 permissions. A skill's frontmatter and instructions define its actual trigger,
 scope and completion conditions. Helpers are run only when the task calls for them.
 
@@ -153,10 +153,10 @@ acceptance specifications and observed model outcomes. Run applicable
 establish host loading or model adherence. Earlier aggregate plugin releases are
 historical; current installs use the root skill folders.
 
-[Agents](https://github.com/powerpuff-kitty/ai-agents) provides optional role profiles
+[AI Agents](https://github.com/powerpuff-kitty/ai-agents) provides optional role profiles
 and teams. [Agentic Harness](https://github.com/powerpuff-kitty/agentic-harness) owns
 its project contract; related skills use that contract when the task calls for it.
 These integrations do not control installation or releases of this collection.
-The CLI consumes a pinned Skills snapshot and validates it in its own CI; that
+The CLI consumes a pinned AI Skills snapshot and validates it in its own CI; that
 consumer check is separate from current source validation. Each skill carries its
 own MIT [license](systematic-debugging/LICENSE).

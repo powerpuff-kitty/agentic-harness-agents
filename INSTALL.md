@@ -1,10 +1,10 @@
-# Install skills
+# Install AI Skills
 
 This repository contains self-contained skill folders directly at its root.
 `README.md` and `INSTALL.md` are the collection-level entrypoints. Each skill owns `SKILL.md`, its
 MIT `LICENSE` and any required local references, helpers, assets or tests. No
 aggregate plugin or renderer is required. Install directly from Git without the
-Agentic Harness CLI, an Agents checkout or a Harness project. Each repository can
+Agentic Harness CLI, an AI Agents checkout or a Harness project. Each repository can
 be updated independently; optional integrations do not synchronize installed copies.
 
 ## Copyable installation prompt
@@ -27,7 +27,7 @@ its supported discovery paths to avoid conflicting duplicate names. Copy real
 folders into the selected skill location. Leave identical copies alone and preserve
 unrelated or locally customized files; report conflicts for a concrete decision
 instead of overwriting them or changing host permissions. Use this direct-folder
-installation path; do not install a CLI or the Agents collection as a prerequisite.
+installation path; do not install a CLI or the AI Agents collection as a prerequisite.
 If existing files are managed by an installer, report that ownership before changing
 them and preserve its state. Record conflicts before applying any copies.
 
@@ -91,7 +91,7 @@ this source-only repository has no independent collection workflow.
 ## Optional managed installation, domains and updates
 
 The [Agentic Harness CLI](https://github.com/powerpuff-kitty/agentic-harness-cli)
-embeds an exact Skills revision for users who choose that installer. It is a
+embeds an exact AI Skills revision for users who choose that installer. It is a
 downstream consumer, not a prerequisite or the source of this collection. Its
 `skills` command installs portable folders
 without initializing a Harness project or changing host permissions/configuration.
@@ -162,7 +162,7 @@ Git tags and this repository's [release notes](https://github.com/powerpuff-kitt
 identify independently versioned snapshots. `v0.6.0-beta.1` is the first release of
 the current flat skill-folder collection. The older `v0.4.0-beta.1` and
 `v0.5.0-beta.1` releases describe the retired aggregate layout; retain them as history.
-Versions do not track Agents or the Harness CLI. A prerelease is an available
+Versions do not track AI Agents or the Harness CLI. A prerelease is an available
 snapshot with documented limits, not a claim that every skill passed a model evaluation.
 
 To inspect that version directly:
@@ -179,11 +179,11 @@ For rollback, deliberately select the earlier reviewed revision and restore only
 the affected skills after comparing local changes. Downgrading a clone does not
 automatically roll back installed folders.
 
-Maintainers release Skills independently: validate names/descriptions, licenses and
+Maintainers release AI Skills independently: validate names/descriptions, licenses and
 local resources, run relevant skill-local checks, and inspect direct-install file
 identity at the target commit. Retain unexecuted cases as specifications. Create a
 new tag at that exact commit, build the source archive with `git archive`, attach
 its SHA-256 checksum and source metadata, and publish notes describing actual checks
-and limits. Do not move old tags or wait for a coordinated CLI/Agents release. The
+and limits. Do not move old tags or wait for a coordinated CLI/AI Agents release. The
 CLI's consumer CI concerns its own pinned snapshot, not a gate on this collection.
 Checksums detect archive changes; they are not publisher signatures.
