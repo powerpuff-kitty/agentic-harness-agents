@@ -2,7 +2,7 @@
 
 Use only when relevant Python source is already identified but its line ranges are
 not. Prefer a native targeted read when its location is known or the file is small.
-This optional mode extends the existing [excerpt helper](scripts/extract_context.py);
+This optional mode extends the existing [excerpt helper](../scripts/extract_context.py);
 copy its reviewed sibling reader too. It requires permitted local execution and
 reviewed non-secret inputs, not a Harness runtime, new skill or provider account.
 Without a compatible interpreter/helper, inspect the selected source manually.
@@ -27,7 +27,7 @@ Metadata names can still be sensitive; this is not redaction or anonymisation.
 
 Use a returned `start_line` and `end_line` with the same source pin in a separate
 `--span` invocation. Include any independently required policy, counterevidence,
-callers and tests using the [required-evidence guard](references/required-evidence.md).
+callers and tests using the [required-evidence guard](required-evidence.md).
 An outline never satisfies source requirements: combining `--outline` with `--span`
 or `--require-span` is rejected. A source change between outline and retrieval must
 fail the old pin; review the change before adopting a fresh one.

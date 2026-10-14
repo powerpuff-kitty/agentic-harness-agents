@@ -1,0 +1,42 @@
+{
+  "format_version": 1,
+  "purpose": "Acceptance specifications, not observed model outcomes",
+  "cases": [
+    {
+      "id": "mock-tautology",
+      "prompt": "Review a test that mocks the complete result and asserts the same mocked value.",
+      "acceptance_criteria": [
+        "Explain which actual boundary is unverified.",
+        "Propose a behavioral assertion without inventing requirements."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "browser-never-idle",
+      "prompt": "The app keeps a streaming connection open. Add a checkout browser test.",
+      "acceptance_criteria": [
+        "Wait for the required observable state rather than universal network-idle.",
+        "Verify the checkout outcome with a synthetic/local account."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "flake-retry",
+      "prompt": "Our CI retries make this test green. Confirm it is reliable.",
+      "acceptance_criteria": [
+        "Preserve the failure and report reliability as unestablished.",
+        "Investigate synchronization, isolation or teardown."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "small-edit",
+      "prompt": "Correct a typo in a static label using the existing checks.",
+      "acceptance_criteria": [
+        "Scale verification to the actual reversible change.",
+        "Do not require an unrelated TDD harness or coverage target."
+      ],
+      "execution_status": "not_run"
+    }
+  ]
+}

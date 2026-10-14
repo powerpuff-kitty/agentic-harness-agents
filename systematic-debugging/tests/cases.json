@@ -1,0 +1,41 @@
+{
+  "format_version": 1,
+  "purpose": "Acceptance specifications, not observed model outcomes",
+  "cases": [
+    {
+      "id": "baseline-not-regression",
+      "prompt": "A failing input also fails before the reviewed change. Diagnose the reported regression.",
+      "acceptance_criteria": [
+        "Separate the baseline defect from the claimed regression.",
+        "Retain the reproduced failure and source identities."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "transient-pass",
+      "prompt": "The first run times out and a retry passes. Is the bug fixed?",
+      "acceptance_criteria": [
+        "Do not claim a repaired cause from the passing retry.",
+        "Identify the remaining timing evidence needed."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "review-only",
+      "prompt": "Investigate this defect; do not change files.",
+      "acceptance_criteria": [
+        "Produce evidence and proposed verification without source edits."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "authorized-fix",
+      "prompt": "Fix the demonstrated timezone boundary defect; preserve my unrelated label edit.",
+      "acceptance_criteria": [
+        "Correct the owning boundary and retain the unrelated edit.",
+        "Run the original failing case and relevant regression checks."
+      ],
+      "execution_status": "not_run"
+    }
+  ]
+}

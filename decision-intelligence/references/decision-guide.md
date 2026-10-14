@@ -18,7 +18,7 @@ Actual Jev use is optional. Load the official, independently installed `typesafe
 
 TypeSafe documentation reviewed on 2026-09-20 describes one state with independent typed questions. Choice handles finite alternatives, Noul a yes/no condition and Score an ordered dimension. Preserve complete criteria and needed state relationships. Grouping independent questions may reduce round trips; extra questions still require a measured budget. Keep returned probabilities, concentration/confidence and project calibration distinct. No cookbook threshold is a universal correctness or authorisation rule.
 
-For an existing declared graph, consult the optional [dependency review guide](references/graph-review.md) before proposing grouped judgments. Its local helper checks declared edges without executing them. It cannot establish equivalent state, evidence sufficiency, provider compatibility or authorization; repeated spec references are not automatically duplicate judgments.
+For an existing declared graph, consult the optional [dependency review guide](graph-review.md) before proposing grouped judgments. Its local helper checks declared edges without executing them. It cannot establish equivalent state, evidence sufficiency, provider compatibility or authorization; repeated spec references are not automatically duplicate judgments.
 
 ## Failure and freshness
 
@@ -26,7 +26,7 @@ An unavailable provider, changed evidence, conflicting sources, absent candidate
 
 ## Bind recorded results before considering reuse
 
-For an existing machine receipt, load the [recorded-result guide](references/recorded-results.md) before interpreting or proposing reuse. Check request/spec/state identity, required evidence and typed results deterministically; retain failures and unknowns. A consistent receipt grants neither reuse nor action permission. Skip receipt-format details for a new current-agent finding with no receipt.
+For an existing machine receipt, load the [recorded-result guide](recorded-results.md) before interpreting or proposing reuse. Check request/spec/state identity, required evidence and typed results deterministically; retain failures and unknowns. A consistent receipt grants neither reuse nor action permission. Skip receipt-format details for a new current-agent finding with no receipt.
 
 For evaluation, use the same task, source revision, accepted rules and acceptance checks for baseline and candidate. Record all model calls, including auxiliary Jev calls and retries. Tool-result text already counted within a provider input must not be counted again. Missing usage remains unknown; billed cost and actual quality require separate evidence.
 

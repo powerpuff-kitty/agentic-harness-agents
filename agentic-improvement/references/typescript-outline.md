@@ -4,8 +4,8 @@ Use this when selected JS/TS files are large and relevant definition locations a
 unknown. Prefer an available native language-server symbol query or a direct read
 for known locations. This is an optional alternative, not an extra required step.
 
-The [helper](scripts/outline_typescript.py) requires Python 3.10+, its reviewed
-[sibling reader](scripts/evidence_snapshot.py), an explicitly selected absolute Node
+The [helper](../scripts/outline_typescript.py) requires Python 3.10+, its reviewed
+[sibling reader](../scripts/evidence_snapshot.py), an explicitly selected absolute Node
 executable and an already-installed TypeScript CommonJS compiler entry. Review the
 runtime/parser and permission to execute them first. It never installs packages,
 invokes npm/npx, builds a project or starts a provider. Missing tools mean manual
@@ -53,11 +53,11 @@ imports and module-level behavior still require separate inspection. An empty ma
 is not an empty or safe module. Parser success is not type checking or valid runtime code.
 
 Inclusive `start_line` / `end_line` use LF boundaries compatible with the existing
-[excerpt helper](scripts/extract_context.py), including CRLF, BOM and JavaScript's
+[excerpt helper](../scripts/extract_context.py), including CRLF, BOM and JavaScript's
 Unicode line separators. Same-line statements can share a returned range. Single
 callable-variable statements include their const/export prefix. Request these ranges
 with the same source hash in a separate `--span` operation, and preserve independent
-requirements using the [required-evidence guide](references/required-evidence.md).
+requirements using the [required-evidence guide](required-evidence.md).
 An outline never counts as emitted required evidence. Source drift requires review,
 not merely replacing a pin to silence a mismatch.
 

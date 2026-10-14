@@ -10,7 +10,7 @@ From this skill's root, when local helper execution is permitted:
 python3 scripts/review_graph.py /reviewed/path/graph.json --group-size 4
 ```
 
-The [helper](scripts/review_graph.py) uses Python 3.10+ standard library. It reads only the named non-secret UTF-8 JSON file and emits a source hash plus declared dependency layers. It neither reads spec references nor invokes providers, reducers, commands or writes. Without it, inspect node identities, dependencies and reducer inputs manually; do not install a runtime automatically.
+The [helper](../scripts/review_graph.py) uses Python 3.10+ standard library. It reads only the named non-secret UTF-8 JSON file and emits a source hash plus declared dependency layers. It neither reads spec references nor invokes providers, reducers, commands or writes. Without it, inspect node identities, dependencies and reducer inputs manually; do not install a runtime automatically.
 
 A group is a bounded display of nodes in one topological layer, NOT an authorized provider batch. Later layers require successful, policy-acceptable predecessor results at runtime. Reducer's `declared_inputs_after_layer` describes structural order only; it does not mean results exist or were accepted. Cycles and invalid references suppress all groups, including otherwise independent prefixes.
 

@@ -1,7 +1,7 @@
 # Preserve declared evidence while narrowing excerpts
 
 Use this only when a task already has reviewed required source spans. The optional
-[extractor](scripts/extract_context.py) can check that a proposed `--span` selection
+[extractor](../scripts/extract_context.py) can check that a proposed `--span` selection
 covers a separately declared `--require-span` set. It does not discover requirements
 or decide which rules, qualifiers, contrary evidence, callers or tests matter.
 

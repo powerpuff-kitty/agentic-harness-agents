@@ -6,9 +6,9 @@ Start with task, authorised scope, applicable rules and acceptance checks. Disco
 
 Retain necessary source spans, qualifiers, contrary evidence and actual references. A path/hash cannot supply content the host cannot resolve. Reuse observations only while source, configuration, policy, dependencies and task scope match. Unchanged HEAD or source bytes do not cover changed working-tree rules. Refresh affected evidence and dependent conclusions; summaries remain navigation aids, not accepted truth.
 
-For repeated selected-file inspection, the optional [freshness guide](references/evidence-reuse.md) describes a read-only hash helper and its limits. Matching bytes do not establish evidence sufficiency, retained model context or a valid cached decision.
+For repeated selected-file inspection, the optional [freshness guide](evidence-reuse.md) describes a read-only hash helper and its limits. Matching bytes do not establish evidence sufficiency, retained model context or a valid cached decision.
 
-For large selected JS/TS files with unknown definition locations, the optional [TypeScript navigation guide](references/typescript-outline.md) uses an explicitly reviewed installed parser. Prefer native navigation or direct reads when cheaper; never install tools automatically.
+For large selected JS/TS files with unknown definition locations, the optional [TypeScript navigation guide](typescript-outline.md) uses an explicitly reviewed installed parser. Prefer native navigation or direct reads when cheaper; never install tools automatically.
 
 ## Rule identity, not just text identity
 
@@ -16,7 +16,7 @@ Deduplication applies to repeated presentation, not automatically to source file
 
 Near-duplicates may differ materially. Keep unresolved conflicts visible. Prefer narrow triggers and one specialist owner to overlapping skills. Put examples behind conditional local links. JSON/YAML can support validation but is not inherently shorter.
 
-For substantial rule inventories or source-bound compilation, load the [rule-compilation guide](references/rule-review.md) before using its optional API. Manual comparison remains available; generated views cannot grant authority or discard required context. Skip API details when no compiled inventory is involved.
+For substantial rule inventories or source-bound compilation, load the [rule-compilation guide](rule-review.md) before using its optional API. Manual comparison remains available; generated views cannot grant authority or discard required context. Skip API details when no compiled inventory is involved.
 
 ## Native checks and compact logs
 
@@ -26,7 +26,7 @@ Equal message text is not always the same diagnostic. Preserve check/test, file/
 
 ### Optional lossless helper
 
-Load the [log-compaction guide](references/log-compaction.md) only when using or interpreting the optional compactor. Review disclosure and execution permission first. Otherwise use the manual diagnostic procedure above; no installation or provider call is required.
+Load the [log-compaction guide](log-compaction.md) only when using or interpreting the optional compactor. Review disclosure and execution permission first. Otherwise use the manual diagnostic procedure above; no installation or provider call is required.
 
 ## Optional handoff
 
@@ -44,7 +44,7 @@ Next unresolved step:
 
 On resume, resolve current instructions and refresh changed/inaccessible evidence. Historical passes apply only to their recorded inputs. Retain failed/unexecuted checks. Do not persist private transcripts, secrets, guessed hashes or a new report for every trivial operation. A handoff cannot grant approval.
 
-For longer resumptions, use the conditional [continuation guide](references/continuation.md); keep historical evidence and current authority separate.
+For longer resumptions, use the conditional [continuation guide](continuation.md); keep historical evidence and current authority separate.
 
 ## Budget and evaluation
 

@@ -1,7 +1,7 @@
 # Optional selected-evidence freshness check
 
 Use this only when a nontrivial continuation would otherwise reread the same source
-into model context. The local [snapshot helper](scripts/evidence_snapshot.py) hashes
+into model context. The local [snapshot helper](../scripts/evidence_snapshot.py) hashes
 explicitly selected, reviewed non-secret text using Python 3.10+ standard library.
 It does not discover files, inspect Git, execute source, call providers or write
 snapshots. No Harness executable, installed sibling skill or account is required.
@@ -71,7 +71,7 @@ support, not a new canonical wire contract or compulsory report for every task.
 ## Retrieve exact excerpts without whole-file replay
 
 After discovery establishes which spans answer the question, the optional local
-[excerpt helper](scripts/extract_context.py) reads explicitly chosen ranges against
+[excerpt helper](../scripts/extract_context.py) reads explicitly chosen ranges against
 an expected full-file SHA-256. It reuses the packaged `evidence_snapshot.py` reader;
 copy the complete skill directory, not the extractor alone. The default entrypoint
 and existing snapshot commands are unchanged. Local helper execution still requires
@@ -118,9 +118,9 @@ cost more than a tiny direct read. Measure complete output and later tool/model
 calls; selected byte reduction alone is not an end-to-end token-saving claim.
 
 When a task has reviewed required spans, use the optional
-[required-evidence guard](references/required-evidence.md) before narrowing the
+[required-evidence guard](required-evidence.md) before narrowing the
 selection. It checks declared coverage, not policy completeness or semantic sufficiency.
 
 When a selected Python file's definition ranges are unknown, consult the optional
-[definition-outline guide](references/python-outline.md) before loading its bodies.
+[definition-outline guide](python-outline.md) before loading its bodies.
 The map is navigation metadata, not emitted required evidence or a dependency graph.

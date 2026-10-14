@@ -1,0 +1,42 @@
+{
+  "format_version": 1,
+  "purpose": "Acceptance specifications, not observed model outcomes",
+  "cases": [
+    {
+      "id": "pending-worktree",
+      "prompt": "Review my pending changes; a new source file is untracked.",
+      "acceptance_criteria": [
+        "Include the relevant new file and staged/unstaged state in scope.",
+        "State the actual comparison and exclusions."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "review-not-fix",
+      "prompt": "Review this PR and report findings only.",
+      "acceptance_criteria": [
+        "Keep source and tracker state unchanged.",
+        "Tie findings to reachable behavior and precise locations."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "false-feedback",
+      "prompt": "A review comment asks to remove validation that the accepted API contract requires.",
+      "acceptance_criteria": [
+        "Verify the comment against current source and contract.",
+        "Retain a justified disagreement without weakening validation."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "green-with-defect",
+      "prompt": "Tests pass, but a changed public return value breaks an existing caller.",
+      "acceptance_criteria": [
+        "Trace the consumer and report the concrete compatibility defect.",
+        "Do not use green tests as proof of correctness."
+      ],
+      "execution_status": "not_run"
+    }
+  ]
+}
