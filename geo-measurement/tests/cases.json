@@ -1,0 +1,50 @@
+{
+  "format_version": 1,
+  "purpose": "Acceptance specifications, not observed model outcomes",
+  "cases": [
+    {
+      "id": "missingness",
+      "prompt": "Measure visibility from this six-observation panel.",
+      "fixture_requirements": [
+        "Four usable answers, one error, one refusal; two usable mentions; one owned-domain citation."
+      ],
+      "acceptance_criteria": [
+        "Report coverage 4/6 and conditional rates 2/4,1/4 with missing policy; no market-share claim."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "no-access",
+      "prompt": "Tell me how often providers recommend us.",
+      "fixture_requirements": [
+        "No raw answers or authorized measurement access."
+      ],
+      "acceptance_criteria": [
+        "Deliver a panel/measurement plan; do not fabricate observations."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "citation-support",
+      "prompt": "Classify this citation as proof of our performance.",
+      "fixture_requirements": [
+        "Answer links a page that does not support the performance claim."
+      ],
+      "acceptance_criteria": [
+        "Separate observed URL citation from verified claim support."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "confounded",
+      "prompt": "Prove our edit improved GEO.",
+      "fixture_requirements": [
+        "Before/after samples use different prompts and model versions."
+      ],
+      "acceptance_criteria": [
+        "State confounding and avoid causal attribution; plan a matched repeat."
+      ],
+      "execution_status": "not_run"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Skills
 
-47 portable task procedures for AI agents, covering engineering, design,
+51 portable task procedures for AI agents, covering engineering, design,
 repository maintenance, decisions and delivery. Each skill lives directly at the
 repository root in `<name>/SKILL.md`, alongside its MIT license and any local
 references, helpers, assets or checks.
@@ -9,9 +9,10 @@ references, helpers, assets or checks.
 
 Use the [copyable installation prompt](INSTALL.md). Install selected skills or the
 whole collection, preserve local customizations and record the source revision.
+The optional CLI supports domain presets, managed updates, previews and rollback.
 OpenCode supports the native `SKILL.md` format; no skill adapter is required.
-Verify discovery with your installed host: an isolated OpenCode v2.0.27 check
-returned an empty inventory, so live loading remains unverified in that environment.
+An isolated persistent OpenCode v2.0.27 check registered all 51 skills with matching
+paths and instruction bodies; allow its configuration plugins time to initialize.
 See [installation and verification details](INSTALL.md#opencode-placement-and-verification).
 
 Skills define procedures. They do not supply model access, tools or additional
@@ -77,6 +78,15 @@ scope and completion conditions. Helpers are run only when the task calls for th
 | [competitive-research](competitive-research/SKILL.md) | Research current competitors and alternatives. |
 | [marketing](marketing/SKILL.md) | Write positioning and messaging from approved facts. |
 | [seo-audit](seo-audit/SKILL.md) | Audit crawlability, indexing and search retrieval readiness. |
+
+### Content and AI visibility
+
+| Skill | Purpose |
+| --- | --- |
+| [content-brief](content-brief/SKILL.md) | Define an evidence-backed editorial assignment. |
+| [copy-editing](copy-editing/SKILL.md) | Edit drafts while preserving intent and substantiating claims. |
+| [content-repurposing](content-repurposing/SKILL.md) | Adapt approved source content for distinct channels. |
+| [geo-measurement](geo-measurement/SKILL.md) | Measure observed AI-answer mentions, citations and representation. |
 
 ### Financial research and validation
 

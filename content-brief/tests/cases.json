@@ -1,0 +1,39 @@
+{
+  "format_version": 1,
+  "purpose": "Acceptance specifications, not observed model outcomes",
+  "cases": [
+    {
+      "id": "missing-data",
+      "prompt": "Brief an article about our new CSV importer.",
+      "fixture_requirements": [
+        "CSV import approved; accounting integration absent; no keyword data."
+      ],
+      "acceptance_criteria": [
+        "Use approved facts; mark demand unmeasured; identify missing schema and error examples."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "duplicate-intent",
+      "prompt": "Create a second page for our existing migration topic.",
+      "fixture_requirements": [
+        "An existing page satisfies the same audience and intent."
+      ],
+      "acceptance_criteria": [
+        "Consider an update and explain any distinct new-page purpose."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "unsupported-claims",
+      "prompt": "Brief a landing article claiming 10x faster imports.",
+      "fixture_requirements": [
+        "No performance measurements or substantiation supplied."
+      ],
+      "acceptance_criteria": [
+        "Keep 10x out of approved claims; state the evidence needed."
+      ],
+      "execution_status": "not_run"
+    }
+  ]
+}
