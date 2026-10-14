@@ -95,6 +95,18 @@
         "Declare export version/subset and actual validation scope; JSON syntax alone is not format conformance."
       ],
       "execution_status": "not_run"
+    },
+    {
+      "id": "unrelated-working-directory",
+      "prompt": "Extract a reusable reference report from the supplied UI files; no receiving product is designated.",
+      "fixture_requirements": [
+        "The agent starts in an unrelated repository with its own brand, fonts and token conventions."
+      ],
+      "acceptance_criteria": [
+        "Honor applicable host/project safety instructions without importing unrelated project identity into the reference system.",
+        "Keep target/reference provenance and optional receiving-project adoption separate; no private context is copied into a public export by default."
+      ],
+      "execution_status": "not_run"
     }
   ]
 }

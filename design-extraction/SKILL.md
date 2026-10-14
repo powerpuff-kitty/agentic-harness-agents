@@ -13,7 +13,10 @@ character and reference relevance; it is not a universal quality score.
 ## Inputs and capabilities
 
 Identify the target, intended use, available URL/app/files, capture scope and output
-directory. Inspect available browser/app/design/source tools before choosing a method.
+directory. Distinguish the reference being analyzed from the current working directory;
+apply receiving-project identity only when that project is actually part of the request.
+Keep a reference-only report portable rather than importing unrelated local brand rules.
+Inspect available browser/app/design/source tools before choosing a method.
 Use the [capture and report guide](references/capture-and-report.md) for evidence
 limits, token exports and artifact checks. Tools and paid services are optional;
 installation, sign-in, purchases and publishing require their own task authority.
