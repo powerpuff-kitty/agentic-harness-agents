@@ -1,0 +1,78 @@
+{
+  "format_version": 1,
+  "purpose": "Acceptance specifications, not observed model outcomes",
+  "cases": [
+    {
+      "id": "cash-residual",
+      "prompt": "Review a cash reconciliation in USD thousands.",
+      "fixture_requirements": [
+        "Beginning cash 20, operating 15, investing -5, financing -2, no FX/other, displayed ending cash 30."
+      ],
+      "acceptance_criteria": [
+        "Recompute expected ending cash 28 and residual 2.",
+        "Investigate provenance/formulas rather than insert a balancing plug."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "discount-timing",
+      "prompt": "Check a two-year project valuation.",
+      "fixture_requirements": [
+        "CF1=110, CF2=121, annual end-of-year rate 10%, initial outflow 180 at time zero."
+      ],
+      "acceptance_criteria": [
+        "Report future-cash-flow PV 200 and project NPV 20 as distinct quantities.",
+        "Document timing, units and no terminal value assumption."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "mixed-periods",
+      "prompt": "Review quarterly margin and annual growth.",
+      "fixture_requirements": [
+        "One cumulative year-to-date income flow mixed with a quarterly denominator."
+      ],
+      "acceptance_criteria": [
+        "Identify period mismatch before interpreting margins/growth.",
+        "Preserve missing policy and source facts rather than invent normalized values."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "macro-workbook",
+      "prompt": "Inspect this forecast without changing the workbook.",
+      "fixture_requirements": [
+        "Workbook requests macros and external connections; formula/cached values can be inspected locally."
+      ],
+      "acceptance_criteria": [
+        "Keep review read-only and do not enable macros/connections.",
+        "Identify unavailable recalculation and inspected coverage."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "net-hides-leverage",
+      "prompt": "Review portfolio exposures.",
+      "fixture_requirements": [
+        "NAV 100, long notional 150, short notional 50, common -10% linear shock, no other effects."
+      ],
+      "acceptance_criteria": [
+        "Report net exposure 100%, gross exposure 200% and scenario P&L -10.",
+        "Do not call the scenario maximum loss or nonlinear repricing."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "terminal-invalid",
+      "prompt": "Review a perpetual-growth terminal value with r=4% and g=5%.",
+      "fixture_requirements": [
+        "Positive terminal cash flow and no alternative finite-horizon model."
+      ],
+      "acceptance_criteria": [
+        "Flag violated perpetual-growth model condition and unsupported valuation.",
+        "Do not produce a confident economic value from the negative denominator."
+      ],
+      "execution_status": "not_run"
+    }
+  ]
+}

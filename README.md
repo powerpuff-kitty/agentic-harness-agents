@@ -1,6 +1,6 @@
 # Skills
 
-38 portable task procedures for coding agents, covering engineering, design,
+41 portable task procedures for AI agents, covering engineering, design,
 repository maintenance, decisions and delivery. Each skill lives directly at the
 repository root in `<name>/SKILL.md`, alongside its MIT license and any local
 references, helpers, assets or checks.
@@ -77,6 +77,17 @@ scope and completion conditions. Helpers are run only when the task calls for th
 | [competitive-research](competitive-research/SKILL.md) | Research current competitors and alternatives. |
 | [marketing](marketing/SKILL.md) | Write positioning and messaging from approved facts. |
 | [seo-audit](seo-audit/SKILL.md) | Audit crawlability, indexing and search retrieval readiness. |
+
+### Financial research and validation
+
+| Skill | Purpose |
+| --- | --- |
+| [market-data-validation](market-data-validation/SKILL.md) | Validate instrument, timestamp, availability, corporate-action and universe data. |
+| [financial-model-review](financial-model-review/SKILL.md) | Review statement, forecast, valuation and portfolio-risk calculations. |
+| [backtest-validation](backtest-validation/SKILL.md) | Check trading simulations for leakage, execution assumptions, costs and research bias. |
+
+These are analytical procedures with worked references and report templates.
+They do not connect accounts or execute financial transactions.
 
 ## Structure and maintenance
 

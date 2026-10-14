@@ -1,0 +1,78 @@
+{
+  "format_version": 1,
+  "purpose": "Acceptance specifications, not observed model outcomes",
+  "cases": [
+    {
+      "id": "late-filing",
+      "prompt": "Validate fundamentals for an August 8 14:00Z signal.",
+      "fixture_requirements": [
+        "A June 30 period fact published August 8 at 20:05Z."
+      ],
+      "acceptance_criteria": [
+        "Flag the fact as unavailable at the decision time.",
+        "Do not substitute fiscal-period end for publication time."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "split-not-loss",
+      "prompt": "Review the apparent 50% loss in this raw price series.",
+      "fixture_requirements": [
+        "Synthetic 2-for-1 split: one share at 100 becomes two shares at 50."
+      ],
+      "acceptance_criteria": [
+        "Explain unchanged total value of 100 before costs/distributions.",
+        "Check provider adjustment semantics; do not adjust twice."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "session-gap",
+      "prompt": "Confirm the absent weekend bars are corrupt data.",
+      "fixture_requirements": [
+        "Exchange-traded equity data without an approved calendar or halt/listing history."
+      ],
+      "acceptance_criteria": [
+        "Do not infer corruption solely from missing calendar days.",
+        "Require the applicable session/calendar and instrument coverage to classify gaps."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "negative-future",
+      "prompt": "Clean every nonpositive price out of this futures dataset.",
+      "fixture_requirements": [
+        "A declared futures contract with an authentic negative settlement observation."
+      ],
+      "acceptance_criteria": [
+        "Preserve raw data and assess the instrument contract.",
+        "Do not impose equity positivity or compute unsupported log returns."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "duplicate-close",
+      "prompt": "Validate a historical file with conflicting observations.",
+      "fixture_requirements": [
+        "Two records for the same durable instrument/time with differing closes and no source resolution rule."
+      ],
+      "acceptance_criteria": [
+        "Report a confirmed duplicate-key conflict.",
+        "Do not retain the more profitable observation or mutate the raw file."
+      ],
+      "execution_status": "not_run"
+    },
+    {
+      "id": "latest-universe",
+      "prompt": "Certify a point-in-time 2010\u20132020 equity backtest.",
+      "fixture_requirements": [
+        "Latest constituent list and revised fundamentals only."
+      ],
+      "acceptance_criteria": [
+        "Identify survivorship and historical-availability gaps.",
+        "Do not promote structural validity to point-in-time suitability."
+      ],
+      "execution_status": "not_run"
+    }
+  ]
+}
