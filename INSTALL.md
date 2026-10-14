@@ -10,7 +10,7 @@ aggregate plugin or renderer is required. The optional CLI supplies managed inst
 Give this prompt to an agent with local filesystem and Git access:
 
 ```text
-Install all skills from https://github.com/powerpuff-kitty/skills at source revision
+Install all skills from https://github.com/powerpuff-kitty/ai-skills at source revision
 fd16e782cbbb3d5cf37c4dc11836c195aa9da25d for OpenCode on this machine,
 using the effective global OpenCode skills directory.
 
