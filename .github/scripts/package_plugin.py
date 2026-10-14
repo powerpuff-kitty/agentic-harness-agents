@@ -15,7 +15,7 @@ version = manifest["version"]
 bundles = enrolled(ROOT)
 dist = ROOT / "dist"
 dist.mkdir(exist_ok=True)
-archive = dist / f"agentic-harness-agents-v{version}.zip"
+archive = dist / f"skills-v{version}.zip"
 
 roots = [
     ROOT / ".codex-plugin",

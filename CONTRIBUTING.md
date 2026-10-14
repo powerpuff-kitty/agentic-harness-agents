@@ -1,4 +1,4 @@
-# Contributing to Agentic Harness Agents
+# Contributing to Skills
 
 Thanks for improving the installable agent procedures. This repository owns **skills, reusable procedures, prompts, thin adapters, and behaviour evaluations**. Canonical project context, profiles, schemas and readiness policies belong in [Agentic Harness](https://github.com/powerpuff-kitty/agentic-harness); native CLI behaviour belongs in [Agentic Harness CLI](https://github.com/powerpuff-kitty/agentic-harness-cli).
 

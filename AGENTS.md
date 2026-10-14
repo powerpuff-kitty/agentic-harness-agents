@@ -1,6 +1,6 @@
 # Agent instructions
 
-This repository owns Agentic Harness procedures, prompts, adapters, and behavior evals—not the canonical project contract.
+This repository owns reusable coding-agent skills, prompts, skill adapters, and behavior evals. Specialist roles and team workflows are managed separately; canonical Harness project contracts belong in `powerpuff-kitty/agentic-harness`.
 
 1. Read `.agentic/README.md` and `.agentic/manifest.yaml` for this repository's own context.
 2. Resolve canonical project structure, packs, policies, profiles, presets, schemas, Agentic Readiness rules, and model profiles from `powerpuff-kitty/agentic-harness`.

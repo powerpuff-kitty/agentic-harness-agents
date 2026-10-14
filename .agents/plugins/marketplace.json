@@ -1,15 +1,15 @@
 {
-  "name": "agentic-harness",
+  "name": "skills",
   "plugins": [
     {
-      "name": "agentic-harness-agents",
+      "name": "skills",
       "source": {
         "source": "local",
         "path": "./../.."
       },
       "category": "Developer Tools",
       "interface": {
-        "displayName": "Agentic Harness",
+        "displayName": "Skills",
         "shortDescription": "Agent-native repository architecture, code quality, design intelligence, audits, migration, model-fit, security, and delivery skills"
       }
     }

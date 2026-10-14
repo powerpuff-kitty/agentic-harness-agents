@@ -1,19 +1,19 @@
-# Agentic Harness Agents
+# Skills
 
 [![Status: Beta](https://img.shields.io/badge/status-beta-orange)](.agentic/PRODUCT.md)
-[![Validate agents](https://github.com/powerpuff-kitty/agentic-harness-agents/actions/workflows/validate.yml/badge.svg)](https://github.com/powerpuff-kitty/agentic-harness-agents/actions/workflows/validate.yml)
+[![Validate skills](https://github.com/powerpuff-kitty/skills/actions/workflows/validate.yml/badge.svg)](https://github.com/powerpuff-kitty/skills/actions/workflows/validate.yml)
 
 **Installable Agent Skills for Codex, plus compatible procedures and adapters for Claude Code, Cursor, GitHub Copilot, Gemini CLI, and other coding agents.**
 
 Current distribution version: **`0.5.0-beta.1`**.
 
-This repository owns **procedure**, not canonical project architecture. Canonical project truth lives in [`agentic-harness`](https://github.com/powerpuff-kitty/agentic-harness); deterministic composition, analysis, compilation, and audits live in [`agentic-harness-cli`](https://github.com/powerpuff-kitty/agentic-harness-cli).
+This repository owns reusable **procedures** for coding agents. Specialist roles and team workflows are managed separately. Generic skills can be used across projects; Harness-specific workflows use the contracts below. Canonical project truth lives in [`agentic-harness`](https://github.com/powerpuff-kitty/agentic-harness); deterministic composition, analysis, compilation, and audits live in [`agentic-harness-cli`](https://github.com/powerpuff-kitty/agentic-harness-cli).
 
 ```text
 agentic-harness
 project contract + catalog + policies + schemas + registries
         ↓
-agentic-harness-agents
+skills
 skills + prompts + adapters + behavior evals
         ↓
 agentic-harness-cli
@@ -27,7 +27,7 @@ deterministic composition, analysis, migration, audit, validation
 Use Codex's built-in `$skill-installer` with a GitHub skill directory, then restart Codex so the skill is rediscovered:
 
 ```text
-$skill-installer install https://github.com/powerpuff-kitty/agentic-harness-agents/tree/main/skills/agentic-app
+$skill-installer install https://github.com/powerpuff-kitty/skills/tree/main/skills/agentic-app
 ```
 
 Replace `agentic-app` with any directory under [`skills/`](skills/). For reproducible team installs, prefer a release tag instead of `main`.
@@ -57,6 +57,27 @@ This repository is a skills-only Codex plugin. Its native manifest is [`.codex-p
 Workspace admins can import the repository as a GitHub plugin marketplace from **Workspace settings → Plugins → Add → Import marketplace**. Use the repository URL, leave Path empty, and select a branch, tag, or commit depending on whether you want automatic updates or an immutable version.
 
 No external app or account authorization is required because this plugin contains skills only. Individual skills may use project-authorized tools/providers when a task explicitly requires them.
+
+## Repository rename and existing installations
+
+This repository was renamed from `powerpuff-kitty/agentic-harness-agents` to
+`powerpuff-kitty/skills`, retaining its Git history, issues and release tags.
+Update clone remotes with:
+
+```sh
+git remote set-url origin https://github.com/powerpuff-kitty/skills.git
+```
+
+The current plugin and marketplace identifiers are `skills`; the display name is
+**Skills**. Existing imports using the previous plugin identity should be removed
+and re-imported from this repository through the host's plugin settings, then
+checked for successful loading. A repository rename does not migrate host settings
+or refresh device/project skill copies automatically. Individually installed skill
+names and the `.agents/skills/` layout are unchanged.
+
+New collection builds use `skills-v{version}.zip`. Existing release tags and their
+published archives retain their original names and contents. This rename does not
+publish a new release.
 
 ## Canonical target model
 

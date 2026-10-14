@@ -49,7 +49,7 @@ class DecisionGraphDistribution(unittest.TestCase):
                              capture_output=True, timeout=30)
         self.assertEqual(run.returncode, 0, run.stderr)
         version = json.loads((bundle.ROOT / 'manifest.json').read_text())['version']
-        with zipfile.ZipFile(bundle.ROOT / 'dist' / f'agentic-harness-agents-v{version}.zip') as archive:
+        with zipfile.ZipFile(bundle.ROOT / 'dist' / f'skills-v{version}.zip') as archive:
             for relative in ('scripts/review_graph.py', 'references/graph-review.md'):
                 path = f'skills/{NAME}/{relative}'
                 self.assertEqual(archive.read(path), (bundle.ROOT / path).read_bytes())

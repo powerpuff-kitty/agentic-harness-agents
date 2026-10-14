@@ -24,7 +24,7 @@
   "distribution": {
     "codex_plugin": ".codex-plugin/plugin.json",
     "codex_marketplace": ".agents/plugins/marketplace.json",
-    "release_bundle": "agentic-harness-agents-v{version}.zip"
+    "release_bundle": "skills-v{version}.zip"
   },
   "skills": [
     "accessibility-audit",

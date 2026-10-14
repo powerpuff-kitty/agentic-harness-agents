@@ -34,11 +34,11 @@ workflow demonstrates a missing capability. Keep these gates separate:
 
 | Gate | Required evidence | Owner |
 | --- | --- | --- |
-| Task outcomes | Fresh matched sessions, retained failures, rule adherence and independently reviewed outcomes; public fixtures are not unseen benchmarks. | [#26](https://github.com/powerpuff-kitty/agentic-harness-agents/issues/26) |
-| Host delivery | Exact host version, actual loaded instruction sources, nested/scoped routing and preservation checks; copied files are not proof of activation or isolation. | [#24](https://github.com/powerpuff-kitty/agentic-harness-agents/issues/24), [#36](https://github.com/powerpuff-kitty/agentic-harness-agents/issues/36) |
-| Task-scoped accounting | Complete observed input/output usage, retries, auxiliary work and instruction loading; unknown usage stays unknown and cumulative snapshots are not summed. | [#26](https://github.com/powerpuff-kitty/agentic-harness-agents/issues/26), [#36](https://github.com/powerpuff-kitty/agentic-harness-agents/issues/36) |
+| Task outcomes | Fresh matched sessions, retained failures, rule adherence and independently reviewed outcomes; public fixtures are not unseen benchmarks. | [#26](https://github.com/powerpuff-kitty/skills/issues/26) |
+| Host delivery | Exact host version, actual loaded instruction sources, nested/scoped routing and preservation checks; copied files are not proof of activation or isolation. | [#24](https://github.com/powerpuff-kitty/skills/issues/24), [#36](https://github.com/powerpuff-kitty/skills/issues/36) |
+| Task-scoped accounting | Complete observed input/output usage, retries, auxiliary work and instruction loading; unknown usage stays unknown and cumulative snapshots are not summed. | [#26](https://github.com/powerpuff-kitty/skills/issues/26), [#36](https://github.com/powerpuff-kitty/skills/issues/36) |
 
-[Decision guidance #32](https://github.com/powerpuff-kitty/agentic-harness-agents/issues/32)
+[Decision guidance #32](https://github.com/powerpuff-kitty/skills/issues/32)
 remains distinct from live Jev inference. The current-agent path can be evaluated
 without a TypeSafe provider, but cannot be relabeled as a Jev result. Hosted
 inference and downstream runtime work remain separate, explicitly authorized work.

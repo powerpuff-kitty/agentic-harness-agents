@@ -132,7 +132,7 @@ if covered != actual:
 
 plugin = load_json(ROOT / ".codex-plugin" / "plugin.json")
 if isinstance(plugin, dict):
-    if plugin.get("name") != "agentic-harness-agents":
+    if plugin.get("name") != "skills":
         fail("Codex plugin name mismatch")
     if isinstance(manifest, dict) and plugin.get("version") != manifest.get("version"):
         fail("Codex plugin version must match manifest version")
@@ -143,8 +143,8 @@ if isinstance(plugin, dict):
 marketplace = load_json(ROOT / ".agents" / "plugins" / "marketplace.json")
 if isinstance(marketplace, dict):
     entries = marketplace.get("plugins", [])
-    if len(entries) != 1 or entries[0].get("name") != "agentic-harness-agents":
-        fail("marketplace must expose exactly the agentic-harness-agents plugin")
+    if len(entries) != 1 or entries[0].get("name") != "skills":
+        fail("marketplace must expose exactly the skills plugin")
     source = entries[0].get("source", {}) if entries else {}
     if source.get("source") != "local" or source.get("path") != "./../..":
         fail("marketplace source must resolve to the repository root")

@@ -164,7 +164,7 @@ class OptionalScriptBundles(unittest.TestCase):
                               capture_output=True, timeout=30)
         self.assertEqual(proc.returncode, 0, proc.stderr)
         version = json.loads((bundle.ROOT / 'manifest.json').read_text())['version']
-        archive = bundle.ROOT / 'dist' / f'agentic-harness-agents-v{version}.zip'
+        archive = bundle.ROOT / 'dist' / f'skills-v{version}.zip'
         with zipfile.ZipFile(archive) as z:
             path = 'skills/agentic-improvement/scripts/compact_log.py'
             self.assertEqual(z.read(path), (bundle.ROOT / path).read_bytes())

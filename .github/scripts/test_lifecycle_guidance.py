@@ -145,7 +145,7 @@ class LifecycleGuidance(unittest.TestCase):
                                 cwd=ROOT, capture_output=True, timeout=30)
         self.assertEqual(result.returncode, 0, result.stderr.decode(errors='replace'))
         version = json.loads((ROOT / 'manifest.json').read_text())['version']
-        archive_path = ROOT / 'dist' / ('agentic-harness-agents-v' + version + '.zip')
+        archive_path = ROOT / 'dist' / ('skills-v' + version + '.zip')
         with zipfile.ZipFile(archive_path) as archive:
             for name, data in inspect(SKILL).items():
                 self.assertEqual(archive.read('skills/agentic-app/' + name), data)

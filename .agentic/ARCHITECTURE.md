@@ -1,6 +1,6 @@
 # Architecture
 
-This repository is the procedure and distribution layer between canonical Agentic Harness truth and deterministic CLI enforcement.
+This repository owns reusable coding-agent procedures and their distribution. Specialist roles and team workflows are managed separately. Harness-specific skills consume canonical `agentic-harness` truth and use `agentic-harness-cli` for deterministic mechanics; generic skills use the target project’s own context and verification tools.
 
 ```text
 canonical agentic-harness

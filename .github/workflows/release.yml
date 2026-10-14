@@ -53,7 +53,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git tag -a "${{ steps.version.outputs.tag }}" "${GITHUB_SHA}" -m "Agentic Harness Agents ${{ steps.version.outputs.tag }}"
+          git tag -a "${{ steps.version.outputs.tag }}" "${GITHUB_SHA}" -m "Skills ${{ steps.version.outputs.tag }}"
           git push origin "${{ steps.version.outputs.tag }}"
       - name: Package
         if: steps.version.outputs.release_exists == 'false'
@@ -68,7 +68,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release create "${{ steps.version.outputs.tag }}" dist/* \
-            --title "Agentic Harness Agents ${{ steps.version.outputs.tag }}" \
+            --title "Skills ${{ steps.version.outputs.tag }}" \
             --generate-notes \
             --prerelease \
             --verify-tag

@@ -1,8 +1,8 @@
 # Product
 
-Agentic Harness Agents is the installable procedure layer of the Agentic Harness ecosystem.
+Skills is the dedicated repository for reusable coding-agent procedures, distributed independently of specialist agent roles and team workflows.
 
-It provides reusable Agent Skills for Codex and compatible workflow guidance for other coding agents without owning project architecture or business truth.
+It provides reusable Agent Skills for Codex and compatible workflow guidance for other coding agents without owning project architecture or business truth. Generic procedures serve any suitable project; Harness-specific workflows consume the separately owned Harness contracts.
 
 ## Goals
 

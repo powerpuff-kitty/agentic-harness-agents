@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Rename the collection repository and plugin to `skills`; retain individual skill names and project installation paths.
+- Update install URLs, current documentation and collection archives (`skills-v{version}.zip`); preserve existing release assets and document plugin migration.
+
+## Unreleased
+
 - deepen broad codebase/architecture review, implementation security review and design-system compliance with local decision guides, counterexamples, report templates and explicit untested boundaries;
 - add documentation-only standalone skill bundles with declared references, optional-tool fallbacks, exact MIT attribution and content inventories;
 - bundle the shared Design Intelligence guide with compliance and detect drift against the collection source;

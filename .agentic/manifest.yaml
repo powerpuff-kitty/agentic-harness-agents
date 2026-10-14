@@ -1,6 +1,6 @@
 format_version: 1
 project:
-  name: agentic-harness-agents
+  name: skills
   type: library-sdk
   maturity: beta
 context:
