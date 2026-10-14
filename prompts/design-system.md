@@ -1,1 +1,0 @@
-Plan or audit the design system from actual product flows and `.agentic/DESIGN.md`. Infer required components/states, prefer canonical tokens/components, check accessibility and responsive behavior, report structural compliance separately from visual judgment, and document accepted exceptions.

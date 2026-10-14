@@ -1,1 +1,0 @@
-Perform an evidence-backed security review using `.agentic/SECURITY.md`, permissions, policies, architecture, data/API docs, ADRs, lockfile, code, CI, and operations. Distinguish deterministic findings from judgment and list checks not performed.

@@ -16,7 +16,7 @@ Required: scope and identifiable accepted authority. Optional: approved Design G
 
 Follow target router/manifest custom routes. Read affected rules, components, tokens and decisions. A Genome is authoritative only at the exact version the project approves; imported candidates are not accepted truth.
 
-Consult the local [review guide](references/review-guide.md), [report template](references/report-template.md) and [design boundaries](references/design-intelligence.md) only as needed. The latter is an exact bundled collection copy. No sibling skill or collection checkout is required.
+Consult the local [review guide](references/review-guide.md), [report template](references/report-template.md) and [design boundaries](references/design-intelligence.md) only as needed. The design boundaries are local to this skill. No sibling skill or collection checkout is required.
 
 ## Procedure
 

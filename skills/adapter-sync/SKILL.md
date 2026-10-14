@@ -14,7 +14,7 @@ Required: target repository. Optional: target vendors, existing adapter files, r
 
 ## Context
 
-Read root `AGENTS.md`, `.agentic/manifest.yaml`, and relevant adapter guidance only. Do not copy product, architecture, security, policies, packs, or full skill bodies into adapters.
+Read the target root `AGENTS.md`, `.agentic/manifest.yaml`, and the local [adapter resource guide](references/native-adapters.md) only when host assets are needed. Do not copy product, architecture, security, policies, packs, or full skill bodies into adapters.
 
 ## Procedure
 

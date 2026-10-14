@@ -1,1 +1,0 @@
-Upgrade the existing Agentic Harness installation. Preserve project-authored truth and accepted ADRs, resolve installed sources through `.agentic/lock.json`, report incompatible changes before writing, update only required modules/contracts/adapters, and prove idempotence with validation and audit.

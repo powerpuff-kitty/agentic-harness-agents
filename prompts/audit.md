@@ -1,1 +1,0 @@
-Audit this repository read-only. Include technical quality plus root hygiene, router validity, canonical uniqueness, ADR integrity, placeholder quality, maturity/profile compliance, adapter thinness, module/lock integrity, migration state, and design-system compliance when active. Cite evidence and list checks not performed.

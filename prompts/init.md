@@ -1,1 +1,0 @@
-Initialize this repository with Agentic Harness. Inspect first, ask only missing high-impact questions, resolve the canonical catalog variant/modules/skills, keep only a compact root `AGENTS.md`, place project truth under `.agentic/`, synchronize thin adapters, then validate and report assumptions and skipped checks.

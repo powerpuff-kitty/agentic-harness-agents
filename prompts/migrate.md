@@ -1,1 +1,0 @@
-Plan migration from any legacy Agentic Harness layout to root `AGENTS.md` plus `.agentic/`. Start with a dry-run, distinguish identical duplicates from conflicts, preserve project truth, require explicit apply authorization, verify before deletion, prove idempotence, then validate and audit.

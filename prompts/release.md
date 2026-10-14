@@ -1,1 +1,0 @@
-Review the exact release candidate and resolved source pins. Require CI, migration/idempotence fixtures, compatibility/security evidence, artifacts/checksums, install verification, changelog, rollback/yank plan, and explicit publication approval before release.
