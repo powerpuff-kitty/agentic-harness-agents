@@ -1,4 +1,4 @@
-# Reusable skills
+# Skills
 
 38 portable task procedures for coding agents, covering engineering, design,
 repository maintenance, decisions and delivery. Each skill lives directly at the
