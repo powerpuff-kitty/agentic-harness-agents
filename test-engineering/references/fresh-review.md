@@ -55,6 +55,13 @@ commands/results; findings and coordinator disposition; unresolved limits.
 Explicit instruction loading does not test automatic skill/agent routing. A host
 setting or reviewer assertion is not an authenticated exhaustive action trace.
 
+For native routing comparisons, distinguish a requested skill ID from a resolved
+attachment containing its body. A host can attach instructions directly without
+a skill tool call; inspect the retained attachment and instruction identity before
+classifying a skill as unused. Keep host completion separate from task acceptance,
+and include failed, interrupted and missing planned trials. Record descendant
+sessions separately when delegation occurs; unexposed usage remains unknown.
+
 Example: for a pagination fix, provide the accepted paging contract, dirty source
 snapshot and tests, preserving the owner's unrelated label edit. Omit “the guard
 is wrong; confirm its removal” and the author's passing-test summary. The reviewer

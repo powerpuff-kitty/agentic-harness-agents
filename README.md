@@ -1,7 +1,7 @@
 # AI Skills
 
 [![Format: SKILL.md](https://img.shields.io/badge/format-SKILL.md-blue)](INSTALL.md)
-[![Version: 0.6.1-beta.1](https://img.shields.io/badge/version-0.6.1--beta.1-blue)](https://github.com/powerpuff-kitty/ai-skills/releases/tag/v0.6.1-beta.1)
+[![Version: 0.6.2-beta.1](https://img.shields.io/badge/version-0.6.2--beta.1-blue)](https://github.com/powerpuff-kitty/ai-skills/releases/tag/v0.6.2-beta.1)
 [![AI Skills: 62](https://img.shields.io/badge/AI%20Skills-62-blue)](#skill-catalog)
 [![License: MIT per skill](https://img.shields.io/badge/license-MIT-green)](INSTALL.md)
 
@@ -150,7 +150,10 @@ To improve a skill, update its procedure and relevant local checks together. Kee
 triggers specific, reference real evidence and preserve the distinction between
 acceptance specifications and observed model outcomes. Run applicable
 [skill-local checks](INSTALL.md#updates-and-validation); source checks alone do not
-establish host loading or model adherence. Earlier aggregate plugin releases are
+establish host loading or model adherence. The
+[matched native trial evidence](https://github.com/powerpuff-kitty/ai-agents/blob/main/evals/observed/native-comparison-2026-10-15/README.md)
+retains explicit/implicit selection, failures and context-measurement limits.
+Earlier aggregate plugin releases are
 historical; current installs use the root skill folders.
 
 [AI Agents](https://github.com/powerpuff-kitty/ai-agents) provides optional role profiles

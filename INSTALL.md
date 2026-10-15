@@ -146,11 +146,12 @@ The CLI's `scripts/opencode_skill_probe.py` retains a reproducible bounded check
 No adapter, account change or model call was needed. Registry/body verification
 establishes native loading, not model selection or successful task execution.
 
-Separate [ordinary-prompt native trials](https://github.com/powerpuff-kitty/ai-agents/blob/main/evals/observed/native-routing-2026-10-14/README.md)
-verified all 62 skills before 3 DeepSeek tasks. No task invoked a skill or custom
-profile; OpenCode used its built-in agent. Visibility does not guarantee implicit
-selection. These observations are retained with their failures and limits, and do
-not require installing AI Agents to use AI Skills.
+The [matched native comparison](https://github.com/powerpuff-kitty/ai-agents/blob/main/evals/observed/native-comparison-2026-10-15/README.md)
+retains 18 planned DeepSeek trials with all 62 skills verified before prompting.
+Ordinary built-in controls loaded no skills; explicit attachments carried the
+requested skill bodies, and a named review profile loaded change-review. Failures,
+timeouts and limits remain visible. These bounded observations do not guarantee
+implicit selection or require installing AI Agents to use AI Skills.
 
 ## npm distribution
 
@@ -171,11 +172,11 @@ the current flat skill-folder collection. The older `v0.4.0-beta.1` and
 Versions do not track AI Agents or the Harness CLI. A prerelease is an available
 snapshot with documented limits, not a claim that every skill passed a model evaluation.
 
-The compatible patch `v0.6.1-beta.1` adds current branding and a native-host
-evaluation check to the fresh-review guidance. To inspect that version directly:
+The compatible patch `v0.6.2-beta.1` shortens the debugging entrypoint after a
+scoped independent comparison and clarifies native skill-attachment evidence. To inspect that version directly:
 
 ```sh
-git clone --branch v0.6.1-beta.1 --depth 1 https://github.com/powerpuff-kitty/ai-skills.git
+git clone --branch v0.6.2-beta.1 --depth 1 https://github.com/powerpuff-kitty/ai-skills.git
 cd ai-skills
 git rev-parse HEAD
 ```
